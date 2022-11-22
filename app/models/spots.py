@@ -9,7 +9,7 @@ class Spot(db.Model):
 
   id = db.Column(db.Integer, primary_key=True)
   user_id = db.Column(db.Integer, nullable=False)
-  name = db.Column(db.String(75), nullale=False)
+  name = db.Column(db.String(75), nullable=False)
   address = db.Column(db.String(50), nullable=False)
   state = db.Column(db.String(30), nullable=False)
   country = db.Column(db.String(30), nullable=False)

@@ -10,7 +10,8 @@ class Booking(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   user_id = db.Column(db.Integer, nullable=False)
   spot_id = db.Column(db.Integer, nullable=False)
-  start_date = db.Column()
+  start_date = db.Column(db.DateTime)
+  end_date = db.Column(db.DateTime)
   created_at = db.Column(db.DateTime, default= datetime.utcnow)
   updated_at = db.Column(db.DateTime, default= datetime.utcnow)
 
@@ -20,7 +21,8 @@ class Booking(db.Model):
       "id": self.id,
       "user_id": self.user_id,
       "spot_id": self.spot_id,
+      "start_date": self.start_date,
+      "end_date": self.end_date,
       "created_at": self.created_at,
       "updated_at": self.updated_at
     }
-
