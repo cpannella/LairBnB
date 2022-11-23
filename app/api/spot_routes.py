@@ -36,20 +36,30 @@ def new_spot():
   form['csrf_token'].data = request.cookies['csrf_token']
   if form.validate_on_submit():
     data = form.data
-
-    print(data)
-
     spot = Spot(
       user_id = current_user.id,
-      name=data['name'],
-      address=data["address"],
-      state=data["state"],
-      country=data["country"],
-      city=data["city"],
-      price=data["price"],
-      description=data["description"]
+      name = data["name"],
+      address = data["address"],
+      state = data["state"],
+      country = data["country"],
+      price = data["price"],
+      description = data["description"],
+      city = data["city"]
     )
-    # form.populate_obj(spot)
+    print(spot.to_dict())
+
     db.session.add(spot)
     db.session.commit()
     return make_response(spot.to_dict(), 201)
+
+
+@spot_routes.route('/<int:id>', methods=["DELETE"])
+def delete_spot(id):
+  spot = Spot.query.get(id)
+  if not spot:
+    return make_response("Not found", 404)
+
+  if spot.user_id == current_user.id:
+    db.session.delete(spot)
+    db.session.commit()
+    return make_response("Successfully deleted", 200)
