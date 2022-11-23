@@ -1,4 +1,4 @@
-from .db import db, environment, SCHEMA
+from .db import db, environment, SCHEMA, add_prefix_for_prod
 from datetime import datetime
 
 class SpotImage(db.Model):
@@ -8,7 +8,7 @@ class SpotImage(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
   id = db.Column(db.Integer, primary_key=True)
-  spot_id = db.Column(db.Integer, nullable=False)
+  spot_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('spots.id')), nullable=False)
   url = db.Column(db.String(1000), default="",nullable=False)
   created_at = db.Column(db.DateTime, default= datetime.utcnow)
   updated_at = db.Column(db.DateTime, default= datetime.utcnow)
@@ -21,4 +21,3 @@ class SpotImage(db.Model):
       "created_at": db.Column(db.DateTime, default= datetime.utcnow),
       "updated_at" : db.Column(db.DateTime, default= datetime.utcnow)
     }
-
