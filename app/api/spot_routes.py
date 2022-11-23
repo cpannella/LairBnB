@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, render_template,request, make_response
 from flask_login import login_required,current_user
-from app.models import Spot, Review, db
+from app.models import Spot, Review, db, SpotImage
 from app.forms.spots_form import SpotForm
 
 
@@ -12,6 +12,7 @@ spot_routes = Blueprint("spots", __name__)
 
 def get_all_spots():
   spots = Spot.query.all()
+
   response = {"spots": [spot.to_dict() for spot in spots]}
   return make_response(response, 200)
 
@@ -22,20 +23,25 @@ def get_one_spot(id):
   spot = Spot.query.get(id)
   if not spot:
     return make_response("Doesn't exist", 404)
+  spotImages = SpotImage.query.filter(SpotImage.spot_id == id).all()
+
+  images = [spotImage.to_dict() for spotImage in spotImages]
+  
   single_spot = spot.to_dict()
   spot_reviews = Review.query.filter(Review.spot_id == id).all()
   data = [review.to_dict() for review in spot_reviews]
-  single_spot["reviews"] = data
 
+  single_spot["reviews"] = data
+  # single_spot['spotImages'] = images
   return make_response(single_spot, 200)
 
 @spot_routes.route("/new_spot", methods=["POST"])
-
 def new_spot():
   form = SpotForm()
   form['csrf_token'].data = request.cookies['csrf_token']
   if form.validate_on_submit():
     data = form.data
+    print(data)
     spot = Spot(
       user_id = current_user.id,
       name = data["name"],
@@ -46,11 +52,40 @@ def new_spot():
       description = data["description"],
       city = data["city"]
     )
-    print(spot.to_dict())
-
     db.session.add(spot)
     db.session.commit()
     return make_response(spot.to_dict(), 201)
+
+
+
+@spot_routes.route('/<int:id>', methods=["PUT"])
+def edit_spot(id):
+  form = SpotForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
+  # spot = Spot.query.get(id)
+  # print("THIS SOME SHIT PRINTIN",spot.to_dict())
+  # if not spot:
+  #   return make_response("Item not found", 404)
+
+  if form.validate_on_submit():
+    spot = Spot.query.get(id)
+    data = form.data
+    print("THIS IS THE FORM DATA",form.data)
+    spot.name = data['name']
+    spot.address = data['address']
+    spot.state = data['state']
+    spot.country = data['country']
+    spot.price = data['price']
+    spot.description = data['description']
+    spot.city = data['city']
+    print("THIS IS THE SPOT TO DICT PRINT",spot.to_dict())
+    db.session.commit()
+    return spot.to_dict()
+  return make_response("Unauthorized", 401)
+
+
+
+
 
 
 @spot_routes.route('/<int:id>', methods=["DELETE"])

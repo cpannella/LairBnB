@@ -3,6 +3,7 @@ from wtforms.fields import StringField, IntegerField, BooleanField, SubmitField,
 from wtforms.validators import DataRequired
 
 class SpotForm(FlaskForm):
+  user_id = IntegerField("UserId")
   name = StringField("name", validators=[DataRequired()])
   address = StringField("address", validators=[DataRequired()])
   state = StringField("state", validators=[DataRequired()])
