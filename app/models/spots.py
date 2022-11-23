@@ -1,4 +1,4 @@
-from .db import db, environment, SCHEMA
+from .db import db, environment, SCHEMA, add_prefix_for_prod
 from datetime import datetime
 
 class Spot(db.Model):
@@ -8,19 +8,21 @@ class Spot(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
   id = db.Column(db.Integer, primary_key=True)
-  user_id = db.Column(db.Integer, nullable=False)
+  user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
   name = db.Column(db.String(75), nullable=False)
   address = db.Column(db.String(50), nullable=False)
   state = db.Column(db.String(30), nullable=False)
   country = db.Column(db.String(30), nullable=False)
   price = db.Column(db.Integer, nullable=False)
   description = db.Column(db.String(500), nullable=False)
+  city = db.Column(db.String(50), nullable=False)
   wishList_id = db.Column(db.Integer)
   created_at = db.Column(db.DateTime, default= datetime.utcnow)
   updated_at = db.Column(db.DateTime, default= datetime.utcnow)
-  spotImages = db.relationship("spotIamges", cascade="all,delete", backref="spots")
-  reviews = db.relationship("reviews", cascade="all,delete", backref="spots")
-  bookings = db.relationship("bookings", cascade="all,delete", backref="spots")
+
+  spotImages = db.relationship("SpotImage", cascade="all,delete", backref="spots")
+  reviews = db.relationship("Review", cascade="all,delete", backref="spots")
+  bookings = db.relationship("Booking", cascade="all,delete", backref="spots")
 
   def to_dict(self):
     return{
@@ -30,6 +32,7 @@ class Spot(db.Model):
       "address": self.address,
       "state": self.state,
       "country": self.country,
+      "city": self.city,
       "price": self.price,
       "description": self.description,
       "wishList_id": self.wishList_id,
