@@ -12,11 +12,13 @@ export default function OneSpot(){
   const thisUser = useSelector(state => state.session.user);
   const spotsState = useSelector(state => state.spots)
   const spots = Object.values(spotsState)
-  console.log(spots)
+
 
   const filteredSpot = spots?.filter(spot => spot.id == +id)[0]
+  console.log("THIS IS THE FILTERED SPOT",filteredSpot)
   const reviews = filteredSpot?.reviews
-  console.log(reviews)
+  // const images = filteredSpot.
+  const spotImages = filteredSpot?.spotImages
 
 
   useEffect(()=> {
@@ -26,10 +28,15 @@ export default function OneSpot(){
   return (
     <div>
       <div className="details-container">
-        <h1>Description :  {filteredSpot?.description}</h1>
+        <h1>{filteredSpot?.description}</h1>
         <p>{filteredSpot?.city}, {filteredSpot?.state}, {filteredSpot?.country}</p>
         <div className="spotImages-container">
           <p>Images placeholder div</p>
+          {spotImages?.map(spotImage => (
+            <div className="spotImage-container">
+            <img src={spotImage?.url}></img>
+            </div>
+          ))}
         </div>
       </div>
 

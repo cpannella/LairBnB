@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom";
 
 export default function CreateSpotForm(){
   const dispatch = useDispatch()
+  const history = useHistory()
   const [name, setName] = useState('')
   const [address, setAddress] = useState('')
   const [state, setState] = useState('')
@@ -14,6 +15,7 @@ export default function CreateSpotForm(){
   const [price, setPrice] = useState(0)
   const [description, setDescription] = useState('')
   const [city, setCity] = useState('')
+  const [url, setUrl] = useState('')
 
 
   const handleSubmit= async (e) => {
@@ -115,7 +117,18 @@ export default function CreateSpotForm(){
         >
         </input>
 
+        <input
+        placeholder="Enter an ImageUrl for your lair"
+        type="text"
+        maxLength={60}
+        value={url}
+        required
+        onChange={(e)=> setUrl(e.target.value)}
+        >
+        </input>
+
         <button type="submit">Submit</button>
+        <button  onClick={()=> history.push('/')}> Cancel</button>
 
 
       </form>

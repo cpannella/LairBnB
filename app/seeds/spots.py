@@ -10,7 +10,8 @@ def seed_spots():
     state="Colorado",
     price=1000,
     description="Cozy mountain lair, to plot world take over. Great access to ski hills near by and underground cave system for escape",
-    country="USA"
+    country="USA",
+    url ="https://media.cntraveler.com/photos/5682a72ac2ebbef23e7dbb85/master/pass/snow-castles-castle-neuschwanstein-bavaria-germany-cr-getty.jpg"
     )
 
   spot2 = Spot(
@@ -21,7 +22,8 @@ def seed_spots():
     city="Miami",
     price=1000,
     description="Beachside fortress, close to downtown, great for escape by boat or sea plane",
-    country="USA"
+    country="USA",
+    url = "https://i2-prod.mirror.co.uk/incoming/article8146406.ece/ALTERNATES/s615/China-plans-underwater-base.jpg"
     )
 
   spot3= Spot(
@@ -32,6 +34,7 @@ def seed_spots():
     city="Chatanooga",
     price=1000,
     description="Cute forest complex, great for plotting with the whole family.",
+    url = "https://cdnb.artstation.com/p/assets/images/images/010/160/323/large/jeremy-fenske-forewsttemple.jpg?1522886282.jpg",
     country="USA"
     )
 
@@ -43,7 +46,8 @@ def seed_spots():
     state="Hawaii",
     price=1000,
     description="Explosive views surround this one of a kind fortress, complete with launchpad to escape into space. Serious inquires only",
-    country="USA"
+    country="USA",
+    url = "https://oyster.ignimgs.com/mediawiki/apis.ign.com/middle-earth-shadow-of-mordor/8/8e/Mount_Doom.jpg"
     )
 
   spot5 = Spot(
@@ -54,7 +58,8 @@ def seed_spots():
     city="Benghazi",
     price=1000,
     description="Inspired by the works of Dune, this lair gives the conquest feel of House Atreides with, none of the headache",
-    country="USA"
+    country="USA",
+    url ="https://media.architecturaldigest.com/photos/56c3aa753968a11e07f333fc/master/pass/mad-max-fury-road-set-design-008.jpg"
     )
 
   db.session.add(spot1)

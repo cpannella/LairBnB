@@ -10,4 +10,5 @@ class SpotForm(FlaskForm):
   country = StringField("country", validators=[DataRequired()])
   price = IntegerField("price", validators=[DataRequired()])
   description = StringField("description", validators=[DataRequired()])
+  url = StringField("Image URL", validators=[DataRequired()])
   city = StringField('city', validators=[DataRequired()])

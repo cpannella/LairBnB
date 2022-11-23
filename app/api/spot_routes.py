@@ -26,13 +26,13 @@ def get_one_spot(id):
   spotImages = SpotImage.query.filter(SpotImage.spot_id == id).all()
 
   images = [spotImage.to_dict() for spotImage in spotImages]
-  
+
   single_spot = spot.to_dict()
   spot_reviews = Review.query.filter(Review.spot_id == id).all()
   data = [review.to_dict() for review in spot_reviews]
-
+  print("THESE ARE THE IMAGES PRINTING",images)
   single_spot["reviews"] = data
-  # single_spot['spotImages'] = images
+  single_spot['spotImages'] = images
   return make_response(single_spot, 200)
 
 @spot_routes.route("/new_spot", methods=["POST"])

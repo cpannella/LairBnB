@@ -14,6 +14,7 @@ class Spot(db.Model):
   state = db.Column(db.String(30), nullable=False)
   country = db.Column(db.String(30), nullable=False)
   price = db.Column(db.Integer, nullable=False)
+  url = db.Column(db.String(1000), nullable=False)
   description = db.Column(db.String(500), nullable=False)
   city = db.Column(db.String(50), nullable=False)
   wishList_id = db.Column(db.Integer)

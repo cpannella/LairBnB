@@ -1,8 +1,8 @@
-"""added new columns
+"""added url field to spot model and form
 
-Revision ID: c22353f1878f
+Revision ID: fe0a9f422bbc
 Revises: 
-Create Date: 2022-11-23 01:03:35.642113
+Create Date: 2022-11-23 17:51:51.663020
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'c22353f1878f'
+revision = 'fe0a9f422bbc'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -35,6 +35,7 @@ def upgrade():
     sa.Column('state', sa.String(length=30), nullable=False),
     sa.Column('country', sa.String(length=30), nullable=False),
     sa.Column('price', sa.Integer(), nullable=False),
+    sa.Column('url', sa.String(length=1000), nullable=False),
     sa.Column('description', sa.String(length=500), nullable=False),
     sa.Column('city', sa.String(length=50), nullable=False),
     sa.Column('wishList_id', sa.Integer(), nullable=True),
