@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
-import { createSpotThunk } from "../../store/tasks";
+import { createSpotThunk } from "../../store/spots";
 import { useHistory } from "react-router-dom";
 
 
-export default function SpotForm(){
+export default function CreateSpotForm(){
   const dispatch = useDispatch()
   const [name, setName] = useState('')
   const [address, setAddress] = useState('')
@@ -44,7 +44,7 @@ export default function SpotForm(){
   return (
 
     <div className="create-spot-form-container">
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
         placeholder="Enter your lairs name"
         type="text"
@@ -85,9 +85,6 @@ export default function SpotForm(){
         >
         </input>
 
-
-
-
         <input
         placeholder="Enter your lair's country"
         type="text"
@@ -117,6 +114,8 @@ export default function SpotForm(){
         onChange={(e)=> setDescription(e.target.value)}
         >
         </input>
+
+        <button type="submit">Submit</button>
 
 
       </form>

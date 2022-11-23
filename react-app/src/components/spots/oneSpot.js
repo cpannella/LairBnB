@@ -35,7 +35,7 @@ export default function OneSpot(){
 
       <div className="reviews-container">
         <h3>Reviews go here</h3>
-        {reviews.map(review => (
+        {reviews?.map(review => (
           <div>
             <p>{review.body}</p>
             <p>Rating: {review.rating}</p>

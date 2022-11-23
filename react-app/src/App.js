@@ -10,6 +10,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import AllSpots from './components/spots/spots';
 import OneSpot from './components/spots/oneSpot';
+import CreateSpotForm from './components/spotForms/createSpotForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -42,7 +43,10 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <Route path='/spots/:id'>
+        <Route path='/spots/post'>
+          <CreateSpotForm/>
+        </Route>
+        <Route exact path='/spots/:id'>
           <OneSpot/>
         </Route>
         <Route path='/' exact={true} >

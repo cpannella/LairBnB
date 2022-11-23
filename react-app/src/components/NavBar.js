@@ -2,8 +2,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
+import { useHistory } from 'react-router-dom';
 
 const NavBar = () => {
+  const history = useHistory()
   return (
     <nav>
       <ul>
@@ -27,9 +29,15 @@ const NavBar = () => {
             Users
           </NavLink>
         </li>
+
         <li>
           <LogoutButton />
         </li>
+
+        <li>
+          <button onClick={()=> history.push('/spots/post')}>Upload spot</button>
+        </li>
+
       </ul>
     </nav>
   );
