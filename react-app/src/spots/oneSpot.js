@@ -16,6 +16,8 @@ export default function OneSpot(){
 
   const filteredSpot = spots.filter(spot => spot.id == +id)[0]
   console.log(filteredSpot)
+  const {reviews} = filteredSpot.reviews
+  console.log(reviews)
 
   useEffect(()=> {
     dispatch(fetchOneSpot(id))
@@ -33,6 +35,7 @@ export default function OneSpot(){
 
       <div className="reviews-container">
         <h3>Reviews go here</h3>
+
       </div>
 
     </div>
