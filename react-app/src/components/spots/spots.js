@@ -3,7 +3,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
-import { fetchSpots } from "../store/spots";
+import { fetchSpots } from "../../store/spots";
 
 
 
@@ -14,8 +14,6 @@ export default function AllSpots(){
   const spotsState = useSelector(state => state.spots)
   const spots = Object.values(spotsState)
 
-  
-
 
   useEffect(()=>{
     dispatch(fetchSpots())
@@ -24,6 +22,7 @@ export default function AllSpots(){
 
   return (
     <div>
+      
       <h1>Spots</h1>
       {spots.map(spot =>
         <div>
