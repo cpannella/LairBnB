@@ -30,6 +30,7 @@ class Spot(db.Model):
       "id": self.id,
       "user_id": self.user_id,
       "name": self.name,
+      "url" : self.url,
       "address": self.address,
       "state": self.state,
       "country": self.country,
@@ -39,4 +40,5 @@ class Spot(db.Model):
       "wishList_id": self.wishList_id,
       "created_at": self.created_at,
       "updated_at": self.updated_at
+
     }

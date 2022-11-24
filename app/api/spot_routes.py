@@ -14,6 +14,7 @@ def get_all_spots():
   spots = Spot.query.all()
 
   response = {"spots": [spot.to_dict() for spot in spots]}
+  print("THIS IS THE RESPONSE", response)
   return make_response(response, 200)
 
 
@@ -39,22 +40,24 @@ def get_one_spot(id):
 def new_spot():
   form = SpotForm()
   form['csrf_token'].data = request.cookies['csrf_token']
-  if form.validate_on_submit():
-    data = form.data
-    print(data)
-    spot = Spot(
-      user_id = current_user.id,
-      name = data["name"],
-      address = data["address"],
-      state = data["state"],
-      country = data["country"],
-      price = data["price"],
-      description = data["description"],
-      city = data["city"]
-    )
-    db.session.add(spot)
-    db.session.commit()
-    return make_response(spot.to_dict(), 201)
+
+  data = form.data
+  print("THIS IS THE FORM DATA PRINTIN OUT",data)
+  spot = Spot(
+    user_id = current_user.id,
+    name = data["name"],
+    address = data["address"],
+    state = data["state"],
+    country = data["country"],
+    price = data["price"],
+    description = data["description"],
+    city = data["city"],
+    url = data['url']
+  )
+  print(spot.to_dict())
+  db.session.add(spot)
+  db.session.commit()
+  return make_response(spot.to_dict(), 201)
 
 
 

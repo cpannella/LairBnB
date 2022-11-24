@@ -88,7 +88,7 @@ export const createSpotThunk = (payload) => async dispatch => {
 
 export const editSpotThunk = (task,id) => async dispatch => {
   console.log("THUNK FIRING", task, id)
-  const response = await fetch(`/api/all/${id}`, {
+  const response = await fetch(`/api/spots/${id}`, {
       method: "PUT",
       headers: {"Content-Type": "application/json" },
       body: JSON.stringify(task)
@@ -106,13 +106,14 @@ export const editSpotThunk = (task,id) => async dispatch => {
 
 
 export const deleteSpotThunk = (spotId) => async dispatch => {
-  const response = await fetch(`/api/all/${spotId}`, {
+  console.log('fugazi pancakes')
+  const response = await fetch(`/api/spots/${spotId}`, {
       method: "DELETE",
       headers: {"Content-Type": "application/json"}
   });
   if (response.ok) {
-      const task = `${spotId}`
-      dispatch(deleteSpot(task))
+      const spot = `${spotId}`
+      dispatch(deleteSpot(spot))
   }
 }
 

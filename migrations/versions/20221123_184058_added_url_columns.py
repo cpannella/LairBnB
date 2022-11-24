@@ -1,8 +1,8 @@
-"""added url field to spot model and form
+"""added url columns
 
-Revision ID: fe0a9f422bbc
+Revision ID: c8104e160edb
 Revises: 
-Create Date: 2022-11-23 17:51:51.663020
+Create Date: 2022-11-23 18:40:58.141529
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'fe0a9f422bbc'
+revision = 'c8104e160edb'
 down_revision = None
 branch_labels = None
 depends_on = None

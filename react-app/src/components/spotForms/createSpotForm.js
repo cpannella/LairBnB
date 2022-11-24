@@ -27,7 +27,8 @@ export default function CreateSpotForm(){
       country,
       price,
       description,
-      city
+      city,
+      url
     }
 
     let spotCreated = await dispatch(createSpotThunk(payload))
@@ -39,6 +40,7 @@ export default function CreateSpotForm(){
       setPrice('')
       setDescription('')
       setCity('')
+      setUrl('')
     }
   }
 
@@ -120,7 +122,7 @@ export default function CreateSpotForm(){
         <input
         placeholder="Enter an ImageUrl for your lair"
         type="text"
-        maxLength={60}
+        maxLength={1000}
         value={url}
         required
         onChange={(e)=> setUrl(e.target.value)}
