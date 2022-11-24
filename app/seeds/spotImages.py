@@ -36,7 +36,7 @@ def seed_spotImages():
 
 def undo_spotImages():
   if environment == "production":
-    db.session.execute(f"TRUNCATE table {SCHEMA}.lists RESTART IDENTITY CASCADE;")
+    db.session.execute(f"TRUNCATE table {SCHEMA}.spotImages RESTART IDENTITY CASCADE;")
   else:
-    db.session.execute("DELETE FROM spots")
+    db.session.execute("DELETE FROM spotImages")
   db.session.commit()
