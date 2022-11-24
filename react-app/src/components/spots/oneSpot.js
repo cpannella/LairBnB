@@ -28,7 +28,7 @@ export default function OneSpot(){
   return (
     <div>
       <div className="details-container">
-        <h1>{filteredSpot?.description}</h1>
+        <h1>{filteredSpot?.description}</h1> <button onClick={() => }>Edit</button>
         <p>{filteredSpot?.city}, {filteredSpot?.state}, {filteredSpot?.country}</p>
         <div className="spotImages-container">
           <p>Images placeholder div</p>
