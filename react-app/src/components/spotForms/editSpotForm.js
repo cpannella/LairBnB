@@ -1,21 +1,29 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
-import { useDispatch } from "react-redux";
-import { createSpotThunk } from "../../store/spots";
-import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { editSpotThunk } from "../../store/spots";
+import { useHistory, useParams } from "react-router-dom";
 
 
-export default function CreateSpotForm(){
+export default function EditSpotForm(){
+  const {id} = useParams()
+  const spotsState = useSelector(state => state.spots)
+  const spots = Object.values(spotsState)
+  const filteredSpot = spots?.filter(spot => spot.id == +id)[0]
+  console.log(filteredSpot)
+
+
+
   const dispatch = useDispatch()
   const history = useHistory()
-  const [name, setName] = useState('')
-  const [address, setAddress] = useState('')
-  const [state, setState] = useState('')
-  const [country, setCountry] = useState('')
-  const [price, setPrice] = useState(0)
-  const [description, setDescription] = useState('')
-  const [city, setCity] = useState('')
-  const [url, setUrl] = useState('')
+  const [name, setName] = useState(filteredSpot?.name)
+  const [address, setAddress] = useState(filteredSpot?.address)
+  const [state, setState] = useState(filteredSpot?.state)
+  const [country, setCountry] = useState(filteredSpot?.country)
+  const [price, setPrice] = useState(filteredSpot?.price)
+  const [description, setDescription] = useState(filteredSpot?.description)
+  const [city, setCity] = useState(filteredSpot?.city)
+  const [url, setUrl] = useState(filteredSpot?.url)
 
 
   const handleSubmit= async (e) => {
@@ -31,8 +39,8 @@ export default function CreateSpotForm(){
       url
     }
 
-    let spotCreated = await dispatch(createSpotThunk(payload))
-    if (spotCreated){
+    let spotEdited= await dispatch(editSpotThunk(payload))
+    if (spotEdited){
       setName('')
       setAddress('')
       setState('')

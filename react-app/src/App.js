@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 import AllSpots from './components/spots/spots';
 import OneSpot from './components/spots/oneSpot';
 import CreateSpotForm from './components/spotForms/createSpotForm';
+import EditSpotForm from './components/spotForms/editSpotForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -43,6 +44,9 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
+        <Route path='/spots/:id/edit'>
+          <EditSpotForm/>
+        </Route>
         <Route path='/spots/post'>
           <CreateSpotForm/>
         </Route>

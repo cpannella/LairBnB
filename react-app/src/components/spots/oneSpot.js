@@ -8,6 +8,7 @@ import { fetchOneSpot, fetchSpots } from "../../store/spots";
 
 export default function OneSpot(){
   const dispatch = useDispatch()
+  const history = useHistory()
   const {id} = useParams()
   const thisUser = useSelector(state => state.session.user);
   const spotsState = useSelector(state => state.spots)
@@ -28,7 +29,8 @@ export default function OneSpot(){
   return (
     <div>
       <div className="details-container">
-        <h1>{filteredSpot?.description}</h1> <button onClick={() => }>Edit</button>
+        <h1>{filteredSpot?.description}</h1>
+        <button onClick={() => history.push(`/spots/${filteredSpot.id}/edit`)}>Edit</button>
         <p>{filteredSpot?.city}, {filteredSpot?.state}, {filteredSpot?.country}</p>
         <div className="spotImages-container">
           <p>Images placeholder div</p>
