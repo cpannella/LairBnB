@@ -39,7 +39,7 @@ export default function EditSpotForm(){
       url
     }
 
-    let spotEdited= await dispatch(editSpotThunk(payload))
+    let spotEdited= await dispatch(editSpotThunk(payload, id))
     if (spotEdited){
       setName('')
       setAddress('')
