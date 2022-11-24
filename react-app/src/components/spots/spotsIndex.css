@@ -1,5 +1,21 @@
 .main-spot-img{
-  min-width: 30vw;
-  max-width: 30vw;
+
+  max-width: 15vw;
+  height: 25vh;
+  border-radius: 10px;
+}
+
+.spotCard-container{
+  display: flex;
+  justify-content: space-around;
+}
+
+.spotCard{
+  border: 1px solid red;
   height: 40vh;
+  border-radius: 5px;
+}
+
+.spotCard-info{
+ margin:0;
 }

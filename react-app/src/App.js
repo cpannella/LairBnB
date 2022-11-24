@@ -55,7 +55,7 @@ function App() {
         </Route>
         <Route path='/' exact={true} >
           <AllSpots/>
-          <h1>My Home Page</h1>
+          
         </Route>
       </Switch>
     </BrowserRouter>

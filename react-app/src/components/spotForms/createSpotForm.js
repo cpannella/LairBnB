@@ -41,6 +41,7 @@ export default function CreateSpotForm(){
       setDescription('')
       setCity('')
       setUrl('')
+      history.push('/spots')
     }
   }
 

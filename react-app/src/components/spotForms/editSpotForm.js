@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
-import { editSpotThunk } from "../../store/spots";
+import { editSpotThunk, fetchOneSpot } from "../../store/spots";
 import { useHistory, useParams } from "react-router-dom";
 
 
