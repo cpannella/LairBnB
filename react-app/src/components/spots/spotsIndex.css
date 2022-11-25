@@ -1,8 +1,19 @@
 .main-spot-img{
-
   max-width: 15vw;
   height: 25vh;
-  border-radius: 10px;
+  border-radius: 15px;
+}
+
+.spotImage-container{
+  display:flex;
+  flex-direction: column;
+}
+.details-image{
+  width: 60vw;
+  height: 65vh;
+  min-width:60vw;
+  min-height: 65vh;
+  border-radius: 15px;
 }
 
 .spotCard-container{
@@ -11,11 +22,40 @@
 }
 
 .spotCard{
-  border: 1px solid red;
+  /* border: 1px solid red; */
   height: 40vh;
   border-radius: 5px;
 }
 
 .spotCard-info{
  margin:0;
+}
+
+.details-container{
+  margin: 0;
+
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.spot-description{
+  /* font-size: ; */
+  
+}
+
+.spot-description-container{
+  max-width: 60vw;
+}
+
+.reviews-container{
+
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.single-review{
+  border: 1px solid blue;
+  width: 50%;
 }

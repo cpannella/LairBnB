@@ -5,16 +5,20 @@ import { editSpotThunk, fetchOneSpot } from "../../store/spots";
 import { useHistory, useParams } from "react-router-dom";
 
 
-export default function EditSpotForm(){
+export default function EditSpotForm({filteredSpot}){
   const {id} = useParams()
   const spotsState = useSelector(state => state.spots)
   const spots = Object.values(spotsState)
-  const filteredSpot = spots?.filter(spot => spot.id == +id)[0]
+
   console.log(filteredSpot)
 
+  useEffect(()=>{
+    
+  })
 
 
   const dispatch = useDispatch()
+
   const history = useHistory()
   const [name, setName] = useState(filteredSpot?.name)
   const [address, setAddress] = useState(filteredSpot?.address)
@@ -41,6 +45,7 @@ export default function EditSpotForm(){
 
     let spotEdited= await dispatch(editSpotThunk(payload, id))
     if (spotEdited){
+      await dispatch (fetchOneSpot(id))
       setName('')
       setAddress('')
       setState('')
@@ -49,6 +54,7 @@ export default function EditSpotForm(){
       setDescription('')
       setCity('')
       setUrl('')
+
     }
   }
 
