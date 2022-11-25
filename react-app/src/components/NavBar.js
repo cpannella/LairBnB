@@ -3,8 +3,13 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import { useHistory } from 'react-router-dom';
+import {Modal} from '../context/Modal.js'
+import CreateSpotFormModal from './spotForms/createSpotFormModal';
 
 const NavBar = () => {
+
+
+
   const history = useHistory()
   return (
     <nav className="navbar">
@@ -34,9 +39,11 @@ const NavBar = () => {
           <LogoutButton />
         </li>
 
-        <li>
-          <button onClick={()=> history.push('/spots/post')}>Upload spot</button>
-        </li>
+
+          <div>
+            <CreateSpotFormModal/>
+          </div>
+
 
       </ul>
     </nav>

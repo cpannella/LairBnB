@@ -1,0 +1,10 @@
+.spot-form-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid blue;
+  height: 50vh;
+  width: 15vw;
+}
+

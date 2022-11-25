@@ -9,7 +9,7 @@ export default function EditSpotForm({filteredSpot}){
   const {id} = useParams()
   const spotsState = useSelector(state => state.spots)
   const spots = Object.values(spotsState)
-
+  console.log('spatoon')
   console.log(filteredSpot)
 
 
@@ -59,7 +59,7 @@ export default function EditSpotForm({filteredSpot}){
 
   return (
 
-    <div className="create-spot-form-container">
+    <div className="spot-form-container">
       <form onSubmit={handleSubmit}>
         <input
         placeholder="Enter your lairs name"
@@ -70,6 +70,7 @@ export default function EditSpotForm({filteredSpot}){
         onChange={(e)=> setName(e.target.value)}
         >
         </input>
+        <div>{name.length}/60</div>
 
         <input
         placeholder="Enter your lair's address"
@@ -80,6 +81,7 @@ export default function EditSpotForm({filteredSpot}){
         onChange={(e)=> setAddress(e.target.value)}
         >
         </input>
+        <div>{address.length}/30</div>
 
         <input
         placeholder="Enter your lair's city"
@@ -90,6 +92,8 @@ export default function EditSpotForm({filteredSpot}){
         onChange={(e)=> setCity(e.target.value)}
         >
         </input>
+        <div>{city.length}/30</div>
+
 
         <input
         placeholder="Enter your lair's state"
@@ -100,6 +104,7 @@ export default function EditSpotForm({filteredSpot}){
         onChange={(e)=> setState(e.target.value)}
         >
         </input>
+        <div>{state.length}/20</div>
 
         <input
         placeholder="Enter your lair's country"
@@ -110,6 +115,8 @@ export default function EditSpotForm({filteredSpot}){
         onChange={(e)=> setCountry(e.target.value)}
         >
         </input>
+        <div>{address.length}/30</div>
+
 
         <input
         placeholder="Enter your lair's price"
@@ -130,6 +137,7 @@ export default function EditSpotForm({filteredSpot}){
         onChange={(e)=> setDescription(e.target.value)}
         >
         </input>
+        <div>{description.length}/60</div>
 
         <input
         placeholder="Enter an ImageUrl for your lair"
@@ -140,6 +148,7 @@ export default function EditSpotForm({filteredSpot}){
         onChange={(e)=> setUrl(e.target.value)}
         >
         </input>
+        <div>{url.length}/500</div>
 
         <button type="submit">Submit</button>
         <button  onClick={()=> history.push('/')}> Cancel</button>

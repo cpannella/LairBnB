@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import { fetchOneSpot, fetchSpots } from "../../store/spots";
-import EditSpotForm from "../spotForms/editSpotForm";
+import EditSpotFormModal from "../spotForms/editSpotFormModal";
 
 
 export default function OneSpot(){
@@ -17,7 +17,7 @@ export default function OneSpot(){
 
 
   const filteredSpot = spots?.filter(spot => spot.id == +id)[0]
-  console.log("THIS IS THE FILTERED SPOT",filteredSpot)
+  console.log("THIS IS THE FILTERED SPOT",filteredSpot?.url)
   const reviews = filteredSpot?.reviews
 
   const reviewsLength = reviews?.length
@@ -45,7 +45,7 @@ export default function OneSpot(){
   return (
     <div className="oneSpot-details-container">
       <div className="details-container">
-        <EditSpotForm filteredSpot={filteredSpot}/>
+        <EditSpotFormModal filteredSpot={filteredSpot}/>
         <div>
 
           {/* <button onClick={() => history.push(`/spots/${filteredSpot.id}/edit`)}>Edit</button> */}
@@ -58,17 +58,18 @@ export default function OneSpot(){
           <div>
             <p>{spotAvgRating} stars - {reviewsLength} Review(s) {filteredSpot?.city}, {filteredSpot?.state}, {filteredSpot?.country}</p>
           </div>
+          <div className="spotImage-container">
 
-          {spotImages?.map(spotImage => (
-            <div className="spotImage-container">
-            <img className="details-image"src={spotImage?.url}></img>
-            
-              <div>
-                <h4>{filteredSpot?.description}</h4>
-                <h4>${filteredSpot?.price.toString()}</h4>
-              </div>
-            </div>
-          ))}
+               <div className="spotImage-container">
+                  <img className="details-image"src={filteredSpot?.url}></img>
+
+                    <div>
+                      <h4>{filteredSpot?.description}</h4>
+                      <h4>${filteredSpot?.price.toString()}</h4>
+                    </div>
+               </div>
+
+           </div>
         </div>
       </div>
 
