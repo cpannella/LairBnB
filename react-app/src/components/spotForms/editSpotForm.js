@@ -12,9 +12,7 @@ export default function EditSpotForm({filteredSpot}){
 
   console.log(filteredSpot)
 
-  useEffect(()=>{
-    
-  })
+
 
 
   const dispatch = useDispatch()

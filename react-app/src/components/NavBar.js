@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom';
 const NavBar = () => {
   const history = useHistory()
   return (
-    <nav>
+    <nav className="navbar">
       <ul>
         <li>
           <NavLink to='/' exact={true} activeClassName='active'>

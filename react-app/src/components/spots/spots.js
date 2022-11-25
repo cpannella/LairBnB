@@ -22,25 +22,26 @@ export default function AllSpots(){
 
 
   return (
-    <div>
+    <div className="somediv">
 
-      <h1>Spots</h1>
-      <div className="spotCard-container">
-        {spots.map(spot =>
-          <div className="spotCard">
-            <div>
-              <img onClick={()=> history.push(`spots/${spot.id}`)}className="main-spot-img" src={spot.url}></img>
-            </div>
-            <div className="spotCard-details">
-              <h3 className="spotCard-info">{spot.name}</h3>
-              <h4 className="spotCard-info">{spot.state}, {spot.country}</h4>
-              <h4 className="spotCard-info">${spot.price}</h4>
-            </div>
-            <button onClick={()=> dispatch(deleteSpotThunk(spot.id))}>Delet</button>
 
+          <div className="spotCard-container">
+            {spots.map(spot =>
+              <div className="spotCard">
+                <div>
+                  <img onClick={()=> history.push(`spots/${spot.id}`)}className="main-spot-img" src={spot.url}></img>
+                </div>
+                <div className="spotCard-details">
+                  <h3 className="spotCard-info">{spot.name}</h3>
+                  <h4 className="spotCard-info">{spot.state}, {spot.country}</h4>
+                  <h4 className="spotCard-info">${spot.price}</h4>
+                </div>
+                <button onClick={()=> dispatch(deleteSpotThunk(spot.id))}>Delet</button>
+
+              </div>
+              )}
           </div>
-          )}
-      </div>
+      
     </div>
     )
 

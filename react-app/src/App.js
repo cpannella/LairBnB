@@ -55,7 +55,7 @@ function App() {
         </Route>
         <Route path='/' exact={true} >
           <AllSpots/>
-          
+
         </Route>
       </Switch>
     </BrowserRouter>

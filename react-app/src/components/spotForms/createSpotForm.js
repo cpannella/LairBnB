@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
-import { createSpotThunk } from "../../store/spots";
+import { createSpotThunk, fetchSpots } from "../../store/spots";
 import { useHistory } from "react-router-dom";
 
 
@@ -41,7 +41,8 @@ export default function CreateSpotForm(){
       setDescription('')
       setCity('')
       setUrl('')
-      history.push('/spots')
+
+      history.push('/')
     }
   }
 
