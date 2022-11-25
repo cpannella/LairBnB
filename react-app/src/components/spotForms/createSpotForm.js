@@ -12,7 +12,7 @@ export default function CreateSpotForm(){
   const [address, setAddress] = useState('')
   const [state, setState] = useState('')
   const [country, setCountry] = useState('')
-  const [price, setPrice] = useState('')
+  const [price, setPrice] = useState(0)
   const [description, setDescription] = useState('')
   const [city, setCity] = useState('')
   const [url, setUrl] = useState('')
@@ -57,7 +57,7 @@ export default function CreateSpotForm(){
         type="text"
         maxLength={60}
         value={name}
-        required
+        required pattern="[a-zA-Z,'. + -]+" title="Alphabetic characters only!"
         onChange={(e)=> setName(e.target.value)}
         >
         </input>
@@ -68,18 +68,19 @@ export default function CreateSpotForm(){
         type="text"
         maxLength={30}
         value={address}
-        required
+        required pattern="[a-zA-Z, 0-9, '. ! ? + -]+" title="Alphanumeric character's only"
         onChange={(e)=> setAddress(e.target.value)}
         >
         </input>
         <div>{address.length}/30</div>
+
 
         <input
         placeholder="Enter your lair's city"
         type="text"
         maxLength={30}
         value={city}
-        required
+        required pattern="[a-zA-Z,'. + -]+" title="Alphabetic characters only!"
         onChange={(e)=> setCity(e.target.value)}
         >
         </input>

@@ -61,15 +61,17 @@ export default function EditSpotForm({filteredSpot}){
 
     <div className="spot-form-container">
       <form onSubmit={handleSubmit}>
+
         <input
-        placeholder="Enter your lairs name"
+        placeholder="Enter your "
+        required pattern="[a-zA-Z,'. ! ? + -]+" title="Please use valid chars,invalid chars: @#$%^&*()"
         type="text"
         maxLength={60}
         value={name}
-        required
         onChange={(e)=> setName(e.target.value)}
         >
         </input>
+
         <div>{name.length}/60</div>
 
         <input
