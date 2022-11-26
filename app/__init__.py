@@ -34,7 +34,7 @@ app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(spot_routes, url_prefix="/api/spots")
-app.register_blueprint(review_routes, url_prefix="/api/reviews")
+app.register_blueprint(review_routes, url_prefix="/api/spots")
 
 
 db.init_app(app)

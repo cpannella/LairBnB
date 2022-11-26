@@ -43,7 +43,7 @@ def new_spot():
   form['csrf_token'].data = request.cookies['csrf_token']
 
   data = form.data
-  print("THIS IS THE FORM DATA PRINTIN OUT",data)
+  
   spot = Spot(
     user_id = current_user.id,
     name = data["name"],
@@ -60,21 +60,6 @@ def new_spot():
   db.session.commit()
   return make_response(spot.to_dict(), 201)
 
-
-@spot_routes.route("/<int:id>/new_review", methods=["POST"])
-def new_review(id):
-  form = ReviewForm()
-  form['csrf_token'].data = request.cookies['csrf_token']
-  if form.validate_on_submit:
-    review = Review(
-      body=form.data['body'],
-      user_id = current_user.id,
-      spot_id = id
-    )
-    db.session.add(review)
-    db.session.commit()
-    return make_response(review.to_dict(), 201)
-  else: return make_response("Unauthorized", 401)
 
 
 

@@ -1,8 +1,8 @@
-"""added url columns
+"""new changes
 
-Revision ID: c8104e160edb
+Revision ID: 4a79108b3398
 Revises: 
-Create Date: 2022-11-23 18:40:58.141529
+Create Date: 2022-11-26 15:46:40.132574
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'c8104e160edb'
+revision = '4a79108b3398'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -60,7 +60,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('spot_id', sa.Integer(), nullable=False),
-    sa.Column('rating', sa.Integer(), nullable=False),
+    sa.Column('rating', sa.Integer(), nullable=True),
     sa.Column('body', sa.String(length=500), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('updated_at', sa.DateTime(), nullable=True),
