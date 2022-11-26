@@ -27,7 +27,7 @@ export default function OneSpot(){
 
   const avgRating = (arr) => {
     if(arr?.length == 0){
-      return 'No reviews yet'
+      return 'No reviews -'
     }
     let sum = 0
     for(let i = 0; i < arr?.length; i++){
@@ -85,8 +85,14 @@ export default function OneSpot(){
       </div>
 
       <div className="reviews-container">
+        {reviews?.length < 1 &&
+        <div>
+          <h3>No reviews yet</h3>
+        </div>
+        }
+        {reviews?.length > 0 &&
+        <div>
         <h3>Reviews:</h3>
-
         {reviews?.map(review => (
           <div className="single-review">
             <p>{review.body}</p>
@@ -94,7 +100,8 @@ export default function OneSpot(){
             <p>User: {review.user_id}</p>
           </div>
         ))}
-
+        </div>
+      }
       </div>
 
     </div>
