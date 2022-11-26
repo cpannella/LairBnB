@@ -60,7 +60,7 @@ export default function OneSpot(){
           </div>
           {spotAvgRating > 0 &&
           <div>
-            <p>{spotAvgRating} stars - {reviewsLength} Review(s) {filteredSpot?.city}, {filteredSpot?.state}, {filteredSpot?.country}</p>
+            <p>{spotAvgRating} star(s) - {reviewsLength} Review(s) {filteredSpot?.city}, {filteredSpot?.state}, {filteredSpot?.country}</p>
           </div>
           }
           {!reviewsLength &&
