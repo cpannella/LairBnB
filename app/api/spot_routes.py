@@ -12,7 +12,7 @@ spot_routes = Blueprint("spots", __name__)
 
 def get_all_spots():
   spots = Spot.query.all()
-
+  
   response = {"spots": [spot.to_dict() for spot in spots]}
   print("THIS IS THE RESPONSE", response)
   return make_response(response, 200)

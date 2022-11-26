@@ -35,6 +35,7 @@ class Spot(db.Model):
       "state": self.state,
       "country": self.country,
       "city": self.city,
+      
       "price": self.price,
       "description": self.description,
       "wishList_id": self.wishList_id,

@@ -1,0 +1,26 @@
+
+
+.edit-spot-form-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid blue;
+  height: 50vh;
+  width: 15vw;
+}
+
+
+.GUNIT-spot-form-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  width: 15vw;
+  border: 1px solid blue;
+}
+
+.counter{
+  margin: 0;
+  color:gray;
+  font-size: 12px;
+}

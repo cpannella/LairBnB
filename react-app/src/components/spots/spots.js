@@ -10,6 +10,7 @@ import "./spotsIndex.css"
 
 export default function AllSpots(){
   const dispatch = useDispatch()
+  const history = useHistory()
   const thisUser = useSelector(state => state.session.user);
   const spotsState = useSelector(state => state.spots)
   const spots = Object.values(spotsState)
@@ -17,32 +18,31 @@ export default function AllSpots(){
 
   useEffect(()=>{
     dispatch(fetchSpots())
+    
   },[dispatch])
 
 
   return (
-    <div>
+    <div className="somediv">
 
-      <h1>Spots</h1>
-      {spots.map(spot =>
-        <div>
+          <h1>Browse Spots</h1>
+          <div className="spotCard-container">
+            {spots.map(spot =>
+              <div className="spotCard">
+                <div>
+                  <img onClick={()=> history.push(`spots/${spot.id}`)}className="main-spot-img" src={spot.url}></img>
+                </div>
+                <div className="spotCard-details">
+                  <h3 className="spotCard-info">{spot.name}</h3>
+                  <h4 className="spotCard-info">{spot.state}, {spot.country}</h4>
+                  <h4 className="spotCard-info">${spot.price}</h4>
+                </div>
+                <button onClick={()=> dispatch(deleteSpotThunk(spot.id))}>Delet</button>
 
-          <NavLink to={`/spots/${spot.id}`}>{spot.name}</NavLink>
-          <button onClick={()=> [dispatch(deleteSpotThunk(spot.id)), dispatch(fetchSpots())]}>Delet</button>
-          <p>SPOT ID{spot.id}</p>
-          <h2>{spot.name}</h2>
-          <p>USER_ID :{spot.user_id}</p>
-          <p>{spot.address}</p>
-          <p>{spot.state}</p>
-          <p>{spot.country}</p>
-          <p>{spot.price}</p>
-          <p>{spot.description}</p>
-          <p>{spot.city}</p>
-          <div >
-            <img className="main-spot-img" src={spot.url}></img>
+              </div>
+              )}
           </div>
-        </div>
-        )}
+
     </div>
     )
 

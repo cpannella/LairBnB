@@ -111,6 +111,7 @@ export const deleteSpotThunk = (spotId) => async dispatch => {
       method: "DELETE",
       headers: {"Content-Type": "application/json"}
   });
+  console.log(response)
   if (response.ok) {
       const spot = `${spotId}`
       dispatch(deleteSpot(spot))
@@ -152,7 +153,8 @@ const spotReducer = (state = initialState, action) => {
 
       case DELETE_SPOT:
           newState = {...state}
-          delete newState[action.Id]
+          console.log('this is the action in the reducer',action)
+          delete newState[action.spotId]
           return newState;
 
       default: {

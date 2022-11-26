@@ -32,7 +32,7 @@ def seed_reviews():
   review5 = Review(
   user_id = 2,
   spot_id = 2,
-  rating=1,
+  rating=5,
   body="It was trash"
 )
 
@@ -60,7 +60,7 @@ def seed_reviews():
   review9 = Review(
   user_id = 1,
   spot_id = 2,
-  rating=1,
+  rating=2,
   body="Staked out by feds"
 )
 

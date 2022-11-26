@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import { fetchOneSpot, fetchSpots } from "../../store/spots";
-import EditSpotForm from "../spotForms/editSpotForm";
+import EditSpotFormModal from "../spotForms/editSpotFormModal";
 
 
 export default function OneSpot(){
@@ -17,7 +17,7 @@ export default function OneSpot(){
 
 
   const filteredSpot = spots?.filter(spot => spot.id == +id)[0]
-  console.log("THIS IS THE FILTERED SPOT",filteredSpot)
+  console.log("THIS IS THE FILTERED SPOT",filteredSpot?.url)
   const reviews = filteredSpot?.reviews
 
   const reviewsLength = reviews?.length
@@ -26,6 +26,9 @@ export default function OneSpot(){
 
 
   const avgRating = (arr) => {
+    if(arr?.length == 0){
+      return 'No reviews -'
+    }
     let sum = 0
     for(let i = 0; i < arr?.length; i++){
         let review = arr[i]
@@ -45,7 +48,7 @@ export default function OneSpot(){
   return (
     <div className="oneSpot-details-container">
       <div className="details-container">
-        <EditSpotForm filteredSpot={filteredSpot}/>
+        <button onClick={()=> history.push(`/spots/${id}/edit`)}>Edit spot</button>
         <div>
 
           {/* <button onClick={() => history.push(`/spots/${filteredSpot.id}/edit`)}>Edit</button> */}
@@ -55,26 +58,41 @@ export default function OneSpot(){
           <div className="spot-description-container">
             <h2 className="spot-description">{filteredSpot?.name}</h2>
           </div>
+          {spotAvgRating > 0 &&
           <div>
             <p>{spotAvgRating} stars - {reviewsLength} Review(s) {filteredSpot?.city}, {filteredSpot?.state}, {filteredSpot?.country}</p>
           </div>
+          }
+          {!reviewsLength &&
+          <div>
+            <p>{spotAvgRating} {filteredSpot?.city}, {filteredSpot?.state}, {filteredSpot?.country}</p>
+          </div>
+          }
 
-          {spotImages?.map(spotImage => (
-            <div className="spotImage-container">
-            <img className="details-image"src={spotImage?.url}></img>
+          <div className="spotImage-container">
 
-              <div>
-                <h4>{filteredSpot?.description}</h4>
-                <h4>${filteredSpot?.price.toString()}</h4>
-              </div>
-            </div>
-          ))}
+               <div className="spotImage-container">
+                  <img className="details-image"src={filteredSpot?.url}></img>
+
+                    <div>
+                      <h4>{filteredSpot?.description}</h4>
+                      <h4>${filteredSpot?.price.toString()}</h4>
+                    </div>
+               </div>
+
+           </div>
         </div>
       </div>
 
       <div className="reviews-container">
+        {reviews?.length < 1 &&
+        <div>
+          <h3>No reviews yet</h3>
+        </div>
+        }
+        {reviews?.length > 0 &&
+        <div>
         <h3>Reviews:</h3>
-
         {reviews?.map(review => (
           <div className="single-review">
             <p>{review.body}</p>
@@ -82,7 +100,8 @@ export default function OneSpot(){
             <p>User: {review.user_id}</p>
           </div>
         ))}
-
+        </div>
+      }
       </div>
 
     </div>
