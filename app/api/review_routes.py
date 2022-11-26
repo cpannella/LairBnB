@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, render_template,request, make_response
 from flask_login import login_required,current_user
 from app.models import Spot, Review, db, SpotImage
-from app.forms.spots_form import SpotForm
+from app.forms.review_form import ReviewForm
 
 
 
@@ -26,9 +26,21 @@ def get_one_review(id):
   return make_response(single_review, 200)
 
 
-# @review_routes.route("/new_review", methods=["POST"])
-# def new_review():
-#   form =
+@review_routes.route("/new_review", methods=["POST"])
+def new_review(id):
+  form = ReviewForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
+  if form.validate_on_submit:
+    review = Review(
+      body=form.data['body'],
+      user_id = current_user.id,
+      spot_id = pass
+    )
+    db.session.add(review)
+    db.session.commit()
+    return make_response(review.to_dict(), 201)
+  else: return make_response("Unauthorized", 401)
+
 
 
 @review_routes.route('/<int:id>', methods=["DELETE"])
