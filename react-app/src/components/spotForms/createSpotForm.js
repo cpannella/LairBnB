@@ -6,13 +6,14 @@ import { useHistory } from "react-router-dom";
 import './spotForms.css'
 
 export default function CreateSpotForm(){
+  const num = 0
   const dispatch = useDispatch()
   const history = useHistory()
   const [name, setName] = useState('')
   const [address, setAddress] = useState('')
   const [state, setState] = useState('')
   const [country, setCountry] = useState('')
-  const [price, setPrice] = useState(0)
+  const [price, setPrice] = useState('')
   const [description, setDescription] = useState('')
   const [city, setCity] = useState('')
   const [url, setUrl] = useState('')
@@ -49,11 +50,11 @@ export default function CreateSpotForm(){
 
   return (
 
-    <div className="spot-form-container">
+    <div className="edit-spot-form-container">
       <form className="spot-forms" onSubmit={handleSubmit}>
-
+        <div>Upload your spot</div>
         <input
-        placeholder="Enter your lairs name"
+        placeholder="Enter your lair's name"
         type="text"
         maxLength={60}
         value={name}
@@ -61,7 +62,7 @@ export default function CreateSpotForm(){
         onChange={(e)=> setName(e.target.value)}
         >
         </input>
-        <div>{name.length}/60</div>
+        <div><p className="counter">{name?.length}/60</p></div>
 
         <input
         placeholder="Enter your lair's address"
@@ -72,7 +73,7 @@ export default function CreateSpotForm(){
         onChange={(e)=> setAddress(e.target.value)}
         >
         </input>
-        <div>{address.length}/30</div>
+        <div><p className="counter">{address?.length}/30</p></div>
 
 
         <input
@@ -80,11 +81,11 @@ export default function CreateSpotForm(){
         type="text"
         maxLength={30}
         value={city}
-        required pattern="[a-zA-Z,'. + -]+" title="Alphabetic characters only!"
+        required pattern="[a-zA-Z,'. + -]+" title="Alphabetic characters only"
         onChange={(e)=> setCity(e.target.value)}
         >
         </input>
-        <div>{city.length}/30</div>
+        <div><p className="counter">{city?.length}/30</p></div>
 
         <input
         placeholder="Enter your lair's state"
@@ -95,7 +96,7 @@ export default function CreateSpotForm(){
         onChange={(e)=> setState(e.target.value)}
         >
         </input>
-        <div>{state.length}/20</div>
+        <div className="counter">{state?.length}/20</div>
 
         <input
         placeholder="Enter your lair's country"
@@ -106,7 +107,7 @@ export default function CreateSpotForm(){
         onChange={(e)=> setCountry(e.target.value)}
         >
         </input>
-        <div>{address.length}/30</div>
+        <div><p className="counter">{address?.length}/30</p></div>
 
         <input
         placeholder="Enter your lair's price"
@@ -117,7 +118,7 @@ export default function CreateSpotForm(){
         onChange={(e)=> setPrice(e.target.value)}
         >
         </input>
-        <div>{price.length}/10</div>
+        <div><p className="counter">{price?.length}/10</p></div>
 
         <input
         placeholder="Enter your lair's description"
@@ -128,7 +129,7 @@ export default function CreateSpotForm(){
         onChange={(e)=> setDescription(e.target.value)}
         >
         </input>
-        <div>{description.length}/60</div>
+        <div><p className="counter">{description?.length}/100</p></div>
 
         <input
         placeholder="Enter an ImageUrl for your lair"
@@ -139,7 +140,7 @@ export default function CreateSpotForm(){
         onChange={(e)=> setUrl(e.target.value)}
         >
         </input>
-        <div>{url.length}/500</div>
+        <div><p className="counter">{url?.length}/500</p></div>
 
         <button type="submit">Submit</button>
         <button  onClick={()=> history.push('/')}> Cancel</button>

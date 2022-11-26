@@ -18,13 +18,14 @@ export default function AllSpots(){
 
   useEffect(()=>{
     dispatch(fetchSpots())
+    
   },[dispatch])
 
 
   return (
     <div className="somediv">
 
-
+          <h1>Browse Spots</h1>
           <div className="spotCard-container">
             {spots.map(spot =>
               <div className="spotCard">
@@ -41,7 +42,7 @@ export default function AllSpots(){
               </div>
               )}
           </div>
-      
+
     </div>
     )
 

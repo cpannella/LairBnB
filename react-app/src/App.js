@@ -44,18 +44,17 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <Route path='/spots/:id/edit'>
-          <EditSpotForm/>
-        </Route>
-        <Route path='/spots/post'>
+        <Route exact path="/spots/new">
           <CreateSpotForm/>
+        </Route>
+        <Route exact path='/spots/:id/edit'>
+          <EditSpotForm/>
         </Route>
         <Route exact path='/spots/:id'>
           <OneSpot/>
         </Route>
         <Route path='/' exact={true} >
           <AllSpots/>
-
         </Route>
       </Switch>
     </BrowserRouter>

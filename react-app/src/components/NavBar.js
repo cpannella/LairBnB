@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import { useHistory } from 'react-router-dom';
 import {Modal} from '../context/Modal.js'
-import CreateSpotFormModal from './spotForms/createSpotFormModal';
+import CreateSpotForm from './spotForms/createSpotForm';
 
 const NavBar = () => {
 
@@ -41,7 +41,7 @@ const NavBar = () => {
 
 
           <div>
-            <CreateSpotFormModal/>
+            <button onClick={()=> history.push('/spots/new')}>Become a host</button>
           </div>
 
 

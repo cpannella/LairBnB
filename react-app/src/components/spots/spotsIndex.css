@@ -1,5 +1,5 @@
-.somediv{
-/* border: 1px solid blue; */
+ .somediv{
+
 }
 
 .main-spot-img{
@@ -21,7 +21,7 @@
 }
 
 .spotCard-container{
-  /* border: 1px dotted red; */
+
 
   margin: auto;
   display: flex;
@@ -31,10 +31,10 @@
 }
 
 .spotCard{
-  /* border: 1px solid red; */
+
   height: 40vh;
   border-radius: 5px;
-  /* border: 1px dotted red; */
+
 }
 
 .spotCard-info{
@@ -49,7 +49,7 @@
 }
 
 .spot-description{
-  /* font-size: ; */
+
 
 }
 

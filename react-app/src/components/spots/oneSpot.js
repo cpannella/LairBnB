@@ -26,6 +26,9 @@ export default function OneSpot(){
 
 
   const avgRating = (arr) => {
+    if(arr?.length == 0){
+      return 'No reviews yet'
+    }
     let sum = 0
     for(let i = 0; i < arr?.length; i++){
         let review = arr[i]
@@ -45,7 +48,7 @@ export default function OneSpot(){
   return (
     <div className="oneSpot-details-container">
       <div className="details-container">
-        <EditSpotFormModal filteredSpot={filteredSpot}/>
+        <button onClick={()=> history.push(`/spots/${id}/edit`)}>Edit spot</button>
         <div>
 
           {/* <button onClick={() => history.push(`/spots/${filteredSpot.id}/edit`)}>Edit</button> */}
@@ -55,9 +58,17 @@ export default function OneSpot(){
           <div className="spot-description-container">
             <h2 className="spot-description">{filteredSpot?.name}</h2>
           </div>
+          {spotAvgRating > 0 &&
           <div>
             <p>{spotAvgRating} stars - {reviewsLength} Review(s) {filteredSpot?.city}, {filteredSpot?.state}, {filteredSpot?.country}</p>
           </div>
+          }
+          {!reviewsLength &&
+          <div>
+            <p>{spotAvgRating} {filteredSpot?.city}, {filteredSpot?.state}, {filteredSpot?.country}</p>
+          </div>
+          }
+
           <div className="spotImage-container">
 
                <div className="spotImage-container">
