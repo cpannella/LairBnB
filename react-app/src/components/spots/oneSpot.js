@@ -32,7 +32,7 @@ export default function OneSpot(){
     let sum = 0
     for(let i = 0; i < arr?.length; i++){
         let review = arr[i]
-        sum += review.ratings
+        sum += review.rating
     }
     return sum/arr?.length
   }
@@ -92,7 +92,7 @@ export default function OneSpot(){
         {reviews?.map(review => (
           <div className="single-review">
             <p>{review.body}</p>
-            <p>Rating: {review.ratings}</p>
+            <p>Rating: {review.rating}</p>
             <p>User: {review.user_id}</p>
           </div>
         ))}
