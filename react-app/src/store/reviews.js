@@ -99,7 +99,8 @@ export const deleteReviewThunk = (id) => async dispatch => {
     headers: {"Content-Type": "application/json"}
   })
   if(response.ok){
-    dispatch(deleteReview(id))
+    const review = `${id}`
+    dispatch(deleteReview(review))
   }
 }
 
@@ -141,9 +142,10 @@ const initialState = {}
     return newState
   }
   case DELETE_REVIEW:{
-    console.log("THIS IS THE PRESTATE", state)
+    console.log("SOME NEW SPRINT STATEMENT")
+    console.log("PRESTATE", state)
     newState = {...state}
-    
+    console.log("ACTION", action)
     delete newState[action.review]
     return newState
   }

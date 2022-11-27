@@ -16,11 +16,14 @@ export default function OneSpot(){
   const thisUser = useSelector(state => state.session.user);
   const spotsState = useSelector(state => state.spots)
   const spots = Object.values(spotsState)
-
+  const reviewsState = useSelector(state => state.reviews)
+  const reviews = Object.values(reviewsState)
 
   const filteredSpot = spots?.filter(spot => spot.id == +id)[0]
   console.log("THIS IS THE FILTERED SPOT",filteredSpot?.url)
-  const reviews = filteredSpot?.reviews
+  const filteredReviews = reviews.filter(review => review.spot_id == id)
+  console.log(filteredReviews)
+  // const reviews = filteredSpot?.reviews
 
   const reviewsLength = reviews?.length
   // const images = filteredSpot.
@@ -39,14 +42,14 @@ export default function OneSpot(){
     return sum/arr?.length + ` star(s)`
   }
 
-  const spotAvgRating = avgRating(reviews)
+  const spotAvgRating = avgRating(filteredReviews)
 
 
 
   useEffect(()=> {
     dispatch(fetchOneSpot(id))
     dispatch(fetchReviews())
-  }, [dispatch])
+  }, [dispatch, reviewsLength])
 
   return (
     <div className="oneSpot-details-container">
@@ -95,7 +98,7 @@ export default function OneSpot(){
         <div>
         <h3>Reviews:</h3>
         <ReviewForm/>
-        {reviews?.map(review => (
+        {filteredReviews?.map(review => (
           <div className="single-review">
             <p>{review.body}</p>
             <p>Rating: {review.rating}</p>

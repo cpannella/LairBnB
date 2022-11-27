@@ -25,7 +25,7 @@ export default function AllSpots(){
   useEffect(()=>{
     dispatch(fetchSpots())
     dispatch(fetchReviews())
-
+    
   },[dispatch])
 
 
@@ -44,14 +44,14 @@ export default function AllSpots(){
                     <h3 className="spotCard-info">{spot.name}</h3>
                     <h4 className="spotCard-info">{spot.state}, {spot.country}</h4>
                     <h4 className="spotCard-info">${spot.price}</h4>
-                    
+
                   </div>
                   {/* <div>
                     <p> Reviews</p>
                   </div> */}
                 </div>
 
-                <button onClick={()=> dispatch(deleteSpotThunk(spot.id))}>Delet</button>
+                <button onClick={()=> [dispatch(deleteSpotThunk(spot.id)), history.push(`/spots/${spot.id}`)]}>Delet</button>
 
               </div>
               )}
