@@ -43,7 +43,7 @@ const deleteReview = (review) => {
 
 export const fetchReviews = () => async dispatch => {
 
-  const response = await fetch('api/spots/reviews')
+  const response = await fetch('/api/spots/reviews')
 
   if(response.ok){
     const reviews = await response.json()

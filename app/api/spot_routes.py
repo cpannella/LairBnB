@@ -82,7 +82,7 @@ def edit_spot(id):
     spot.description = data['description']
     spot.city = data['city']
     spot.url = data['url']
-    print("THIS IS THE SPOT TO DICT PRINT",spot.to_dict())
+    
     db.session.commit()
     return spot.to_dict()
   return make_response("Unauthorized", 401)
