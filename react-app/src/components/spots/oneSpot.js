@@ -47,7 +47,7 @@ export default function OneSpot(){
   useEffect(()=> {
     dispatch(fetchOneSpot(id))
     dispatch(fetchReviews())
-  }, [dispatch, reviewsState])
+  }, [dispatch])
 
   return (
     <div className="oneSpot-details-container">
