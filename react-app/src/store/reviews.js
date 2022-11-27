@@ -79,6 +79,7 @@ export const createReviewThunk = (payload, id) => async dispatch => {
 }
 
 export const editReviewThunk = (review, id) => async dispatch => {
+  console.log("PAYLOAD IN EDIT REVIEW THUNK", review, "ID:", id)
   const response = await fetch(`/api/spots/reviews/${id}/edit`, {
     method: "PUT",
     headers: {"Content-Type": "application/json"},
@@ -93,7 +94,6 @@ export const editReviewThunk = (review, id) => async dispatch => {
 
 
 export const deleteReviewThunk = (id) => async dispatch => {
-  console.log("FUGAZI PANCAKE DELETE THUNK")
   const response = await fetch(`/api/spots/reviews/${id}`, {
     method: "DELETE",
     headers: {"Content-Type": "application/json"}
@@ -129,23 +129,19 @@ const initialState = {}
   }
 
   case CREATE_REVIEW: {
-    console.log("TEST")
     newState = {...state}
-    console.log("NEW STATE BEFORE", newState)
     newState[action.payload.id] = action.payload
-    console.log("NEW STATE AFTER", newState)
     return newState
   }
   case EDIT_REVIEW:{
     newState = {...state}
+    console.log("EDIT REVIEW THUNK", newState)
     newState[action.review.id] = action.review
+    console.log("EDIT REVIEW THUNK AFTER", newState)
     return newState
   }
   case DELETE_REVIEW:{
-    console.log("SOME NEW SPRINT STATEMENT")
-    console.log("PRESTATE", state)
     newState = {...state}
-    console.log("ACTION", action)
     delete newState[action.review]
     return newState
   }

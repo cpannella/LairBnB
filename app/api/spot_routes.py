@@ -15,7 +15,7 @@ def get_all_spots():
   spots = Spot.query.all()
 
   response = {"spots": [spot.to_dict() for spot in spots]}
-  print("THIS IS THE RESPONSE", response)
+
   return make_response(response, 200)
 
 
@@ -32,7 +32,7 @@ def get_one_spot(id):
   single_spot = spot.to_dict()
   spot_reviews = Review.query.filter(Review.spot_id == id).all()
   data = [review.to_dict() for review in spot_reviews]
-  print("THESE ARE THE IMAGES PRINTING",images)
+
   single_spot["reviews"] = data
   single_spot['spotImages'] = images
   return make_response(single_spot, 200)
@@ -43,7 +43,7 @@ def new_spot():
   form['csrf_token'].data = request.cookies['csrf_token']
 
   data = form.data
-  
+
   spot = Spot(
     user_id = current_user.id,
     name = data["name"],
@@ -69,15 +69,11 @@ def new_spot():
 def edit_spot(id):
   form = SpotForm()
   form['csrf_token'].data = request.cookies['csrf_token']
-  # spot = Spot.query.get(id)
-  # print("THIS SOME SHIT PRINTIN",spot.to_dict())
-  # if not spot:
-  #   return make_response("Item not found", 404)
 
   if form.validate_on_submit():
     spot = Spot.query.get(id)
     data = form.data
-    print("THIS IS THE FORM DATA",form.data)
+    
     spot.name = data['name']
     spot.address = data['address']
     spot.state = data['state']

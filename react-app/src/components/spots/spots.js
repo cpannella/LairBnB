@@ -16,7 +16,7 @@ export default function AllSpots(){
   const spotsState = useSelector(state => state.spots)
   const reviewsState = useSelector(state => state.reviews)
 
-  console.log("THIS THAT REVIEW STATE DONT @ ME", reviewsState)
+  
   // const spotReviews = reviewsState.filter(review => review.spot_id == )
 
   const spots = Object.values(spotsState)
@@ -25,7 +25,7 @@ export default function AllSpots(){
   useEffect(()=>{
     dispatch(fetchSpots())
     dispatch(fetchReviews())
-    
+
   },[dispatch])
 
 

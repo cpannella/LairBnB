@@ -19,7 +19,7 @@ def get_all_reviews():
 
 @review_routes.route("/reviews/<int:id>")
 def get_one_review(id):
-  print("THIS IS SOMETHING ELSE PRINTING")
+
   review = Review.query.get(id)
   if not review:
     return make_response("Doesn't exist", 404)
@@ -58,6 +58,7 @@ def edit_review(id):
 
   if review.user_id == current_user.id:
     review.body = form.data['body']
+    review.rating = form.data['rating']
     db.session.commit()
   return make_response(review.to_dict(), 200)
 

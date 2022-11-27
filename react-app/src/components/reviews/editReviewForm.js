@@ -1,40 +1,38 @@
 import React, { useEffect, useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
-import { createReviewThunk } from "../../store/reviews";
+import { editReviewThunk } from "../../store/reviews";
 import { useHistory, useParams } from "react-router-dom";
 
 import { fetchOneSpot, fetchSpots } from "../../store/spots";
 
 
-function ReviewForm({filtered}) {
+function EditReviewForm({review}) {
   const dispatch = useDispatch()
   const history = useHistory()
   const {id} = useParams()
   let spot_id = id
-
-  const [body, setBody] = useState('')
-  const [rating, setRating] = useState('')
+  const reviewId = review.id
+  const [body, setBody] = useState(review?.body)
+  const [rating, setRating] = useState(review?.rating)
 
   useEffect(()=> {
-
   }, [dispatch, body, rating])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-
     const payload = {
       body,
-      rating,
-      spot_id
+      rating: parseInt(rating),
+      spot_id,
+      reviewId
     }
     setBody('')
     setRating('')
-    console.log("THIS IS THE PAYLOAD",payload)
-    let reviewCreated = await dispatch(createReviewThunk(payload, id))
-    if(reviewCreated){
+    console.log("PAYLOAD ON EDIT REVIEW FORM", payload)
+    let reviewEdited = await dispatch(editReviewThunk(payload, reviewId))
+    if(reviewEdited){
       await dispatch(fetchOneSpot(id))
-
     }
   }
 
@@ -68,7 +66,7 @@ function ReviewForm({filtered}) {
 
         </input>
       </label>
-      <button className="NoteButtonTaskDetails" type="submit">Add a note</button>
+      <button className="NoteButtonTaskDetails" type="submit">Submit</button>
       </div>
     </form>
   </div>
@@ -76,4 +74,4 @@ function ReviewForm({filtered}) {
 
 }
 
-export default ReviewForm
+export default EditReviewForm

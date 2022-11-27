@@ -62,7 +62,7 @@ export default function CreateSpotForm(){
         onChange={(e)=> setName(e.target.value)}
         >
         </input>
-        <div><p className="counter">{name?.length}/60</p></div>
+        <div><p className="counter">{name?.length} </p></div>
 
         <input
         placeholder="Enter your lair's address"

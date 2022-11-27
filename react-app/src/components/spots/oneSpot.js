@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import { deleteReviewThunk, fetchReviews } from "../../store/reviews";
 import { fetchOneSpot, fetchSpots } from "../../store/spots";
+import EditReviewForm from "../reviews/editReviewForm";
 import ReviewForm from "../reviews/reviewForm";
 import EditSpotFormModal from "../spotForms/editSpotFormModal";
 
@@ -18,16 +19,13 @@ export default function OneSpot(){
   const spots = Object.values(spotsState)
   const reviewsState = useSelector(state => state.reviews)
   const reviews = Object.values(reviewsState)
-
+  const [showEditReviewForm, setShowEditReviewForm] = useState(false)
   const filteredSpot = spots?.filter(spot => spot.id == +id)[0]
-  console.log("THIS IS THE FILTERED SPOT",filteredSpot?.url)
-  const filteredReviews = reviews.filter(review => review.spot_id == id)
-  console.log(filteredReviews)
-  // const reviews = filteredSpot?.reviews
 
+  const filteredReviews = reviews.filter(review => review.spot_id == id)
   const reviewsLength = reviews?.length
-  // const images = filteredSpot.
   const spotImages = filteredSpot?.spotImages
+
 
 
   const avgRating = (arr) => {
@@ -49,7 +47,7 @@ export default function OneSpot(){
   useEffect(()=> {
     dispatch(fetchOneSpot(id))
     dispatch(fetchReviews())
-  }, [dispatch, reviewsLength])
+  }, [dispatch, reviewsState])
 
   return (
     <div className="oneSpot-details-container">
@@ -66,7 +64,7 @@ export default function OneSpot(){
           </div>
 
           <div>
-            <p>{spotAvgRating} {reviewsLength} Review(s) {filteredSpot?.city}, {filteredSpot?.state}, {filteredSpot?.country}</p>
+            <p>{spotAvgRating} {filteredReviews.length} Review(s) {filteredSpot?.city}, {filteredSpot?.state}, {filteredSpot?.country}</p>
           </div>
 
 
@@ -100,10 +98,16 @@ export default function OneSpot(){
         <ReviewForm/>
         {filteredReviews?.map(review => (
           <div className="single-review">
+            <div>
             <p>{review.body}</p>
             <p>Rating: {review.rating}</p>
             <p>User: {review.user_id}</p>
+            </div>
+            <button  onClick={()=> setShowEditReviewForm(true)}>Edit</button>
+            <EditReviewForm review={review}></EditReviewForm>
+
             <button onClick={()=> dispatch(deleteReviewThunk(review.id))}>Delet</button>
+
           </div>
         ))}
         </div>
