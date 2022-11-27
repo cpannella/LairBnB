@@ -73,7 +73,7 @@ def edit_spot(id):
   if form.validate_on_submit():
     spot = Spot.query.get(id)
     data = form.data
-    
+
     spot.name = data['name']
     spot.address = data['address']
     spot.state = data['state']
@@ -81,6 +81,7 @@ def edit_spot(id):
     spot.price = data['price']
     spot.description = data['description']
     spot.city = data['city']
+    spot.url = data['url']
     print("THIS IS THE SPOT TO DICT PRINT",spot.to_dict())
     db.session.commit()
     return spot.to_dict()

@@ -47,7 +47,7 @@ export default function EditSpotForm({}){
       city,
       url
     }
-
+    console.log("THIS THAT PAYLOAD",payload)
     let spotEdited= await dispatch(editSpotThunk(payload, id))
     if (spotEdited){
       await dispatch (fetchOneSpot(id))
