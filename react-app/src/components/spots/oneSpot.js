@@ -3,7 +3,9 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
+import { deleteReviewThunk, fetchReviews } from "../../store/reviews";
 import { fetchOneSpot, fetchSpots } from "../../store/spots";
+import ReviewForm from "../reviews/reviewForm";
 import EditSpotFormModal from "../spotForms/editSpotFormModal";
 
 
@@ -26,15 +28,15 @@ export default function OneSpot(){
 
 
   const avgRating = (arr) => {
-    // if(arr?.length == 0){
-    //   return 'No reviews -'
-    // }
+    if(arr?.length == 0){
+      return null
+    }
     let sum = 0
     for(let i = 0; i < arr?.length; i++){
         let review = arr[i]
         sum += review.rating
     }
-    return sum/arr?.length
+    return sum/arr?.length + ` star(s)`
   }
 
   const spotAvgRating = avgRating(reviews)
@@ -43,6 +45,7 @@ export default function OneSpot(){
 
   useEffect(()=> {
     dispatch(fetchOneSpot(id))
+    dispatch(fetchReviews())
   }, [dispatch])
 
   return (
@@ -60,7 +63,7 @@ export default function OneSpot(){
           </div>
 
           <div>
-            <p>{spotAvgRating} star(s) - {reviewsLength} Review(s) {filteredSpot?.city}, {filteredSpot?.state}, {filteredSpot?.country}</p>
+            <p>{spotAvgRating} {reviewsLength} Review(s) {filteredSpot?.city}, {filteredSpot?.state}, {filteredSpot?.country}</p>
           </div>
 
 
@@ -83,17 +86,21 @@ export default function OneSpot(){
       <div className="reviews-container">
         {reviews?.length < 1 &&
         <div>
+
           <h3>No reviews yet</h3>
+          <ReviewForm />
         </div>
         }
         {reviews?.length > 0 &&
         <div>
         <h3>Reviews:</h3>
+        <ReviewForm/>
         {reviews?.map(review => (
           <div className="single-review">
             <p>{review.body}</p>
             <p>Rating: {review.rating}</p>
             <p>User: {review.user_id}</p>
+            <button onClick={()=> dispatch(deleteReviewThunk(review.id))}>Delet</button>
           </div>
         ))}
         </div>

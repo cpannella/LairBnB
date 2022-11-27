@@ -65,7 +65,7 @@ def edit_review(id):
 
 
 
-@review_routes.route('/<int:id>', methods=["DELETE"])
+@review_routes.route('/reviews/<int:id>', methods=["DELETE"])
 def delete_review(id):
   review = Review.query.get(id)
   if not review:

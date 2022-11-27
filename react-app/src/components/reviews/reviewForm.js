@@ -3,30 +3,37 @@ import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { createReviewThunk } from "../../store/reviews";
 import { useHistory, useParams } from "react-router-dom";
-import './reviews.css'
-import { fetchSpots } from "../../store/spots";
+
+import { fetchOneSpot, fetchSpots } from "../../store/spots";
 
 
 function ReviewForm({filtered}) {
   const dispatch = useDispatch()
   const history = useHistory()
-  const {id} = filtered
+  const {id} = useParams()
   let spot_id = id
 
   const [body, setBody] = useState('')
   const [rating, setRating] = useState('')
+
+  useEffect(()=> {
+
+  }, [dispatch, body, rating])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     const payload = {
       body,
+      rating,
       spot_id
     }
     setBody('')
+    console.log("THIS IS THE PAYLOAD",payload)
     let reviewCreated = await dispatch(createReviewThunk(payload, id))
     if(reviewCreated){
-      history.push(`/all/spots/${spot_id}`)
+      await dispatch(fetchOneSpot(id))
+
     }
   }
 
@@ -47,8 +54,16 @@ function ReviewForm({filtered}) {
         />
       </label>
       <label>
-        <input>
-          
+        <input
+        placeholder="Give a rating from 1-5"
+        type="number"
+        value={rating}
+        maxLength={1}
+        required
+        onChange={(e)=> setRating(e.target.value)}
+        >
+
+
 
         </input>
       </label>
@@ -58,7 +73,6 @@ function ReviewForm({filtered}) {
   </div>
 )
 
-
-
-
 }
+
+export default ReviewForm

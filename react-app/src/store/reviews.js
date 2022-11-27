@@ -42,7 +42,7 @@ const deleteReview = (review) => {
 
 
 export const fetchReviews = () => async dispatch => {
-  console.log("fugazi pancakes")
+
   const response = await fetch('api/spots/reviews')
 
   if(response.ok){
@@ -65,6 +65,7 @@ export const fetchOneReview = (id) => async dispatch => {
 }
 
 export const createReviewThunk = (payload, id) => async dispatch => {
+  console.log('CREATE REVIEW THUNK', payload, id)
   const response = await fetch(`/api/spots/${id}/new_review`, {
     method: 'POST',
     headers: {'Content-Type': 'application/json' },
@@ -72,7 +73,7 @@ export const createReviewThunk = (payload, id) => async dispatch => {
 });
   if(response.ok){
     const newReview = await response.json()
-    dispatch(createReview(id))
+    dispatch(createReview(newReview))
     return newReview
   }
 }
@@ -92,6 +93,7 @@ export const editReviewThunk = (review, id) => async dispatch => {
 
 
 export const deleteReviewThunk = (id) => async dispatch => {
+  console.log("FUGAZI PANCAKE DELETE THUNK")
   const response = await fetch(`/api/spots/reviews/${id}`, {
     method: "DELETE",
     headers: {"Content-Type": "application/json"}
@@ -104,6 +106,7 @@ export const deleteReviewThunk = (id) => async dispatch => {
 const initialState = {}
  function reviewReducer(state = initialState, action){
   let newState;
+
 
   switch(action.type){
     case ALL_REVIEWS:{
@@ -118,10 +121,18 @@ const initialState = {}
     }
 
 
-
   case ONE_REVIEW: {
     newState = {...state}
     newState[action.payload.id] = action.payload
+    return newState
+  }
+
+  case CREATE_REVIEW: {
+    console.log("TEST")
+    newState = {...state}
+    console.log("NEW STATE BEFORE", newState)
+    newState[action.payload.id] = action.payload
+    console.log("NEW STATE AFTER", newState)
     return newState
   }
   case EDIT_REVIEW:{
@@ -130,8 +141,11 @@ const initialState = {}
     return newState
   }
   case DELETE_REVIEW:{
+    console.log("THIS IS THE PRESTATE", state)
     newState = {...state}
-    delete newState[action.spotId]
+    
+    delete newState[action.review]
+    return newState
   }
 
   default: {

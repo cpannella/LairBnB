@@ -152,9 +152,11 @@ const spotReducer = (state = initialState, action) => {
           return newState
 
       case DELETE_SPOT:
+
           newState = {...state}
-          console.log('this is the action in the reducer',action)
+          console.log("PRE NEW STATE", newState)
           delete newState[action.spotId]
+          console.log("POST NEW STATE", newState)
           return newState;
 
       default: {
