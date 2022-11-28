@@ -5,12 +5,12 @@ import { editSpotThunk, fetchOneSpot } from "../../store/spots";
 import { useHistory, useParams } from "react-router-dom";
 import './spotForms.css'
 
-export default function EditSpotForm({}){
+export default function EditSpotForm({setShowModal}){
   const {id} = useParams()
   const spotsState = useSelector(state => state.spots)
   const spots = Object.values(spotsState)
   const filteredSpot = spots.filter(spot => spot.id == id)[0]
-  console.log(filteredSpot)
+  console.log('fugazi Pancakes')
 
 
 
@@ -59,7 +59,8 @@ export default function EditSpotForm({}){
       setDescription('')
       setCity('')
       setUrl('')
-      history.push('/')
+      setShowModal(false)
+
     }
   }
 

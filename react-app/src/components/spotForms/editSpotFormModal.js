@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
-import EditSpotForm from './createSpotForm';
+import EditSpotForm from './editSpotForm.js';
 
 
-function EditSpotFormModal(){
+function EditSpotFormModal({filteredSpot}){
   const [showModal, setShowModal] = useState(false)
-  console.log("something")
+  console.log(filteredSpot)
+
 
 
   return (
@@ -13,7 +14,7 @@ function EditSpotFormModal(){
       <button className="edit-button" onClick={() => setShowModal(true)}>Edit</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <EditSpotForm />
+          <EditSpotForm setShowModal={setShowModal} filteredSpot={filteredSpot}/>
         </Modal>
       )}
     </>

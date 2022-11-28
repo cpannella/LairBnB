@@ -34,7 +34,7 @@
 
   height: 40vh;
   border-radius: 5px;
-
+  min-height:40vh;
 
 }
 
@@ -61,7 +61,7 @@
   flex-direction: column;
   align-items: center;
   padding-bottom: 10vh;
-  
+
 }
 
 .single-review{

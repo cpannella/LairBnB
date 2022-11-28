@@ -1,13 +1,15 @@
 """fugazi pancakes
 
 Revision ID: c7f9af540a60
-Revises: 
+Revises:
 Create Date: 2022-11-27 17:24:40.358850
 
 """
 from alembic import op
 import sqlalchemy as sa
-
+import os
+environment = os.getenv("FLASK_ENV")
+SCHEMA = os.environ.get("SCHEMA")
 
 # revision identifiers, used by Alembic.
 revision = 'c7f9af540a60'
@@ -77,6 +79,14 @@ def upgrade():
     sa.ForeignKeyConstraint(['spot_id'], ['spots.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE spots SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE reviews SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE spot_image SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE bookings SET SCHEMA {SCHEMA};")
+
+
     # ### end Alembic commands ###
 
 
