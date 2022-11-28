@@ -23,8 +23,8 @@ def seed():
         undo_users()
         undo_spots()
     seed_users()
-    seed_reviews()
     seed_spots()
+    seed_reviews()
     # seed_spotImages()
     # Add other seed functions here
 
