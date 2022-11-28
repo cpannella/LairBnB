@@ -15,6 +15,8 @@ export default function AllSpots(){
   const thisUser = useSelector(state => state.session.user);
   const spotsState = useSelector(state => state.spots)
   const reviewsState = useSelector(state => state.reviews)
+  const sessionUser = useSelector(state => state.session)
+  console.log('this is the session user',sessionUser,)
 
   const spots = Object.values(spotsState)
   const reviews = Object.values(reviewsState)
@@ -44,7 +46,7 @@ export default function AllSpots(){
   return (
     <div className="somediv">
 
-          <h1>Browse Spots</h1>
+          <h1 className="main-header">Browse Spots</h1>
           <div className="spotCard-container">
             {spots.map(spot =>
               <div className="spotCard">
@@ -73,9 +75,9 @@ export default function AllSpots(){
                   </div>
 
                 </div>
-
+                {sessionUser.user && sessionUser.user.id !== spot.user_id &&
                 <button onClick={()=> dispatch(deleteSpotThunk(spot.id))}>Delet</button>
-
+                }
               </div>
               )}
           </div>

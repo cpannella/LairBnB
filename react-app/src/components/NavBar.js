@@ -3,37 +3,43 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import {Modal} from '../context/Modal.js'
 import CreateSpotForm from './spotForms/createSpotForm';
 import './navbar.css'
-
+import icon from './LairBnBLogo.jpg'
+import LoginForm from './auth/LoginForm';
+import LoginFormModal from './auth/LoginFormModal';
+import SignUpFormModal from './auth/SignUpFormModal';
 const NavBar = () => {
-
-
-
   const history = useHistory()
+  const sessionUser = useSelector(state => state.session)
+
+
   return (
     <div className="navbar-container">
       <nav>
         <div className="navbar">
             <div className="navHome">
-              <NavLink to='/' exact={true} activeClassName='active'>
-                Home
-              </NavLink>
-              <div></div>
-            <div>
-              <button onClick={()=> history.push('/spots/new')}>Become a host</button>
-            </div>
+              <img className="app-icon"src={icon} onClick={()=> history.push('/')}></img>
+              {sessionUser.user &&
+              <div>
+                <button onClick={()=> history.push('/spots/new')}>Become a host</button>
+              </div>}
             </div>
 
             <div className="navEnd">
-            <NavLink to='/login' exact={true} activeClassName='active'>
-              Login
-            </NavLink>
-            <NavLink to='/sign-up' exact={true} activeClassName='active'>
-              Sign Up
-            </NavLink>
-            <LogoutButton />
+            {!sessionUser.user &&
+            <div>
+              <LoginFormModal/>
+              <SignUpFormModal/>
+            </div>
+            }
+            {sessionUser.user &&
+            <div>
+              <LogoutButton />
+            </div>
+            }
             </div>
 
 

@@ -21,7 +21,7 @@ export default function OneSpot(){
   const reviews = Object.values(reviewsState)
   const [showEditReviewForm, setShowEditReviewForm] = useState(false)
   const filteredSpot = spots?.filter(spot => spot.id == +id)[0]
-
+  const sessionUser = useSelector(state => state.session)
   const filteredReviews = reviews.filter(review => review.spot_id == id)
   const reviewsLength = reviews?.length
   const spotImages = filteredSpot?.spotImages
@@ -52,7 +52,7 @@ export default function OneSpot(){
   return (
     <div className="oneSpot-details-container">
       <div className="details-container">
-        <button onClick={()=> history.push(`/spots/${id}/edit`)}>Edit spot</button>
+
         <div>
 
           {/* <button onClick={() => history.push(`/spots/${filteredSpot.id}/edit`)}>Edit</button> */}
@@ -61,6 +61,11 @@ export default function OneSpot(){
         <div className="spotImages-container">
           <div className="spot-description-container">
             <h2 className="spot-description">{filteredSpot?.name}</h2>
+            {sessionUser.user && sessionUser?.user.id !== filteredSpot?.user_id &&
+            <div>
+            <button className="button-style"onClick={()=> history.push(`/spots/${id}/edit`)}>Edit spot</button>
+            </div>
+            }
           </div>
 
           <div>
@@ -85,17 +90,24 @@ export default function OneSpot(){
       </div>
 
       <div className="reviews-container">
-        {reviews?.length < 1 &&
+        {filteredReviews?.length < 1 &&
         <div>
-
           <h3>No reviews yet</h3>
+          {sessionUser.user &&
+          <div>
           <ReviewForm />
+          </div>
+          }
         </div>
         }
-        {reviews?.length > 0 &&
+        {filteredReviews?.length > 0 &&
         <div>
         <h3>Reviews:</h3>
-        <ReviewForm/>
+        {sessionUser.user &&
+        <div>
+          <ReviewForm/>
+        </div>
+        }
         {filteredReviews?.map(review => (
           <div className="single-review">
             <div>
@@ -103,16 +115,22 @@ export default function OneSpot(){
             <p>Rating: {review.rating}</p>
             <p>User: {review.user_id}</p>
             </div>
-            <button  onClick={()=> setShowEditReviewForm(true)}>Edit</button>
+            {sessionUser.user && sessionUser?.user.id === review?.user_id &&
+            <div>
+              <button  onClick={()=> setShowEditReviewForm(true)}>Edit</button>
+            </div>
+            }
             {showEditReviewForm &&
             <div className="edit-buttons">
               <EditReviewForm review={review}></EditReviewForm>
               <button onClick={()=> setShowEditReviewForm(false)}>Cancel</button>
             </div>
             }
-
-            <button onClick={()=> dispatch(deleteReviewThunk(review.id))}>Delet</button>
-
+            {sessionUser.user && sessionUser?.user.id === review?.user_id &&
+            <div>
+              <button onClick={()=> dispatch(deleteReviewThunk(review.id))}>Delet</button>
+            </div>
+            }
           </div>
         ))}
         </div>
