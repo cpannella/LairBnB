@@ -104,7 +104,12 @@ export default function OneSpot(){
             <p>User: {review.user_id}</p>
             </div>
             <button  onClick={()=> setShowEditReviewForm(true)}>Edit</button>
-            <EditReviewForm review={review}></EditReviewForm>
+            {showEditReviewForm &&
+            <div className="edit-buttons">
+              <EditReviewForm review={review}></EditReviewForm>
+              <button onClick={()=> setShowEditReviewForm(false)}>Cancel</button>
+            </div>
+            }
 
             <button onClick={()=> dispatch(deleteReviewThunk(review.id))}>Delet</button>
 

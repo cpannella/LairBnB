@@ -5,6 +5,7 @@ import LogoutButton from './auth/LogoutButton';
 import { useHistory } from 'react-router-dom';
 import {Modal} from '../context/Modal.js'
 import CreateSpotForm from './spotForms/createSpotForm';
+import './navbar.css'
 
 const NavBar = () => {
 
@@ -12,41 +13,35 @@ const NavBar = () => {
 
   const history = useHistory()
   return (
-    <nav className="navbar">
-      <ul>
-        <li>
-          <NavLink to='/' exact={true} activeClassName='active'>
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/login' exact={true} activeClassName='active'>
-            Login
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/sign-up' exact={true} activeClassName='active'>
-            Sign Up
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/users' exact={true} activeClassName='active'>
-            Users
-          </NavLink>
-        </li>
+    <div className="navbar-container">
+      <nav>
+        <div className="navbar">
+            <div className="navHome">
+              <NavLink to='/' exact={true} activeClassName='active'>
+                Home
+              </NavLink>
+              <div></div>
+            <div>
+              <button onClick={()=> history.push('/spots/new')}>Become a host</button>
+            </div>
+            </div>
 
-        <li>
-          <LogoutButton />
-        </li>
+            <div className="navEnd">
+            <NavLink to='/login' exact={true} activeClassName='active'>
+              Login
+            </NavLink>
+            <NavLink to='/sign-up' exact={true} activeClassName='active'>
+              Sign Up
+            </NavLink>
+            <LogoutButton />
+            </div>
 
 
-          <div>
-            <button onClick={()=> history.push('/spots/new')}>Become a host</button>
-          </div>
 
 
-      </ul>
-    </nav>
+        </div>
+      </nav>
+    </div>
   );
 }
 

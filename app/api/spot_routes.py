@@ -13,8 +13,26 @@ spot_routes = Blueprint("spots", __name__)
 
 def get_all_spots():
   spots = Spot.query.all()
+  reviews = Review.query.all()
+  newReviews = [review.to_dict() for review in reviews]
+  newSpots = [spot.to_dict() for spot in spots]
+  # print("THESE ARE THE NEW SPOTS",newSpots)
+  # print("THESE ARE THE REVIEWS", newReviews)
+  newSpot = {}
+
+  # for spot in newSpots:
+  #   for review in newReviews:
+  #       if review['spot_id'] == spot['id']:
+  #         # print("spotname",spot['name'], 'review', review)
+  #         newSpot['name'] = spot['name']
+  #         newSpot['review'] = review
+  #         # print(newSpot)
+  # # print("NEW SPOTS AFTER FOR", newSpots)
+
+  # print(newSpot)
 
   response = {"spots": [spot.to_dict() for spot in spots]}
+  print
 
   return make_response(response, 200)
 
@@ -82,7 +100,7 @@ def edit_spot(id):
     spot.description = data['description']
     spot.city = data['city']
     spot.url = data['url']
-    
+
     db.session.commit()
     return spot.to_dict()
   return make_response("Unauthorized", 401)

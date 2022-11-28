@@ -1,8 +1,8 @@
-"""new changes
+"""fugazi pancakes
 
-Revision ID: 4a79108b3398
+Revision ID: c7f9af540a60
 Revises: 
-Create Date: 2022-11-26 15:46:40.132574
+Create Date: 2022-11-27 17:24:40.358850
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '4a79108b3398'
+revision = 'c7f9af540a60'
 down_revision = None
 branch_labels = None
 depends_on = None

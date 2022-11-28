@@ -35,7 +35,7 @@ class Spot(db.Model):
       "state": self.state,
       "country": self.country,
       "city": self.city,
-      
+      "reviews": [review.to_dict() for review in self.reviews],
       "price": self.price,
       "description": self.description,
       "wishList_id": self.wishList_id,
