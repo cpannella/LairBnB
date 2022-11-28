@@ -90,17 +90,17 @@ def upgrade():
 
 
 
-    op.create_table('spotImages',
-    sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('spot_id', sa.Integer(), nullable=False),
-    sa.Column('url', sa.String(length=1000), nullable=False),
-    sa.Column('created_at', sa.DateTime(), nullable=True),
-    sa.Column('updated_at', sa.DateTime(), nullable=True),
-    sa.ForeignKeyConstraint(['spot_id'], ['spots.id'], ),
-    sa.PrimaryKeyConstraint('id')
-    )
-    if environment == "production":
-        op.execute(f"ALTER TABLE spotImages SET SCHEMA {SCHEMA};")
+    # op.create_table('spotImages',
+    # sa.Column('id', sa.Integer(), nullable=False),
+    # sa.Column('spot_id', sa.Integer(), nullable=False),
+    # sa.Column('url', sa.String(length=1000), nullable=False),
+    # sa.Column('created_at', sa.DateTime(), nullable=True),
+    # sa.Column('updated_at', sa.DateTime(), nullable=True),
+    # sa.ForeignKeyConstraint(['spot_id'], ['spots.id'], ),
+    # sa.PrimaryKeyConstraint('id')
+    # )
+    # if environment == "production":
+    #     op.execute(f"ALTER TABLE spotImages SET SCHEMA {SCHEMA};")
 
     # ### end Alembic commands ###
 
