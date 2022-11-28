@@ -1,7 +1,7 @@
 from app.models import db, SpotImage, environment, SCHEMA
 
 
-def seed_spotImages():
+def seed_spot_images():
   spotImage1= SpotImage(
     spot_id = 1,
     url = "https://www.eejournal.com/wp-content/uploads/converted/1493253567e8/refuge_du_gouter2.jpg"
@@ -77,9 +77,9 @@ def seed_spotImages():
   db.session.add(spotImage12)
   db.session.commit()
 
-def undo_spotImages():
+def undo_spot_images():
   if environment == "production":
-    db.session.execute(f"TRUNCATE table {SCHEMA}.spotImages RESTART IDENTITY CASCADE;")
+    db.session.execute(f"TRUNCATE table {SCHEMA}.spot_images RESTART IDENTITY CASCADE;")
   else:
-    db.session.execute("DELETE FROM spotImages")
+    db.session.execute("DELETE FROM spotimages")
   db.session.commit()

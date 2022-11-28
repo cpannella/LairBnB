@@ -2,7 +2,7 @@ from flask.cli import AppGroup
 from .users import seed_users, undo_users
 from .spots import seed_spots, undo_spots
 from .reviews import seed_reviews, undo_reviews
-from .spotImages import seed_spotImages, undo_spotImages
+from .spotImages import seed_spot_images, undo_spot_images
 from app.models.db import db, environment, SCHEMA
 
 # Creates a seed group to hold our commands
@@ -21,11 +21,11 @@ def seed():
         undo_reviews()
         undo_users()
         undo_spots()
-        undo_spotImages()
+        undo_spot_images()
     seed_users()
     seed_spots()
     seed_reviews()
-    seed_spotImages()
+    seed_spot_images()
     # seed_spotImages()
     # Add other seed functions here
 
@@ -36,5 +36,5 @@ def undo():
     undo_reviews()
     undo_users()
     undo_spots()
-    undo_spotImages()
+    undo_spot_images()
     # Add other undo functions here
