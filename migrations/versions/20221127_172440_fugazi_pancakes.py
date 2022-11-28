@@ -83,7 +83,7 @@ def upgrade():
         op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE spots SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE reviews SET SCHEMA {SCHEMA};")
-        op.execute(f"ALTER TABLE spot_image SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE spotImages SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE bookings SET SCHEMA {SCHEMA};")
 
 
