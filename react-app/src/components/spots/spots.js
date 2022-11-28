@@ -75,7 +75,7 @@ export default function AllSpots(){
                   </div>
 
                 </div>
-                {sessionUser.user && sessionUser.user.id !== spot.user_id &&
+                {sessionUser.user && sessionUser.user.id === spot.user_id &&
                 <button onClick={()=> dispatch(deleteSpotThunk(spot.id))}>Delet</button>
                 }
               </div>

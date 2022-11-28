@@ -23,22 +23,22 @@ def seed():
         db.session.execute(f"TRUNCATE table {SCHEMA}.reviews RESTART IDENTITY CASCADE;")
         db.session.execute(f"TRUNCATE table {SCHEMA}.spotImages RESTART IDENTITY CASCADE;")
         db.session.execute(f"TRUNCATE table {SCHEMA}.bookings RESTART IDENTITY CASCADE;")
-        undo_users()
         undo_spotImages()
         undo_reviews()
+        undo_users()
         undo_spots()
     seed_users()
-    seed_spotImages()
     seed_reviews()
     seed_spots()
+    seed_spotImages()
     # Add other seed functions here
 
 
 # Creates the `flask seed undo` command
 @seed_commands.command('undo')
 def undo():
-    undo_users()
-    undo_spots()
     undo_reviews()
     undo_spotImages()
+    undo_users()
+    undo_spots()
     # Add other undo functions here

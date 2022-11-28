@@ -1,12 +1,13 @@
 """maybe bug fix
 
 Revision ID: b24837aa9bb9
-Revises: 
+Revises:
 Create Date: 2022-11-28 14:52:38.290951
 
 """
 from alembic import op
 import sqlalchemy as sa
+from app.models import db, environment, SCHEMA
 
 
 # revision identifiers, used by Alembic.
@@ -27,6 +28,11 @@ def upgrade():
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+
+
+
     op.create_table('spots',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
@@ -44,6 +50,11 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE spots SET SCHEMA {SCHEMA};")
+
+
+
     op.create_table('bookings',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
@@ -56,6 +67,11 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE bookings SET SCHEMA {SCHEMA};")
+
+
+
     op.create_table('reviews',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
@@ -68,6 +84,12 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE reviews SET SCHEMA {SCHEMA};")
+
+
+
+
     op.create_table('spotImages',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('spot_id', sa.Integer(), nullable=False),
@@ -77,6 +99,9 @@ def upgrade():
     sa.ForeignKeyConstraint(['spot_id'], ['spots.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE spotImages SET SCHEMA {SCHEMA};")
+
     # ### end Alembic commands ###
 
 
