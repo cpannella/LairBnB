@@ -20,6 +20,7 @@ export default function OneSpot(){
   const reviewsState = useSelector(state => state.reviews)
   const reviews = Object.values(reviewsState)
   const [showEditReviewForm, setShowEditReviewForm] = useState(false)
+  const [editReviewId, setEditReviewId] = useState('')
   const filteredSpot = spots?.filter(spot => spot.id == +id)[0]
   const sessionUser = useSelector(state => state.session)
   const filteredReviews = reviews.filter(review => review.spot_id == id)
@@ -121,10 +122,10 @@ export default function OneSpot(){
               </div>
               {sessionUser.user && sessionUser?.user.id === review?.user_id &&
               <div>
-                <button  onClick={()=> setShowEditReviewForm(true)}>Edit</button>
+                <button  onClick={()=> [setShowEditReviewForm(true), setEditReviewId(review.id)]}>Edit</button>
               </div>
               }
-              {showEditReviewForm &&
+              {showEditReviewForm  && review.id == editReviewId &&
               <div className="edit-buttons">
                 <EditReviewForm review={review}></EditReviewForm>
                 <button onClick={()=> setShowEditReviewForm(false)}>Cancel</button>

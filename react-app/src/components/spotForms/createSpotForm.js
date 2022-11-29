@@ -43,8 +43,9 @@ export default function CreateSpotForm({setShowModal}){
       setDescription('')
       setCity('')
       setUrl('')
+      setShowModal(false)
 
-      history.push('/')
+
     }
   }
 
