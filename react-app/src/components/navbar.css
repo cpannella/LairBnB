@@ -28,7 +28,7 @@
 
 
 .app-icon{
-  width: 10vw;
+  max-width: 10vw;
   height: 10vh;
   border-radius: 50px;
   position: relative;
