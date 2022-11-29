@@ -65,7 +65,7 @@ export default function AllSpots(){
                     }
                     {spot?.reviews.length == 0 &&
                     <div>
-                      No reviews yet
+                      New
                     </div>
                     }
 

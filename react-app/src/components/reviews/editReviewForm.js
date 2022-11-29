@@ -58,6 +58,9 @@ function EditReviewForm({review}) {
         type="number"
         value={rating}
         maxLength={1}
+        
+        min="1"
+        max="5"
         required
         onChange={(e)=> setRating(e.target.value)}
         >
