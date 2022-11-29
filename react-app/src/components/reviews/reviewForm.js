@@ -73,7 +73,7 @@ function ReviewForm({filtered}) {
 
         </input>
       </label>
-      <button className="review-submit" type="submit">Add a review</button>
+      <button className="review-submit" type="submit">Add review</button>
       </div>
     </form>
   </div>
