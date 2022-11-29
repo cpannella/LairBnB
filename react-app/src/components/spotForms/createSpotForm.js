@@ -3,9 +3,10 @@ import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import { createSpotThunk, fetchSpots } from "../../store/spots";
 import { useHistory } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import './spotForms.css'
 
-export default function CreateSpotForm(){
+export default function CreateSpotForm({setShowModal}){
   const num = 0
   const dispatch = useDispatch()
   const history = useHistory()
@@ -62,7 +63,7 @@ export default function CreateSpotForm(){
         onChange={(e)=> setName(e.target.value)}
         >
         </input>
-        <div><p className="counter">{name?.length} </p></div>
+        <div><p className="counter">{name?.length}/60 </p></div>
 
         <input
         placeholder="Enter your lair's address"
@@ -123,13 +124,13 @@ export default function CreateSpotForm(){
         <input
         placeholder="Enter your lair's description"
         type="text"
-        maxLength={60}
+        maxLength={150}
         value={description}
         required
         onChange={(e)=> setDescription(e.target.value)}
         >
         </input>
-        <div><p className="counter">{description?.length}/100</p></div>
+        <div><p className="counter">{description?.length}/150</p></div>
 
         <input
         placeholder="Enter an ImageUrl for your lair"
@@ -143,8 +144,8 @@ export default function CreateSpotForm(){
         <div><p className="counter">{url?.length}/500</p></div>
 
         <button type="submit">Submit</button>
-        <button  onClick={()=> history.push('/')}> Cancel</button>
-
+        {/* <NavLink to={"/"} onClick={setShowModal(false)}>Cancel</NavLink> */}
+        {/* <button type="reset" onClick={setShowModal(false)}>Cancel</button> */}
       </form>
 
     </div>

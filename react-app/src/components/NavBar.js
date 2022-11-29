@@ -5,7 +5,8 @@ import LogoutButton from './auth/LogoutButton';
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import {Modal} from '../context/Modal.js'
-import CreateSpotForm from './spotForms/createSpotForm';
+
+import CreateSpotFormModal from './spotForms/createSpotFormModal'
 import './navbar.css'
 import icon from './LairBnBLogo.jpg'
 import LoginForm from './auth/LoginForm';
@@ -24,7 +25,7 @@ const NavBar = () => {
               <img className="app-icon"src={icon} onClick={()=> history.push('/')}></img>
               {sessionUser.user &&
               <div>
-                <button onClick={()=> history.push('/spots/new')}>Become a host</button>
+                <CreateSpotFormModal/>
               </div>}
             </div>
 

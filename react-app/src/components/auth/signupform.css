@@ -1,0 +1,124 @@
+.outermostSignupDiv{
+    display: flex;
+    flex-direction: row;
+    background-image: linear-gradient(#d6d6d6, #faf2dc);
+}
+
+#signInEmailBox{
+    margin-left: 132px;
+
+}
+
+.signupNavBar{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    min-height: 20px;
+    background-color: #d6d6d6;
+    justify-content: space-around;
+}
+
+#userNameSignUpBox{
+   margin-left: 80px;
+}
+
+
+#signUpLastNameBox{
+    margin-left: 80px;
+}
+
+#firstnamesignupbox{
+    margin-left: 66px;
+}
+
+
+#passwordSignUpIdBox{
+    margin-left: 92px;
+}
+
+#signupForm{
+    margin-bottom: 320px;
+    padding-bottom: 40px;
+    margin-left: 60px;
+    padding-left: 40px;
+    display: flex;
+    min-width: 250px;
+    align-items: left;
+    flex-direction: column;
+    background-image: linear-gradient(#d6d6d6, #f7eac6);
+
+}
+
+
+.imageSignupDiv{
+    flex-direction: row;
+    margin-top: 182px;
+    margin-left: 60px;
+    width: 300px;
+    height: 300px;
+}
+
+#signupImage{
+    height: 300px;
+    width: 300px;
+    border-radius: 20px;
+}
+
+.outerSignupDiv{
+
+    font-size: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+#loginButton{
+    width: 424px;
+    height: 3rem;
+    background-color: #EDB714;
+    color: #161614;
+    border-radius: 12px;
+    border: none;
+    font-weight: 700;
+    font-size: 20px;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 130px;
+    margin-top: 50px;
+}
+
+.emailSignupLabel{
+    font-size: 24px;
+    padding-bottom: 5px;
+    padding-top: 18px;
+    padding-right: 30px;
+
+}
+
+.signupemailbox{
+    width: 400px;
+    border-color: rgba(0, 0, 0, 0.836);
+    border-radius: 10px;
+    height: 22px;
+    padding: 10px;
+    font-size: 12px;
+    border-width: 1px;
+}
+
+#signupButton{
+    width: 424px;
+    height: 3rem;
+    background-color: #EDB714;
+    color: #161614;
+    border-radius: 12px;
+    border: none;
+    font-weight: 700;
+    font-size: 20px;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 230px;
+    margin-top: 40px;
+}

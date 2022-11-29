@@ -109,7 +109,8 @@ export default function EditSpotForm({setShowModal}){
         type="text"
         maxLength={20}
         value={state}
-        required
+
+        required pattern="[a-zA-Z,'. + -]+" title="Alphabetic characters only"
         onChange={(e)=> setState(e.target.value)}
         >
         </input>
@@ -120,7 +121,7 @@ export default function EditSpotForm({setShowModal}){
         type="text"
         maxLength={30}
         value={country}
-        required
+        required pattern="[a-zA-Z,'. + -]+" title="Alphabetic characters only"
         onChange={(e)=> setCountry(e.target.value)}
         >
         </input>
@@ -131,8 +132,8 @@ export default function EditSpotForm({setShowModal}){
         type="text"
         maxLength={60}
         value={price}
-        required
         onChange={(e)=> setPrice(e.target.value)}
+        required pattern="[0-9,'. + -]+" title="Numeric characters only"
         >
         </input>
         <div><p className="counter">{price?.length}/10</p></div>
@@ -140,13 +141,13 @@ export default function EditSpotForm({setShowModal}){
         <input
         placeholder="Enter your lair's description"
         type="textarea"
-        maxLength={100}
+        maxLength={150}
         value={description}
-        required
+        required pattern="[a-zA-Z,'. + -]+" title="Alphabetic characters only"
         onChange={(e)=> setDescription(e.target.value)}
         >
         </input>
-        <div><p className="counter">{description?.length}/100</p></div>
+        <div><p className="counter">{description?.length}/150</p></div>
 
         <input
         placeholder="Enter an ImageUrl for your lair"
@@ -160,7 +161,7 @@ export default function EditSpotForm({setShowModal}){
         <div><p className="counter">{url?.length}/500</p></div>
 
         <button type="submit">Submit</button>
-        <button  onClick={()=> history.push('/')}> Cancel</button>
+        <button  onClick={()=> history.push(`/spots/${id}`)}> Cancel</button>
 
       </form>
 

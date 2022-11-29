@@ -25,6 +25,7 @@ export default function OneSpot(){
   const filteredReviews = reviews.filter(review => review.spot_id == id)
   const reviewsLength = reviews?.length
   const spotImages = filteredSpot?.spotImages
+  console.log("filtered reviews", filteredReviews)
 
 
 
@@ -112,9 +113,10 @@ export default function OneSpot(){
         {filteredReviews?.map(review => (
           <div className="single-review">
             <div>
+            <p>{review?.user[0]?.username} said :</p>
             <p>{review.body}</p>
             <p>Rating: {review.rating}</p>
-            <p>User: {review.user_id}</p>
+            {console.log("THIS IS A CONSOLE LOG", review?.user[0]?.username)}
             </div>
             {sessionUser.user && sessionUser?.user.id === review?.user_id &&
             <div>

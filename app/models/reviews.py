@@ -15,11 +15,13 @@ class Review(db.Model):
   created_at = db.Column(db.DateTime, default= datetime.utcnow)
   updated_at = db.Column(db.DateTime, default= datetime.utcnow)
 
+  user = db.relationship("User", backref="reviews")
 
   def to_dict(self):
     return{
       "id": self.id,
       "user_id": self.user_id,
+      "user": [self.user.to_dict()],
       "spot_id": self.spot_id,
       "rating": self.rating,
       "body": self.body,

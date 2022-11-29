@@ -9,10 +9,10 @@ function CreateSpotFormModal(){
 
   return (
     <>
-      <button className="upload-button" onClick={() => setShowModal(true)}>Upload</button>
+      <button className="upload-button" onClick={() => setShowModal(true)}>Become a host</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <CreateSpotForm/>
+          <CreateSpotForm setShowModal={setShowModal}/>
         </Modal>
       )}
     </>
