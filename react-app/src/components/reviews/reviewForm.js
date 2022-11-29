@@ -5,6 +5,7 @@ import { createReviewThunk } from "../../store/reviews";
 import { useHistory, useParams } from "react-router-dom";
 
 import { fetchOneSpot, fetchSpots } from "../../store/spots";
+import './reviews.css'
 
 
 function ReviewForm({filtered}) {
@@ -43,10 +44,11 @@ function ReviewForm({filtered}) {
     <div className="review-form-container">
       <form className="reviewForm" onSubmit={handleSubmit}>
       <div className="">
-      <label>
+      <label className="review-input-field">
         <input
+          className="review-input-field"
           placeholder="Share your experience here. "
-          id="inputBoxnoteTaskDetails"
+          id="review-input-field"
           type="text"
           value={body}
           maxLength={200}
@@ -56,10 +58,13 @@ function ReviewForm({filtered}) {
       </label>
       <label>
         <input
-        placeholder="Give a rating from 1-5"
+        placeholder="Rate from 1-5"
+        className="review-rating-field"
         type="number"
         value={rating}
         maxLength={1}
+        min="1"
+        max="5"
         required
         onChange={(e)=> setRating(e.target.value)}
         >
@@ -68,7 +73,7 @@ function ReviewForm({filtered}) {
 
         </input>
       </label>
-      <button className="NoteButtonTaskDetails" type="submit">Add a note</button>
+      <button className="review-submit" type="submit">Add review</button>
       </div>
     </form>
   </div>

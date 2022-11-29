@@ -1,0 +1,95 @@
+#modal-background{
+  backdrop-filter: blur(15px);
+
+}
+#modal-content{
+  background-color: #edeefa;
+}
+
+
+.signupForm{
+}
+
+#loginForm{
+  display: flex;
+  min-width: 640px;
+  min-height: 320px;
+  align-items: center;
+  justify-items: center;
+  flex-direction: column;
+
+
+
+}
+
+.outerlogindiv{
+
+  font-size: 20px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+#loginButton{
+  width: 424px;
+  height: 3rem;
+  background-color:#ff3939;
+  color: #161614;
+  border-radius: 12px;
+  border: none;
+  font-weight: 700;
+  font-size: 20px;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 130px;
+  margin-top: 10px;
+  margin-bottom: 24px;
+}
+
+.demo {
+  width: 424px;
+  height: 3rem;
+  background-color: #ff3939;
+  color: #161614;
+  border-radius: 12px;
+  border: none;
+  font-weight: 700;
+  font-size: 20px;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 130px;
+  margin-bottom: 22px;
+
+}
+
+.emailLoginLabel{
+  font-size: 24px;
+  padding-bottom: 5px;
+  padding-top: 18px;
+  padding-right: 30px;
+
+}
+
+.loginemailbox{
+  width: 400px;
+  border-color: rgba(0, 0, 0, 0.836);
+  border-radius: 10px;
+  height: 22px;
+  padding: 10px;
+  font-size: 12px;
+  border-width: 1px;
+}
+
+#loginemailboxid{
+  margin-left: 36px;
+  margin-top: 30px;
+}
+
+#loginFormModalButtonDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
