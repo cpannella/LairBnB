@@ -62,7 +62,7 @@ export default function OneSpot(){
         <div className="spotImages-container">
           <div className="spot-description-container">
             <h2 className="spot-description">{filteredSpot?.name}</h2>
-            {sessionUser.user && sessionUser?.user.id !== filteredSpot?.user_id &&
+            {sessionUser.user && sessionUser?.user.id === filteredSpot?.user_id &&
             <div>
             {/* <button className="button-style"onClick={()=> history.push(`/spots/${id}/edit`)}>Edit spot</button> */}
             <EditSpotFormModal filteredSpot={filteredSpot}/>
