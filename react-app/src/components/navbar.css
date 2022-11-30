@@ -35,6 +35,7 @@
   position: relative;
   bottom: 2vh;
   right: 1vh;
+  cursor: pointer;
 }
 
 .logout-container{

@@ -44,13 +44,14 @@ const demoUser = () => {
 
   return (
     <form onSubmit={onLogin} id='loginForm'>
+      <div className="someDiv">
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
       <div className='outerlogindiv'>
-        <label htmlFor='email' className='emailLoginLabel'>Email</label>
+
         <input
           className='loginemailbox'
           id='loginemailboxid'
@@ -62,7 +63,7 @@ const demoUser = () => {
         />
       </div>
       <div className='outerlogindiv'>
-        <label htmlFor='password' className='emailLoginLabel'>Password</label>
+
         <input
           className='loginemailbox'
           name='password'
@@ -76,6 +77,7 @@ const demoUser = () => {
       <div id='loginFormModalButtonDiv'>
       <button id='loginButton' type='submit'>Login</button>
       <button className="demo" onClick={demoUser}>Demo User</button>
+      </div>
       </div>
     </form>
   );

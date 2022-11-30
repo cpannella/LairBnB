@@ -6,6 +6,7 @@
   max-width: 15vw;
   height: 25vh;
   border-radius: 15px;
+  cursor: pointer;
 }
 
 .spotImage-container{
