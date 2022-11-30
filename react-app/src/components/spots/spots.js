@@ -56,8 +56,8 @@ export default function AllSpots(){
                 <div classname="spotCard-details-container">
                   <div className="spotCard-details">
                     <h3 className="spotCard-info">{spot.name}</h3>
-                    <h4 className="spotCard-info">{spot.state}, {spot.country}</h4>
-                    <h4 className="spotCard-info">${spot.price}</h4>
+                    <h5 className="spotCard-info">{spot.state}, {spot.country}</h5>
+                    <h5 className="spotCard-info">${spot.price}</h5>
                     {spot?.reviews.length > 0 &&
                     <div>
                     {(avgcalculatr(spot.reviews.map(review=> review.rating))/spot.reviews.length).toFixed(1)} Star(s)
