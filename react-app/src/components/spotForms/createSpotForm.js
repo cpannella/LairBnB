@@ -55,6 +55,8 @@ export default function CreateSpotForm({setShowModal}){
     <div className="edit-spot-form-container">
       <form className="spot-forms" onSubmit={handleSubmit}>
         <div>Upload your spot</div>
+
+        <div>
         <input
         placeholder="Enter your lair's name"
         type="text"
@@ -65,30 +67,35 @@ export default function CreateSpotForm({setShowModal}){
         >
         </input>
         <div><p className="counter">{name?.length}/60 </p></div>
+        </div>
 
+        <div>
         <input
         placeholder="Enter your lair's address"
         type="text"
-        maxLength={30}
+        maxLength={20}
         value={address}
         required pattern="[a-zA-Z, 0-9, '. ! ? + -]+" title="Alphanumeric character's only"
         onChange={(e)=> setAddress(e.target.value)}
         >
         </input>
-        <div><p className="counter">{address?.length}/30</p></div>
+        <div><p className="counter">{address?.length}/20</p></div>
+        </div>
 
-
+        <div>
         <input
         placeholder="Enter your lair's city"
         type="text"
-        maxLength={30}
+        maxLength={20}
         value={city}
         required pattern="[a-zA-Z,'. + -]+" title="Alphabetic characters only"
         onChange={(e)=> setCity(e.target.value)}
         >
         </input>
-        <div><p className="counter">{city?.length}/30</p></div>
+        <p className="counter">{city?.length}/20</p>
+        </div>
 
+        <div>
         <input
         placeholder="Enter your lair's state"
         type="text"
@@ -99,30 +106,36 @@ export default function CreateSpotForm({setShowModal}){
         >
         </input>
         <div className="counter">{state?.length}/20</div>
+        </div>
 
+        <div>
         <input
         placeholder="Enter your lair's country"
         type="text"
-        maxLength={30}
+        maxLength={20}
         value={country}
         required
         onChange={(e)=> setCountry(e.target.value)}
         >
         </input>
-        <div><p className="counter">{address?.length}/30</p></div>
+        <div><p className="counter">{country?.length}/20</p></div>
+        </div>
 
+        <div>
         <input
         placeholder="Enter your lair's price"
         type="text"
-        maxLength={60}
+        maxLength={10}
         value={price}
-        required
+        required pattern="[0-9,'. + -]+" title="Numeric characters only"
         onChange={(e)=> setPrice(e.target.value)}
         >
         </input>
         <div><p className="counter">{price?.length}/10</p></div>
+        </div>
 
-        <input
+        <div>
+        <textarea
         placeholder="Enter your lair's description"
         type="textarea"
         maxLength={150}
@@ -130,9 +143,11 @@ export default function CreateSpotForm({setShowModal}){
         required
         onChange={(e)=> setDescription(e.target.value)}
         >
-        </input>
+        </textarea>
         <div><p className="counter">{description?.length}/150</p></div>
+        </div>
 
+        <div>
         <input
         placeholder="Enter an ImageUrl for your lair"
         type="text"
@@ -143,9 +158,10 @@ export default function CreateSpotForm({setShowModal}){
         >
         </input>
         <div><p className="counter">{url?.length}/500</p></div>
+        </div>
 
         <button type="submit">Submit</button>
-        
+
       </form>
 
     </div>

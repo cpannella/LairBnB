@@ -84,25 +84,25 @@ export default function EditSpotForm({setShowModal}){
         <input
         placeholder="Enter your lair's address"
         type="text"
-        maxLength={30}
+        maxLength={20}
         value={address}
         required pattern="[a-zA-Z, 0-9, '. ! ? + -]+" title="Alphanumeric character's only"
         onChange={(e)=> setAddress(e.target.value)}
         >
         </input>
-        <div><p className="counter">{address?.length}/30</p></div>
+        <div><p className="counter">{address?.length}/20</p></div>
 
 
         <input
         placeholder="Enter your lair's city"
         type="text"
-        maxLength={30}
+        maxLength={20}
         value={city}
         required pattern="[a-zA-Z,'. + -]+" title="Alphabetic characters only"
         onChange={(e)=> setCity(e.target.value)}
         >
         </input>
-        <div><p className="counter">{city?.length}/30</p></div>
+        <div><p className="counter">{city?.length}/20</p></div>
 
         <input
         placeholder="Enter your lair's state"
@@ -119,13 +119,13 @@ export default function EditSpotForm({setShowModal}){
         <input
         placeholder="Enter your lair's country"
         type="text"
-        maxLength={30}
+        maxLength={20}
         value={country}
         required pattern="[a-zA-Z,'. + -]+" title="Alphabetic characters only"
         onChange={(e)=> setCountry(e.target.value)}
         >
         </input>
-        <div><p className="counter">{address?.length}/30</p></div>
+        <div><p className="counter">{country?.length}/20</p></div>
 
         <input
         placeholder="Enter your lair's price"
@@ -138,15 +138,15 @@ export default function EditSpotForm({setShowModal}){
         </input>
         <div><p className="counter">{price?.length}/10</p></div>
 
-        <input
+        <textarea
         placeholder="Enter your lair's description"
         type="textarea"
         maxLength={150}
         value={description}
-        required pattern="[a-zA-Z,'. + -]+" title="Alphabetic characters only"
+        required pattern="[a-zA-Z, 0-9, '. ! ? + -]+" title="Alphanumeric character's only"
         onChange={(e)=> setDescription(e.target.value)}
         >
-        </input>
+        </textarea>
         <div><p className="counter">{description?.length}/150</p></div>
 
         <input
@@ -161,7 +161,7 @@ export default function EditSpotForm({setShowModal}){
         <div><p className="counter">{url?.length}/500</p></div>
 
         <button type="submit">Submit</button>
-        <button  onClick={()=> history.push(`/spots/${id}`)}> Cancel</button>
+        <button  className="cancel" onClick={()=> history.push(`/spots/${id}`)}> Cancel</button>
 
       </form>
 
