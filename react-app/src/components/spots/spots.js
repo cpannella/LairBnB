@@ -69,7 +69,7 @@ export default function AllSpots(){
                     }
                     {spot?.reviews.length == 0 &&
                     <div className="star-rating-container">
-                     <i class="fa-sharp fa-solid fa-star"></i> New
+                     <div><i class="fa-sharp fa-solid fa-star"></i> New</div>
                       {sessionUser.user && sessionUser.user.id === spot.user_id &&
                       <button onClick={()=> dispatch(deleteSpotThunk(spot.id))}>Delet</button>
                       }

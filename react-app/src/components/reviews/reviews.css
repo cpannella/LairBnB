@@ -1,17 +1,18 @@
 
 .review-input-field{
-  width:40vw;
+  width:52vw;
   height: 5vh;
   /* border: 1px solid pink; */
 }
 .reviewForm{
-  width:60vw;
+
   /* border: 1px solid blue; */
 }
 
 .review-form-container{
-
-  /* border: 1px solid black; */
+  width: 60vw;
+  border: 1px solid black;
+  height: 15vh;
 }
 
 .review-submit{
@@ -20,5 +21,5 @@
 
 .review-rating-field{
   height: 5vh;
-  width:
+  width: 7vw;
 }
