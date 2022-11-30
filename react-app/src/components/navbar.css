@@ -8,6 +8,7 @@
   position: fixed;
   margin: 0;
   background-color: whitesmoke;
+  z-index: 1;
 }
 
 .navHome{
@@ -34,4 +35,16 @@
   position: relative;
   bottom: 2vh;
   right: 1vh;
+}
+
+.logout-container{
+  display: flex;
+  position: relative;
+  bottom: 2vh;
+}
+
+.logout-button{
+  position: relative;
+  top:1.75vh;
+  height:5vh;
 }

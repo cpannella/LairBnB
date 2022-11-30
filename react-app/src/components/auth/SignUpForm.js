@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import './signupform.css'
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -56,18 +57,18 @@ const SignUpForm = () => {
   }
 
   return (
-    <>
+
 
     <div className='outermostSignupDiv'>
-      <div className='imageSignupDiv'>
-      </div>
-    <form onSubmit={onSignUp} id='signupForm'>
-      <div>
+
+    <form onSubmit={onSignUp} className='signupForm'>
+      <div className="someOther-div">
+      <div className="errors">
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
-      <div className='outerSignupDiv'>
+        <div className="label-container">
         <label className='emailSignupLabel'>User Name</label>
         <input
           id='userNameSignUpBox'
@@ -78,8 +79,8 @@ const SignUpForm = () => {
           value={username}
           required={true}
         ></input>
-      </div>
-      <div className='outerSignupDiv'>
+        </div>
+        <div className="label-container">
         <label className='emailSignupLabel'>Email</label>
         <input
           id='signInEmailBox'
@@ -90,9 +91,9 @@ const SignUpForm = () => {
           value={email}
           required={true}
         ></input>
-      </div>
+        </div>
 
-      <div className='outerSignupDiv'>
+        <div className="label-container">
           <label className='emailSignupLabel'>First Name</label>
           <input
           id='firstnamesignupbox'
@@ -103,9 +104,8 @@ const SignUpForm = () => {
           value={first_name}
           required={true}
         ></input>
-      </div>
-
-      <div className='outerSignupDiv'>
+        </div>
+        <div className="label-container">
           <label className='emailSignupLabel'>Last Name</label>
           <input
           id='signUpLastNameBox'
@@ -116,9 +116,10 @@ const SignUpForm = () => {
           value={last_name}
           required={true}
         ></input>
-      </div>
+        </div>
 
-      <div className='outerSignupDiv'>
+
+        <div className="label-container">
         <label className='emailSignupLabel'>Password</label>
         <input
           id='passwordSignUpIdBox'
@@ -129,10 +130,10 @@ const SignUpForm = () => {
           value={password}
           required={true}
         ></input>
-      </div>
+        </div>
 
-      <div className='outerSignupDiv' id='outerRepeatPasswordDiv'>
-        <label className='emailSignupLabel' >Repeat Password</label>
+        <div className="label-container">
+        <label className='emailSignupLabel' >Confirm Password</label>
         <input
           id='labelRepeatPassword'
           className='signupemailbox'
@@ -142,11 +143,13 @@ const SignUpForm = () => {
           value={repeatPassword}
           required={true}
         ></input>
-      </div>
-      <button id='signupButton' type='submit'>Sign Up</button>
+        </div>
+         <button id='signupButton' type='submit'>Sign Up</button>
+        </div>
+
     </form>
     </div>
-    </>
+
   );
 };
 

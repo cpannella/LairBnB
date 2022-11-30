@@ -37,7 +37,8 @@ const NavBar = () => {
             </div>
             }
             {sessionUser.user &&
-            <div>
+            <div className="logout-container">
+              <p>Welcome, {sessionUser?.user.username}</p>
               <LogoutButton />
             </div>
             }

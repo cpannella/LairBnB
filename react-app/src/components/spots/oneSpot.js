@@ -8,6 +8,8 @@ import { fetchOneSpot, fetchSpots } from "../../store/spots";
 import EditReviewForm from "../reviews/editReviewForm";
 import ReviewForm from "../reviews/reviewForm";
 import EditSpotFormModal from "../spotForms/editSpotFormModal";
+import "./spotsIndex.css"
+
 
 
 export default function OneSpot(){
@@ -64,7 +66,7 @@ export default function OneSpot(){
           <div className="spot-description-container">
             <h2 className="spot-description">{filteredSpot?.name}</h2>
             {sessionUser.user && sessionUser?.user.id === filteredSpot?.user_id &&
-            <div>
+            <div className="edit-form-container">
             {/* <button className="button-style"onClick={()=> history.push(`/spots/${id}/edit`)}>Edit spot</button> */}
             <EditSpotFormModal filteredSpot={filteredSpot}/>
             </div>

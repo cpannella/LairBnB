@@ -1,9 +1,43 @@
 .outermostSignupDiv{
+    background-color: #edeefa;
+    height: 40vh;
     display: flex;
-    flex-direction: row;
-    background-image: linear-gradient(#d6d6d6, #faf2dc);
+    justify-content: center;
+    align-items: center;
+    width: 25vw;
+    border-radius: 10px;
+    }
+.signupForm{
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid blue;
+
 }
 
+.someOther-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    align-items: center;
+    height: 40vh;
+    width: 25vw;
+}
+
+.label-container{
+
+ display: flex;
+ justify-content: space-evenly;
+ flex-direction: column;
+}
+
+.signupemailbox{
+    width: 20vw;
+}
+
+
+
+/*
 #signInEmailBox{
     margin-left: 132px;
 
@@ -37,10 +71,7 @@
 }
 
 #signupForm{
-    margin-bottom: 320px;
-    padding-bottom: 40px;
-    margin-left: 60px;
-    padding-left: 40px;
+
     display: flex;
     min-width: 250px;
     align-items: left;
@@ -51,11 +82,7 @@
 
 
 .imageSignupDiv{
-    flex-direction: row;
-    margin-top: 182px;
-    margin-left: 60px;
-    width: 300px;
-    height: 300px;
+
 }
 
 #signupImage{
@@ -65,7 +92,8 @@
 }
 
 .outerSignupDiv{
-
+    display: flex;
+    flex-direction: column;
     font-size: 20px;
     padding-bottom: 10px;
     padding-top: 10px;
@@ -87,29 +115,19 @@
     margin-left: 130px;
     margin-top: 50px;
 }
-
+*/
 .emailSignupLabel{
-    font-size: 24px;
-    padding-bottom: 5px;
-    padding-top: 18px;
-    padding-right: 30px;
+     font-size: 14px;
 
-}
+ }
 
-.signupemailbox{
-    width: 400px;
-    border-color: rgba(0, 0, 0, 0.836);
-    border-radius: 10px;
-    height: 22px;
-    padding: 10px;
-    font-size: 12px;
-    border-width: 1px;
-}
 
+
+/*
 #signupButton{
-    width: 424px;
+    /* width: 30vw;
     height: 3rem;
-    background-color: #EDB714;
+    background-color:#ff3939;
     color: #161614;
     border-radius: 12px;
     border: none;
@@ -119,6 +137,6 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    margin-left: 230px;
-    margin-top: 40px;
+
 }
+*/
