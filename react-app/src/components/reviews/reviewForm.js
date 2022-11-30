@@ -44,6 +44,7 @@ function ReviewForm({filtered}) {
     <div className="review-form-container">
       <form className="reviewForm" onSubmit={handleSubmit}>
       <div className="">
+      <p className="counter">{body?.length}/250</p>
       <label className="review-input-field">
         <input
           className="review-input-field"
