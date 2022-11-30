@@ -23,10 +23,23 @@
 .navEnd{
   display:flex;
   justify-content: space-between;
+  flex-direction: row;
   padding: 2vh;
-  width: 10vw;
+  width: 15vw;
 }
 
+.user-name{
+  position: relative;
+  right: 15px;
+}
+
+.account-buttons{
+  width: 15vw;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+
+}
 
 .app-icon{
   max-width: 10vw;
@@ -41,11 +54,17 @@
 .logout-container{
   display: flex;
   position: relative;
-  bottom: 2vh;
+  bottom: 1vh;
 }
 
 .logout-button{
   position: relative;
   top:1.75vh;
   height:5vh;
+}
+
+.upload-container{
+  position: relative;
+  left: 10px;
+  top: 5px;
 }

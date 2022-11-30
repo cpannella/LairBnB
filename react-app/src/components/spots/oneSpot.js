@@ -67,8 +67,8 @@ export default function OneSpot(){
             }
           </div>
 
-          <div>
-            <p>{spotAvgRating} <i class="fa-sharp fa-solid fa-star"></i> {filteredReviews.length} Review(s) {filteredSpot?.city}, {filteredSpot?.state}, {filteredSpot?.country}</p>
+          <div className="stuff">
+            <p>{spotAvgRating}<i class="fa-sharp fa-solid fa-star"></i></p> <p className="details-span">{filteredReviews.length}  Review(s)</p> <p className="details-span-two">{filteredSpot?.city}, {filteredSpot?.state}, {filteredSpot?.country}</p>
           </div>
 
 
@@ -106,28 +106,30 @@ export default function OneSpot(){
             }
             {filteredReviews?.map(review => (
               <div className="single-review">
-                <div>
-                <p>{review?.user[0]?.username} said :</p>
-                <p>{review.body}</p>
-                <p>Rating: {review.rating}</p>
-                {console.log("THIS IS A CONSOLE LOG", review?.user[0]?.username)}
-                </div>
-                {sessionUser.user && sessionUser?.user.id === review?.user_id &&
-                <div>
-                  <button  onClick={()=> [setShowEditReviewForm(true), setEditReviewId(review.id)]}>Edit</button>
-                </div>
-                }
-                {showEditReviewForm  && review.id == editReviewId &&
-                <div className="edit-buttons">
-                  <EditReviewForm review={review}></EditReviewForm>
-                  <button onClick={()=> setShowEditReviewForm(false)}>Cancel</button>
-                </div>
-                }
-                {sessionUser.user && sessionUser?.user.id === review?.user_id &&
-                <div>
-                  <button onClick={()=> dispatch(deleteReviewThunk(review.id))}>Delet</button>
-                </div>
-                }
+                    <div className="review-details">
+                    <p>{review?.user[0]?.username} said :</p>
+                    <p>{review.body}</p>
+                    <p>Rating: {review.rating}</p>
+                    </div>
+                    <div className="fugazi">
+                    {sessionUser.user && sessionUser?.user.id === review?.user_id &&
+                    <div>
+                    <button onClick={()=> [setShowEditReviewForm(true), setEditReviewId(review.id)]}>Edit</button>
+                    </div>
+                    }
+                    {sessionUser.user && sessionUser?.user.id === review?.user_id &&
+                    <div>
+                    <button className="delete-button"onClick={()=> dispatch(deleteReviewThunk(review.id))}>Delet</button>
+                    </div>}
+                    </div>
+
+                    {showEditReviewForm  && review.id == editReviewId &&
+                    <div className="edit-buttons">
+                    <EditReviewForm review={review} setShowEditReviewForm={setShowEditReviewForm}></EditReviewForm>
+                    {/* <button onClick={()=> setShowEditReviewForm(false)}>Cancel</button> */}
+                    </div>}
+
+
               </div>
             ))}
           </div>

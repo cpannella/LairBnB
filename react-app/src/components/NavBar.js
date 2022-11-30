@@ -24,21 +24,24 @@ const NavBar = () => {
             <div className="navHome">
               <img className="app-icon"src={icon} onClick={()=> history.push('/')}></img>
               {sessionUser.user &&
-              <div>
+              <div className="upload-container">
                 <CreateSpotFormModal/>
               </div>}
             </div>
 
             <div className="navEnd">
             {!sessionUser.user &&
-            <div>
+            <div className="account-buttons">
+
               <LoginFormModal/>
+
               <SignUpFormModal/>
+
             </div>
             }
             {sessionUser.user &&
             <div className="logout-container">
-              <p>Welcome, {sessionUser?.user.username}</p>
+              <p className="user-name">Welcome, {sessionUser?.user.username}</p>
               <LogoutButton />
             </div>
             }

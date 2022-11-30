@@ -56,14 +56,16 @@ export default function AllSpots(){
                 <div className="spotCard-details-container">
                   <div className="spotCard-details">
                     <h3 className="spotCard-info">{spot.name}</h3>
-                    <h5 className="spotCard-info">{spot.state}, {spot.country}</h5>
+                    <div>
+                    <p className="spotCard-info">{spot.state}, {spot.country}</p>
+                    </div>
                     <div className="price-detail"><h5 className="spotCard-info">${spot.price} night</h5></div>
                     </div>
                     {spot?.reviews.length > 0 &&
                     <div className="star-rating-container">
                     <div><i class="fa-sharp fa-solid fa-star"></i> {(avgcalculatr(spot.reviews.map(review=> review.rating))/spot.reviews.length).toFixed(1)} </div>
                     {sessionUser.user && sessionUser.user.id === spot.user_id &&
-                    <button onClick={()=> dispatch(deleteSpotThunk(spot.id))}>Delet</button>
+                    <button onClick={()=> dispatch(deleteSpotThunk(spot.id))}>Delete</button>
                     }
                     </div>
                     }

@@ -7,7 +7,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { fetchOneSpot, fetchSpots } from "../../store/spots";
 
 
-function EditReviewForm({review}) {
+function EditReviewForm({review, setShowEditReviewForm}) {
   const dispatch = useDispatch()
   const history = useHistory()
   const {id} = useParams()
@@ -38,7 +38,7 @@ function EditReviewForm({review}) {
 
 
   return (
-    <div className="review-form-container">
+    <div className="edit-review-form-container">
       <form className="reviewForm" onSubmit={handleSubmit}>
       <div className="">
       <label>
@@ -58,7 +58,7 @@ function EditReviewForm({review}) {
         type="number"
         value={rating}
         maxLength={1}
-        
+
         min="1"
         max="5"
         required
@@ -70,6 +70,7 @@ function EditReviewForm({review}) {
         </input>
       </label>
       <button className="NoteButtonTaskDetails" type="submit">Submit</button>
+      <button onClick={()=> setShowEditReviewForm(false)}>Cancel</button>
       </div>
     </form>
   </div>
