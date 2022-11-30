@@ -38,42 +38,44 @@ function EditReviewForm({review, setShowEditReviewForm}) {
 
 
   return (
-    <div className="edit-review-form-container">
-      <form className="reviewForm" onSubmit={handleSubmit}>
-      <div className="">
-      <label>
-        <input
-          placeholder="Share your experience here. "
-          id="inputBoxnoteTaskDetails"
-          type="text"
-          value={body}
-          maxLength={200}
+    
+      <div className="review-form-container">
+        <form className="reviewForm" onSubmit={handleSubmit}>
+        <div className="">
+        <label className="review-input-field">
+          <input
+            className="review-input-field"
+            placeholder="Share your experience here. "
+            id="review-input-field"
+            type="text"
+            value={body}
+            maxLength={200}
+            required
+            onChange={(e) => setBody(e.target.value)}
+          />
+        </label>
+        <label>
+          <input
+          placeholder="Rate from 1-5"
+          className="review-rating-field"
+          type="number"
+          value={rating}
+          maxLength={1}
+          min="1"
+          max="5"
           required
-          onChange={(e) => setBody(e.target.value)}
-        />
-      </label>
-      <label>
-        <input
-        placeholder="Give a rating from 1-5"
-        type="number"
-        value={rating}
-        maxLength={1}
-
-        min="1"
-        max="5"
-        required
-        onChange={(e)=> setRating(e.target.value)}
-        >
+          onChange={(e)=> setRating(e.target.value)}
+          >
 
 
 
-        </input>
-      </label>
-      <button className="NoteButtonTaskDetails" type="submit">Submit</button>
-      <button onClick={()=> setShowEditReviewForm(false)}>Cancel</button>
-      </div>
-    </form>
-  </div>
+          </input>
+        </label>
+        <button className="review-submit" type="submit">Add review</button>
+        <button onClick={()=> setShowEditReviewForm(false)}>Cancel</button>
+        </div>
+      </form>
+    </div>
 )
 
 }

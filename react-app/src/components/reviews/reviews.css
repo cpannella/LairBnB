@@ -1,12 +1,19 @@
 
 .review-input-field{
-  width:52vw;
+  width:45vw;
   height: 5vh;
+  border-radius: 5px;
   /* border: 1px solid pink; */
 }
 .reviewForm{
+position: relative;
+left: 0.75vh;
+/* border: 1px solid blue; */
+top: 5vh;
+}
 
-  /* border: 1px solid blue; */
+.edit-ReviewForm {
+
 }
 
 .review-form-container{
@@ -17,9 +24,14 @@
 
 .review-submit{
  height: 5.75vh;
+ position:relative;
+  left: 1vh;
 }
 
 .review-rating-field{
   height: 5vh;
   width: 7vw;
+  border-radius: 5px;
+  position: relative;
+  left: 0.5vh;
 }

@@ -99,11 +99,7 @@ export default function OneSpot(){
           <div>
           <h3>Reviews:</h3>
           <div className="all-reviews-container">
-            {sessionUser.user &&
-            <div>
-              <ReviewForm/>
-            </div>
-            }
+            
             {filteredReviews?.map(review => (
               <div className="single-review">
                     <div className="review-details">
@@ -132,6 +128,11 @@ export default function OneSpot(){
 
               </div>
             ))}
+             {sessionUser.user &&
+            <div>
+              <ReviewForm/>
+            </div>
+            }
           </div>
           </div>
         }
