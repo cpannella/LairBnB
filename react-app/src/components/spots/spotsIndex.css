@@ -9,6 +9,24 @@
   cursor: pointer;
 }
 
+.price-detail{
+  display: flex;
+}
+
+.spotCard-details{
+
+}
+.star-rating-container{
+
+}
+
+.spotCard-details-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 15vw;
+}
+
 .spotImage-container{
   display:flex;
   flex-direction: column;
@@ -41,6 +59,7 @@
 
 .spotCard-info{
  margin:0;
+ max-width:6vw;
 }
 
 .details-container{

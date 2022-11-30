@@ -1,6 +1,6 @@
 .outermostSignupDiv{
     background-color: #edeefa;
-    height: 405h;
+    height: 50vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,7 +10,7 @@
 .signupForm{
     display: flex;
     justify-content: space-between;
-    
+
 
 }
 
@@ -20,7 +20,7 @@
     justify-content: center;
 
     align-items: center;
-    height: 45vh;
+    height: 50vh;
     width: 25vw;
 }
 
@@ -122,6 +122,9 @@
 
  }
 
+ .signupemailbox{
+    height: 3vh;
+ }
 
 
 

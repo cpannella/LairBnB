@@ -41,7 +41,7 @@ export default function OneSpot(){
         let review = arr[i]
         sum += review.rating
     }
-    return sum/arr?.length + ` star(s)`
+    return sum/arr?.length.toFixed(2)
   }
 
   const spotAvgRating = avgRating(filteredReviews)
@@ -74,7 +74,7 @@ export default function OneSpot(){
           </div>
 
           <div>
-            <p>{spotAvgRating} {filteredReviews.length} Review(s) {filteredSpot?.city}, {filteredSpot?.state}, {filteredSpot?.country}</p>
+            <p>{spotAvgRating} <i class="fa-sharp fa-solid fa-star"></i> {filteredReviews.length} Review(s) {filteredSpot?.city}, {filteredSpot?.state}, {filteredSpot?.country}</p>
           </div>
 
 

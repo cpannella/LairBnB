@@ -22,7 +22,7 @@ const SignUpForm = () => {
       const data = await dispatch(signUp(username, email, password, first_name, last_name ));
       if (data) {
         setErrors(data)
-        
+
       }
     }
     else{setErrors(["Passwords must match"])}
@@ -68,6 +68,7 @@ const SignUpForm = () => {
           <div key={ind}>{error}</div>
         ))}
       </div>
+      Enter your information
         <div className="label-container">
         <label className='emailSignupLabel'>User Name</label>
         <input
@@ -77,7 +78,7 @@ const SignUpForm = () => {
           name='username'
           onChange={updateUsername}
           value={username}
-          required={true}
+          required pattern="[a-zA-Z,'. + -]+" title="Alphabetic characters only!"
         ></input>
         </div>
         <div className="label-container">
@@ -102,7 +103,8 @@ const SignUpForm = () => {
           name='firstName'
           onChange={updateFirstName}
           value={first_name}
-          required={true}
+          required pattern="[a-zA-Z,'. + -]+" title="Alphabetic characters only!"
+
         ></input>
         </div>
         <div className="label-container">
@@ -114,7 +116,7 @@ const SignUpForm = () => {
           name='lastName'
           onChange={updateLastName}
           value={last_name}
-          required={true}
+          required pattern="[a-zA-Z,'. + -]+" title="Alphabetic characters only!"
         ></input>
         </div>
 

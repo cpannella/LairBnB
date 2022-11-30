@@ -53,26 +53,30 @@ export default function AllSpots(){
                 <div>
                   <img onClick={()=> history.push(`spots/${spot.id}`)}className="main-spot-img" src={spot.url}></img>
                 </div>
-                <div classname="spotCard-details-container">
+                <div className="spotCard-details-container">
                   <div className="spotCard-details">
                     <h3 className="spotCard-info">{spot.name}</h3>
                     <h5 className="spotCard-info">{spot.state}, {spot.country}</h5>
-                    <h5 className="spotCard-info">${spot.price}</h5>
+                    <div className="price-detail"><h5 className="spotCard-info">${spot.price} night</h5></div>
+                    </div>
                     {spot?.reviews.length > 0 &&
-                    <div>
-                    {(avgcalculatr(spot.reviews.map(review=> review.rating))/spot.reviews.length).toFixed(1)} Star(s)
+                    <div className="star-rating-container">
+                    <div><i class="fa-sharp fa-solid fa-star"></i> {(avgcalculatr(spot.reviews.map(review=> review.rating))/spot.reviews.length).toFixed(1)} </div>
+                    {sessionUser.user && sessionUser.user.id === spot.user_id &&
+                    <button onClick={()=> dispatch(deleteSpotThunk(spot.id))}>Delet</button>
+                    }
                     </div>
                     }
                     {spot?.reviews.length == 0 &&
-                    <div>
-                      New
+                    <div className="star-rating-container">
+                     <i class="fa-sharp fa-solid fa-star"></i> New
+                      {sessionUser.user && sessionUser.user.id === spot.user_id &&
+                      <button onClick={()=> dispatch(deleteSpotThunk(spot.id))}>Delet</button>
+                      }
                     </div>
                     }
-                  </div>
                 </div>
-                {sessionUser.user && sessionUser.user.id === spot.user_id &&
-                <button onClick={()=> dispatch(deleteSpotThunk(spot.id))}>Delet</button>
-                }
+
               </div>
               )}
           </div>

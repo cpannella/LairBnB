@@ -124,7 +124,7 @@ export default function CreateSpotForm({setShowModal}){
 
         <input
         placeholder="Enter your lair's description"
-        type="text"
+        type="textarea"
         maxLength={150}
         value={description}
         required
@@ -145,8 +145,7 @@ export default function CreateSpotForm({setShowModal}){
         <div><p className="counter">{url?.length}/500</p></div>
 
         <button type="submit">Submit</button>
-        {/* <NavLink to={"/"} onClick={setShowModal(false)}>Cancel</NavLink> */}
-        {/* <button type="reset" onClick={setShowModal(false)}>Cancel</button> */}
+        
       </form>
 
     </div>
