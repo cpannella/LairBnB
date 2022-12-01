@@ -15,7 +15,10 @@ top: 5vh;
 .edit-ReviewForm {
 
 }
-
+.someDiv{
+  position: relative;
+  bottom: 3vh;
+}
 .review-form-container{
   width: 60vw;
   border: 1px solid black;
