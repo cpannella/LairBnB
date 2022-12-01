@@ -71,17 +71,17 @@ const SignUpForm = () => {
       Enter your information
         <div className="label-container">
         <label className='emailSignupLabel'>User Name</label>
-        <div><p className="counter">{username?.length}/10 </p></div>
+        <div><p className="counter">{username?.length}/15 </p></div>
         <input
           id='userNameSignUpBox'
           className='signupemailbox'
           type='text'
-          maxLength={10}
+          maxLength={15}
           name='username'
           onChange={updateUsername}
           value={username}
-          required pattern="[a-zA-Z,'. + -]+" title="Alphabetic characters only!"
-        ></input>
+          required pattern="[a-zA-Z, 0-9, '. ! ? + -]+" title="Alphanumeric character's only"
+          ></input>
         </div>
         <div className="label-container">
         <label className='emailSignupLabel'>Email</label>
