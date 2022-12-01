@@ -124,6 +124,7 @@ const SignUpForm = () => {
           name='lastName'
           onChange={updateLastName}
           value={last_name}
+          maxLength={15}
           required pattern="[a-zA-Z,'. + -]+" title="Alphabetic characters only!"
         ></input>
         </div>
