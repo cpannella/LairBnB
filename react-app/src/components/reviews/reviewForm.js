@@ -52,7 +52,7 @@ function ReviewForm({filtered}) {
           id="review-input-field"
           type="text"
           value={body}
-          maxLength={200}
+          maxLength={250}
           required
           onChange={(e) => setBody(e.target.value)}
         />
@@ -66,7 +66,8 @@ function ReviewForm({filtered}) {
         maxLength={1}
         min="1"
         max="5"
-        required
+        step="2"
+        required pattern="[0-9]+"
         onChange={(e)=> setRating(e.target.value)}
         >
 

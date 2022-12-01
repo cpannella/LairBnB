@@ -89,7 +89,7 @@ export default function OneSpot(){
           {filteredReviews?.length < 1 &&
           <div>
             <h3>No reviews yet</h3>
-            {sessionUser.user &&
+            {sessionUser.user && sessionUser.user.id !== filteredSpot.user_id &&
             <div>
             <ReviewForm />
             </div>
@@ -129,7 +129,7 @@ export default function OneSpot(){
 
               </div>
             ))}
-             {sessionUser.user &&
+             {sessionUser.user && sessionUser.user.id !== filteredSpot.user_id && 
             <div>
               <ReviewForm/>
             </div>

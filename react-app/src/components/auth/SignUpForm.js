@@ -71,11 +71,12 @@ const SignUpForm = () => {
       Enter your information
         <div className="label-container">
         <label className='emailSignupLabel'>User Name</label>
+        <div><p className="counter">{username?.length}/10 </p></div>
         <input
           id='userNameSignUpBox'
           className='signupemailbox'
           type='text'
-          max={10}
+          maxLength={10}
           name='username'
           onChange={updateUsername}
           value={username}
@@ -84,8 +85,10 @@ const SignUpForm = () => {
         </div>
         <div className="label-container">
         <label className='emailSignupLabel'>Email</label>
+        <div><p className="counter">{email?.length}/20 </p></div>
         <input
           id='signInEmailBox'
+          maxLength={20}
           className='signupemailbox'
           type='text'
           name='email'
@@ -96,10 +99,13 @@ const SignUpForm = () => {
         </div>
 
         <div className="label-container">
+
           <label className='emailSignupLabel'>First Name</label>
+          <div><p className="counter">{first_name?.length}/15 </p></div>
           <input
           id='firstnamesignupbox'
           className='signupemailbox'
+          maxLength={15}
           type='text'
           name='firstName'
           onChange={updateFirstName}
@@ -110,6 +116,7 @@ const SignUpForm = () => {
         </div>
         <div className="label-container">
           <label className='emailSignupLabel'>Last Name</label>
+          <div><p className="counter">{last_name?.length}/15 </p></div>
           <input
           id='signUpLastNameBox'
           className='signupemailbox'
@@ -124,7 +131,9 @@ const SignUpForm = () => {
 
         <div className="label-container">
         <label className='emailSignupLabel'>Password</label>
+        <div><p className="counter">{password?.length}/20 </p></div>
         <input
+          maxLength={20}
           id='passwordSignUpIdBox'
           className='signupemailbox'
           type='password'
@@ -137,7 +146,9 @@ const SignUpForm = () => {
 
         <div className="label-container">
         <label className='emailSignupLabel' >Confirm Password</label>
+        <div><p className="counter">{repeatPassword?.length}/20 </p></div>
         <input
+          maxLength={20}
           id='labelRepeatPassword'
           className='signupemailbox'
           type='password'

@@ -21,11 +21,14 @@ function EditReviewForm({review, setShowEditReviewForm}) {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+      // if (rating.length > 1)
     const payload = {
       body,
-      rating: parseInt(rating),
+
+      rating,
       spot_id,
-      reviewId
+      reviewId,
+
     }
     setBody('')
     setRating('')
@@ -50,7 +53,7 @@ function EditReviewForm({review, setShowEditReviewForm}) {
             id="review-input-field"
             type="text"
             value={body}
-            maxLength={200}
+            maxLength={250}
             required
             onChange={(e) => setBody(e.target.value)}
           />
@@ -63,6 +66,7 @@ function EditReviewForm({review, setShowEditReviewForm}) {
           value={rating}
           maxLength={1}
           min="1"
+          step="1"
           max="5"
           required
           onChange={(e)=> setRating(e.target.value)}
@@ -72,7 +76,7 @@ function EditReviewForm({review, setShowEditReviewForm}) {
 
           </input>
         </label>
-        <button className="review-submit" type="submit">Add review</button>
+        <button onClick={()=> setShowEditReviewForm(false)}className="review-submit" type="submit">Edit review</button>
         <button onClick={()=> setShowEditReviewForm(false)}>Cancel</button>
         </div>
       </form>
