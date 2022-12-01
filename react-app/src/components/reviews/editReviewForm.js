@@ -25,7 +25,7 @@ function EditReviewForm({review, setShowEditReviewForm}) {
     const payload = {
       body,
 
-      rating,
+      rating: rating[0],
       spot_id,
       reviewId,
 
@@ -66,7 +66,7 @@ function EditReviewForm({review, setShowEditReviewForm}) {
           value={rating}
           maxLength={1}
           min="1"
-          step="1"
+
           max="5"
           required
           onChange={(e)=> setRating(e.target.value)}
