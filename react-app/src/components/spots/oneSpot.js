@@ -9,7 +9,7 @@ import EditReviewForm from "../reviews/editReviewForm";
 import ReviewForm from "../reviews/reviewForm";
 import EditSpotFormModal from "../spotForms/editSpotFormModal";
 import "./spotsIndex.css"
-
+import defaultPic from './default.jpg'
 
 
 export default function OneSpot(){
@@ -74,7 +74,8 @@ export default function OneSpot(){
 
           <div className="spotImage-container">
                <div className="spotImage-container">
-                  <img className="details-image"src={filteredSpot?.url}></img>
+                  <img className="details-image"src={filteredSpot?.url}
+                   onError={e => {e.target.src=`${defaultPic}`}}></img>
 
                     <div className="description-container">
                       <h4>{filteredSpot?.description}</h4>
@@ -99,7 +100,7 @@ export default function OneSpot(){
           <div>
           <h3>Reviews:</h3>
           <div className="all-reviews-container">
-            
+
             {filteredReviews?.map(review => (
               <div className="single-review">
                     <div className="review-details">

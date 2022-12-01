@@ -75,6 +75,7 @@ const SignUpForm = () => {
           id='userNameSignUpBox'
           className='signupemailbox'
           type='text'
+          max={10}
           name='username'
           onChange={updateUsername}
           value={username}

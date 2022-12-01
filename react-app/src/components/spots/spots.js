@@ -17,7 +17,7 @@ export default function AllSpots(){
   const reviewsState = useSelector(state => state.reviews)
   const sessionUser = useSelector(state => state.session)
   console.log('this is the session user',sessionUser,)
-  console.log("THIS IS THE CONSOLE",defaultPic)
+
   const spots = Object.values(spotsState)
   const reviews = Object.values(reviewsState)
 
@@ -51,11 +51,8 @@ export default function AllSpots(){
             {spots.map(spot =>
               <div className="spotCard">
                 <div>
-                  <img onClick={()=> history.push(`spots/${spot.id}`)}className="main-spot-img"
-                  onError={e => { e.currentTarget.src={defaultPic}}}
-                  src={spot.url}
-                  alt='broken image'>
-                  </img>
+                  <img onClick={()=> history.push(`spots/${spot.id}`)}className="main-spot-img" src={spot.url}
+                  onError={e => {e.target.src=`${defaultPic}`}}></img>
                 </div>
                 <div className="spotCard-details-container">
                   <div className="spotCard-details">
