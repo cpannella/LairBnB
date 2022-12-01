@@ -116,7 +116,7 @@ export default function OneSpot(){
                     }
                     {sessionUser.user && sessionUser?.user.id === review?.user_id &&
                     <div>
-                    <button className="delete-button"onClick={()=> dispatch(deleteReviewThunk(review.id))}>Delet</button>
+                    <button className="delete-button"onClick={()=> dispatch(deleteReviewThunk(review.id))}>Delete</button>
                     </div>}
                     </div>
 

@@ -20,6 +20,7 @@ function EditReviewForm({review, setShowEditReviewForm}) {
   }, [dispatch, body, rating])
 
   const handleSubmit = async (e) => {
+    setShowEditReviewForm(false)
     e.preventDefault()
       // if (rating.length > 1)
     const payload = {
@@ -76,7 +77,7 @@ function EditReviewForm({review, setShowEditReviewForm}) {
 
           </input>
         </label>
-        <button onClick={()=> setShowEditReviewForm(false)}className="review-submit" type="submit">Edit review</button>
+        <button className="review-submit" type="submit">Edit review</button>
         <button onClick={()=> setShowEditReviewForm(false)}>Cancel</button>
         </div>
       </form>

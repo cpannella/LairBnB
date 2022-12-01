@@ -136,7 +136,7 @@ export default function EditSpotForm({setShowModal}){
         <input
         placeholder="Enter your lair's price"
         type="text"
-        maxLength={60}
+        maxLength={10}
         value={price}
         onChange={(e)=> setPrice(e.target.value)}
         required pattern="[0-9,'. + -]+" title="Numeric characters only"
