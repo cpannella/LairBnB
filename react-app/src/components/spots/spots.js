@@ -64,7 +64,7 @@ export default function AllSpots(){
                     </div>
                     {spot?.reviews.length > 0 &&
                     <div className="star-rating-container">
-                    <div><i class="fa-sharp fa-solid fa-star"></i> {(avgcalculatr(spot.reviews.map(review=> review.rating))/spot.reviews.length).toFixed(1)} </div>
+                    <div><i class="fa-sharp fa-solid fa-star"></i> {(avgcalculatr(spot.reviews.map(review=> review.rating))/spot.reviews.length).toFixed(2)} </div>
                     {sessionUser.user && sessionUser.user.id === spot.user_id &&
                     <button onClick={()=> dispatch(deleteSpotThunk(spot.id))}>Delete</button>
                     }
