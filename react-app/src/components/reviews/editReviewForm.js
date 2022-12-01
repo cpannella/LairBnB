@@ -22,7 +22,7 @@ function EditReviewForm({review, setShowEditReviewForm}) {
   const handleSubmit = async (e) => {
     setShowEditReviewForm(false)
     e.preventDefault()
-      // if (rating.length > 1)
+      
     const payload = {
       body,
 
