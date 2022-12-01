@@ -1,4 +1,4 @@
-# Flask React Project
+# LairBnB
 
 This is the starter for the Flask React project.
 
