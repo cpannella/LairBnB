@@ -67,6 +67,7 @@ useEffect(()=>{
         </div>
         <div>
         <input
+        className="spotInputField"
         placeholder="Enter your lair's name"
         type="text"
         maxLength={60}
@@ -76,12 +77,13 @@ useEffect(()=>{
         >
         </input>
         <div><p className="counter">{name?.length}/60 </p></div>
-        
+
 
 
         <input
         placeholder="Enter your lair's address"
         type="text"
+        className="spotInputField"
         maxLength={30}
         value={address}
         required pattern="[a-zA-Z, 0-9, '. ! ? + -]+" title="Alphanumeric character's only"
@@ -95,6 +97,7 @@ useEffect(()=>{
         <input
         placeholder="Enter your lair's city"
         type="text"
+        className="spotInputField"
         maxLength={20}
         value={city}
         required pattern="[a-zA-Z,'. + -]+" title="Alphabetic characters only"
@@ -108,6 +111,7 @@ useEffect(()=>{
         <input
         placeholder="Enter your lair's state"
         type="text"
+        className="spotInputField"
         maxLength={20}
         value={state}
         required
@@ -121,6 +125,7 @@ useEffect(()=>{
         <input
         placeholder="Enter your lair's country"
         type="text"
+        className="spotInputField"
         maxLength={20}
         value={country}
         required
@@ -134,6 +139,7 @@ useEffect(()=>{
         <input
         placeholder="Enter your lair's price"
         type="text"
+        className="spotInputField"
         maxLength={10}
         value={price}
         required pattern="[0-9,'. + -]+" title="Numeric characters only"

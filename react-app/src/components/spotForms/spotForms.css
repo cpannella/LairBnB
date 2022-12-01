@@ -18,7 +18,7 @@
 }
 
 .spot-forms{
-  height: 65vh;
+  height: 66vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -36,4 +36,9 @@ textarea{
 .cancel{
   position: relative;
   top: 1vh;
+}
+
+
+.spotInputField{
+  width: 16vw;
 }
