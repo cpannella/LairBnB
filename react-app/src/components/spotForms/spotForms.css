@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
 
-  height: 70vh;
+  height: 77vh;
   width: 20vw;
 }
 
@@ -14,6 +14,7 @@
   margin: 0;
   color:gray;
   font-size: 12px;
+
 }
 
 .spot-forms{
@@ -25,8 +26,8 @@
 }
 
 textarea{
-  min-width:12.5vw;
-  max-width: 12.5vw;
+  min-width:16vw;
+  max-width: 16vw;
   min-height: 15vh;
   max-height: 15vh;
   resize: none;

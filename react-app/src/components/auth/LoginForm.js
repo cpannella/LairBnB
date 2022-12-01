@@ -43,7 +43,10 @@ const demoUser = () => {
   }
 
   return (
+    <div>
     <form onSubmit={onLogin} id='loginForm'>
+      <p>Login</p>
+
       <div className="someDiv">
       <div>
         {errors.map((error, ind) => (
@@ -80,6 +83,7 @@ const demoUser = () => {
       </div>
       </div>
     </form>
+    </div>
   );
 };
 

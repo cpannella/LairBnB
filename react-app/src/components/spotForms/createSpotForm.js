@@ -20,7 +20,7 @@ export default function CreateSpotForm({setShowModal}){
   const [url, setUrl] = useState('')
   const [count, setCount] = useState(60)
   const [validationErrors, setValidationErrors] = useState([])
-  
+
   const handleSubmit= async (e) => {
     e.preventDefault()
     const payload={
@@ -45,20 +45,26 @@ export default function CreateSpotForm({setShowModal}){
       setCity('')
       setUrl('')
       setShowModal(false)
-
-
     }
   }
 
-
-
+useEffect(()=>{
+  const errors = []
+  console.log("THIS IS A CONSOLE LOG",!url.endsWith('jpg'))
+  if(!((url.endsWith(".jpg"))||(url.endsWith('.png'))))errors.push("Must be valid image type 'jpg', or 'png'")
+  setValidationErrors(errors)
+},[url])
 
   return (
 
     <div className="edit-spot-form-container">
       <form className="spot-forms" onSubmit={handleSubmit}>
         <div>Upload your spot</div>
-
+        <div>
+        {validationErrors.map((error, ind) => (
+          <div key={ind}><p className="counter">{error}</p></div>
+        ))}
+        </div>
         <div>
         <input
         placeholder="Enter your lair's name"
@@ -70,9 +76,9 @@ export default function CreateSpotForm({setShowModal}){
         >
         </input>
         <div><p className="counter">{name?.length}/60 </p></div>
-        </div>
+        
 
-        <div>
+
         <input
         placeholder="Enter your lair's address"
         type="text"
@@ -151,7 +157,7 @@ export default function CreateSpotForm({setShowModal}){
         </div>
 
         <div>
-          <p className='counter'> Must be valid image 'jpg, png, jpeg'</p>
+          <p className='counter'> Must be valid image 'jpg, or png'</p>
           <p className="counter">If file is corrupted a default will be provided</p>
         <input
         placeholder="Enter an ImageUrl for your lair"
@@ -165,7 +171,10 @@ export default function CreateSpotForm({setShowModal}){
         <div><p className="counter">{url?.length}/500</p></div>
         </div>
 
-        <button type="submit">Submit</button>
+        <button type="submit"
+        disabled={validationErrors.length > 0}
+        >Submit</button>
+
 
       </form>
 

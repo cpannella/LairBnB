@@ -68,3 +68,37 @@
   left: 10px;
   top: 5px;
 }
+
+.aboutLink{
+  max-width: 5vw;
+  max-height: 5vh;
+}
+
+
+.footer{
+  position: fixed;
+  bottom: 0;
+  height: 5vh;
+  width: 100%;
+  border-top: 1px solid;
+  background-color: whitesmoke;
+  z-index: 1;
+}
+
+
+.link-container{
+  position: relative;
+
+  top: 3vh;
+
+}
+
+.linked{
+  position: relative;
+  left: 3vw;
+}
+
+#about{
+  position: relative;
+  bottom: 1vh;
+}
