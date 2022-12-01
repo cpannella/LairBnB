@@ -84,13 +84,13 @@ export default function EditSpotForm({setShowModal}){
         <input
         placeholder="Enter your lair's address"
         type="text"
-        maxLength={20}
+        maxLength={30}
         value={address}
         required pattern="[a-zA-Z, 0-9, '. ! ? + -]+" title="Alphanumeric character's only"
         onChange={(e)=> setAddress(e.target.value)}
         >
         </input>
-        <div><p className="counter">{address?.length}/20</p></div>
+        <div><p className="counter">{address?.length}/30</p></div>
 
 
         <input

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import { createSpotThunk, fetchSpots } from "../../store/spots";
@@ -19,7 +19,8 @@ export default function CreateSpotForm({setShowModal}){
   const [city, setCity] = useState('')
   const [url, setUrl] = useState('')
   const [count, setCount] = useState(60)
-
+  const [validationErrors, setValidationErrors] = useState([])
+  
   const handleSubmit= async (e) => {
     e.preventDefault()
     const payload={
@@ -50,6 +51,8 @@ export default function CreateSpotForm({setShowModal}){
   }
 
 
+
+
   return (
 
     <div className="edit-spot-form-container">
@@ -73,13 +76,13 @@ export default function CreateSpotForm({setShowModal}){
         <input
         placeholder="Enter your lair's address"
         type="text"
-        maxLength={20}
+        maxLength={30}
         value={address}
         required pattern="[a-zA-Z, 0-9, '. ! ? + -]+" title="Alphanumeric character's only"
         onChange={(e)=> setAddress(e.target.value)}
         >
         </input>
-        <div><p className="counter">{address?.length}/20</p></div>
+        <div><p className="counter">{address?.length}/30</p></div>
         </div>
 
         <div>
@@ -140,7 +143,7 @@ export default function CreateSpotForm({setShowModal}){
         type="textarea"
         maxLength={150}
         value={description}
-        required
+        required="[a-zA-Z, 0-9, '. ! ? + -]+" title="Alphanumeric character's only"
         onChange={(e)=> setDescription(e.target.value)}
         >
         </textarea>
@@ -148,6 +151,8 @@ export default function CreateSpotForm({setShowModal}){
         </div>
 
         <div>
+          <p className='counter'> Must be valid image 'jpg, png, jpeg'</p>
+          <p className="counter">If file is corrupted a default will be provided</p>
         <input
         placeholder="Enter an ImageUrl for your lair"
         type="text"
