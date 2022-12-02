@@ -105,7 +105,7 @@ export default function OneSpot(){
               <div className="single-review">
                     <div className="review-details">
                     <p>{review?.user[0]?.username} said :</p>
-                    <p>{review.body}</p>
+                    <p className="review-body">{review.body}</p>
                     <p>Rating: {review.rating}</p>
                     </div>
                     <div className="fugazi">

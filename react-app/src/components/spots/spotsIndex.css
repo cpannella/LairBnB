@@ -128,9 +128,13 @@
   text-decoration: underline;
 }
 
+.review-body{}
+
 .single-review{
   border-bottom:0.5px solid black;
   min-width:60vw;
+  white-space: pre-line;
+  word-wrap: break-word;
 }
 .delete-button{
   position: relative;
