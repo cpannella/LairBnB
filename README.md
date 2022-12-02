@@ -1,7 +1,13 @@
-# LairBnB
+# Welcome to LairBnB
 
 ## Live site
  https://lairbnb-2maf.onrender.com/
+
+![image](https://user-images.githubusercontent.com/103207922/205351740-ea340892-e617-45b4-a844-c2989030de14.png)
+
+
+![image](https://user-images.githubusercontent.com/103207922/205351826-69f9f388-e035-4e0c-9bc8-ddcbdd57fdf2.png)
+
 
 ## Getting started
 1. Clone this repository (only this branch)
@@ -92,6 +98,7 @@ To learn WTForms check out the [WTForms documentation](https://wtforms.readthedo
   - [ ] Feature 3 - Search - Users will be able to search spots by keyword parameters
     - [ ] Feature 4 - Bookings - Users will be able to create bookings to plan spots.
 
+In the future, I would like to integrate AWS and Google Maps for hosts to use.
 
 
 
