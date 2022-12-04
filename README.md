@@ -1,6 +1,13 @@
-# LairBnB
+# Welcome to LairBnB
 
-This is the starter for the Flask React project.
+## Live site
+ https://lairbnb-2maf.onrender.com/
+
+![image](https://user-images.githubusercontent.com/103207922/205351740-ea340892-e617-45b4-a844-c2989030de14.png)
+
+
+![image](https://user-images.githubusercontent.com/103207922/205351826-69f9f388-e035-4e0c-9bc8-ddcbdd57fdf2.png)
+
 
 ## Getting started
 1. Clone this repository (only this branch)
@@ -83,6 +90,31 @@ To learn SQLAlchemy check out the [SQLAlchemy documentation](https://www.sqlalch
 To learn WTForms check out the [WTForms documentation](https://wtforms.readthedocs.io/en/2.3.x/).
 
 
+<!-- ROADMAP -->
+## Roadmap
+
+- [x] Feature 1 - Spots - Users can upload, edit, delete spots.
+    - [x] Feature 2 - Reviews - Users can post and delete reviews on spots.
+  - [ ] Feature 3 - Search - Users will be able to search spots by keyword parameters
+    - [ ] Feature 4 - Bookings - Users will be able to create bookings to plan spots.
+
+In the future, I would like to integrate AWS and Google Maps for hosts to use.
+
+
+
+
+## Built With
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+
+![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
+
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)  
+
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
+
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 
 
 # Contact The Project Developer
