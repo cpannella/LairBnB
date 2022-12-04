@@ -66,7 +66,6 @@ function ReviewForm({filtered}) {
         maxLength={1}
         min="1"
         max="5"
-        
         required pattern="[0-9]+"
         onChange={(e)=> setRating(e.target.value)}
         >
