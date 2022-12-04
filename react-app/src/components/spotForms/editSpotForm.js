@@ -135,7 +135,7 @@ export default function EditSpotForm({setShowModal}){
 
         <input
         placeholder="Enter your lair's price"
-        type="number"
+        type="text"
         maxLength={10}
         value={price}
         onChange={(e)=> setPrice(e.target.value)}
