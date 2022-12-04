@@ -42,3 +42,12 @@ textarea{
 .spotInputField{
   width: 16vw;
 }
+
+#create-error{
+  color: red;
+}
+
+
+#edit-error{
+  color: red;
+}

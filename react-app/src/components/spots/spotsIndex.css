@@ -30,12 +30,14 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  word-wrap: break-word;
 
 }
 
 .spotImage-container{
   display:flex;
   flex-direction: column;
+  overflow: hidden;;
 }
 .details-image{
   width: 60vw;
@@ -153,9 +155,15 @@
 .spot-description-container{
   display: flex;
   flex-direction: row;
+  word-wrap: break-word;
+  overflow: hidden;
 }
 
 .button-style{
   height: 3vh;
   margin: 2.5vh;
+}
+
+.spot-description{
+  word-wrap: break-word;
 }

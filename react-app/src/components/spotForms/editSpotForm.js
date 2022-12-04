@@ -72,7 +72,7 @@ export default function EditSpotForm({setShowModal}){
       <form className="spot-forms" onSubmit={handleSubmit}>
       <div>
         {validationErrors.map((error, ind) => (
-          <div key={ind}><p className="counter">{error}</p></div>
+          <div key={ind}><p id="edit-error" className="counter">{error}</p></div>
         ))}
         </div>
         <div>Edit spot form</div>
@@ -135,7 +135,7 @@ export default function EditSpotForm({setShowModal}){
 
         <input
         placeholder="Enter your lair's price"
-        type="text"
+        type="number"
         maxLength={10}
         value={price}
         onChange={(e)=> setPrice(e.target.value)}

@@ -62,7 +62,7 @@ useEffect(()=>{
         <div>Upload your spot</div>
         <div>
         {validationErrors.map((error, ind) => (
-          <div key={ind}><p className="counter">{error}</p></div>
+          <div key={ind}><p id="create-error"className="counter">{error}</p></div>
         ))}
         </div>
         <div>
@@ -114,8 +114,8 @@ useEffect(()=>{
         className="spotInputField"
         maxLength={20}
         value={state}
-        required
         onChange={(e)=> setState(e.target.value)}
+        required pattern="[a-zA-Z,'. + -]+" title="Alphabetic characters only"
         >
         </input>
         <div className="counter">{state?.length}/20</div>
@@ -128,7 +128,7 @@ useEffect(()=>{
         className="spotInputField"
         maxLength={20}
         value={country}
-        required
+        required pattern="[a-zA-Z,'. + -]+" title="Alphabetic characters only"
         onChange={(e)=> setCountry(e.target.value)}
         >
         </input>
@@ -142,7 +142,7 @@ useEffect(()=>{
         className="spotInputField"
         maxLength={10}
         value={price}
-        required pattern="[0-9,'. + -]+" title="Numeric characters only"
+        required pattern="[0-9]+" title="Numeric characters only"
         onChange={(e)=> setPrice(e.target.value)}
         >
         </input>

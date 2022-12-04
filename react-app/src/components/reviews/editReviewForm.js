@@ -22,11 +22,14 @@ function EditReviewForm({review, setShowEditReviewForm}) {
   const handleSubmit = async (e) => {
     setShowEditReviewForm(false)
     e.preventDefault()
-      
+
+    if(!rating){
+      rating = review?.rating
+    }
+    console.log("THIS IS THE RATING CONSOLE LOG", review.rating)
     const payload = {
       body,
-
-      rating: rating[0],
+      rating: parseInt(rating[0]),
       spot_id,
       reviewId,
 
