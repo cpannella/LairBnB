@@ -29,7 +29,7 @@ function EditReviewForm({review, setShowEditReviewForm}) {
     console.log("THIS IS THE RATING CONSOLE LOG", review.rating)
     const payload = {
       body,
-      rating: parseInt(rating[0]),
+      rating: rating[0] || rating,
       spot_id,
       reviewId,
 
@@ -70,9 +70,9 @@ function EditReviewForm({review, setShowEditReviewForm}) {
           value={rating}
           maxLength={1}
           min="1"
-
+          required pattern="[0-9]+"
           max="5"
-          required
+
           onChange={(e)=> setRating(e.target.value)}
           >
 
