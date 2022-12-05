@@ -139,7 +139,7 @@ export default function EditSpotForm({setShowModal}){
         maxLength={10}
         value={price}
         onChange={(e)=> setPrice(e.target.value)}
-        required pattern="[0-9,'. + -]+" title="Numeric characters only"
+        required pattern="[0-9]+" title="Numeric characters only"
         >
         </input>
         <div><p className="counter">{price?.length}/10</p></div>
