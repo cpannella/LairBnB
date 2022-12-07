@@ -3,6 +3,10 @@
 ## Live site
  https://lairbnb-2maf.onrender.com/
 
+LairBnB is a full stack application inspired by AirBnB but witha  fun twuist. 
+Built with React and Flask this application will eventually become a full clone of airBnB
+
+
 ![image](https://user-images.githubusercontent.com/103207922/205351740-ea340892-e617-45b4-a844-c2989030de14.png)
 
 
