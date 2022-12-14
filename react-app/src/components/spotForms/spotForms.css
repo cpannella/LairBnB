@@ -4,23 +4,50 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid blue;
-  height: 50vh;
-  width: 15vw;
+
+  height: 77vh;
+  width: 20vw;
 }
 
-
-.GUNIT-spot-form-container{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 50vh;
-  width: 15vw;
-  border: 1px solid blue;
-}
 
 .counter{
   margin: 0;
   color:gray;
   font-size: 12px;
+
+}
+
+.spot-forms{
+  height: 66vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+textarea{
+  min-width:16vw;
+  max-width: 16vw;
+  min-height: 15vh;
+  max-height: 15vh;
+  resize: none;
+}
+
+.cancel{
+  position: relative;
+  top: 1vh;
+}
+
+
+.spotInputField{
+  width: 16vw;
+}
+
+#create-error{
+  color: red;
+}
+
+
+#edit-error{
+  color: red;
 }

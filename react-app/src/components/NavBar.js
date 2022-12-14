@@ -5,13 +5,16 @@ import LogoutButton from './auth/LogoutButton';
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import {Modal} from '../context/Modal.js'
-
+import linked from './linkedicon.jpg'
+import giticon from './giticon.jpg'
 import CreateSpotFormModal from './spotForms/createSpotFormModal'
 import './navbar.css'
 import icon from './LairBnBLogo.jpg'
 import LoginForm from './auth/LoginForm';
 import LoginFormModal from './auth/LoginFormModal';
 import SignUpFormModal from './auth/SignUpFormModal';
+import SearchBar from './searchBar';
+
 const NavBar = () => {
   const history = useHistory()
   const sessionUser = useSelector(state => state.session)
@@ -24,20 +27,34 @@ const NavBar = () => {
             <div className="navHome">
               <img className="app-icon"src={icon} onClick={()=> history.push('/')}></img>
               {sessionUser.user &&
-              <div>
+              <div className="upload-container">
                 <CreateSpotFormModal/>
               </div>}
+            <SearchBar/>
             </div>
+            <div className="link-container">
+        <a href="https://github.com/cpannella/LairBnB">
+        <img className="aboutLink"src={giticon}></img>
+        </a>
+        <a className="linked"href="https://www.linkedin.com/in/chrisotpher-pannella-ab0852242/">
+        <img className="aboutLink" src={linked}></img>
+        </a>
+
+      </div>
 
             <div className="navEnd">
             {!sessionUser.user &&
-            <div>
+            <div className="account-buttons">
+
               <LoginFormModal/>
+
               <SignUpFormModal/>
+
             </div>
             }
             {sessionUser.user &&
-            <div>
+            <div className="logout-container">
+              <p className="user-name">Welcome, {sessionUser?.user.username}</p>
               <LogoutButton />
             </div>
             }

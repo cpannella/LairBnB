@@ -8,6 +8,7 @@
   position: fixed;
   margin: 0;
   background-color: whitesmoke;
+  z-index: 1;
 }
 
 .navHome{
@@ -22,16 +23,82 @@
 .navEnd{
   display:flex;
   justify-content: space-between;
+  flex-direction: row;
   padding: 2vh;
-  width: 10vw;
+  width: 15vw;
 }
 
+.user-name{
+  position: relative;
+  right: 15px;
+}
+
+.account-buttons{
+  width: 15vw;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+
+}
 
 .app-icon{
-  width: 10vw;
+  max-width: 10vw;
   height: 10vh;
   border-radius: 50px;
   position: relative;
   bottom: 2vh;
   right: 1vh;
+  cursor: pointer;
+}
+
+.logout-container{
+  display: flex;
+  position: relative;
+  bottom: 1vh;
+}
+
+.logout-button{
+  position: relative;
+  top:1.75vh;
+  height:5vh;
+}
+
+.upload-container{
+  position: relative;
+  left: 10px;
+  top: 5px;
+}
+
+.aboutLink{
+  max-width: 5vw;
+  max-height: 5vh;
+}
+
+
+.footer{
+  position: fixed;
+  bottom: 0;
+  height: 5vh;
+  width: 100%;
+  border-top: 1px solid;
+  background-color: whitesmoke;
+  z-index: 1;
+}
+
+
+.link-container{
+  position: relative;
+
+  top: 3vh;
+
+}
+
+.linked{
+  position: relative;
+  left: 3vw;
+}
+
+#about{
+  position: relative;
+  bottom: 1vh;
 }

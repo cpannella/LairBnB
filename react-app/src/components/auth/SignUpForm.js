@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import './signupform.css'
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -13,15 +14,15 @@ const SignUpForm = () => {
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
-  console.log("first name", first_name, "last_name", last_name)
+
     const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-
-      const data = await dispatch(signUp(username, email, first_name, last_name, password));
+      console.log("first",first_name, "last",last_name, "PW",password)
+      const data = await dispatch(signUp(username, email, password, first_name, last_name ));
       if (data) {
         setErrors(data)
-        console.log("data",data)
+
       }
     }
     else{setErrors(["Passwords must match"])}
@@ -56,33 +57,38 @@ const SignUpForm = () => {
   }
 
   return (
-    <>
+
 
     <div className='outermostSignupDiv'>
-      <div className='imageSignupDiv'>
-      </div>
-    <form onSubmit={onSignUp} id='signupForm'>
-      <div>
+
+    <form onSubmit={onSignUp} className='signupForm'>
+      <div className="someOther-div">
+      <div className="errors">
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
-      <div className='outerSignupDiv'>
+      Enter your information
+        <div className="label-container">
         <label className='emailSignupLabel'>User Name</label>
+        <div><p className="counter">{username?.length}/15 </p></div>
         <input
           id='userNameSignUpBox'
           className='signupemailbox'
           type='text'
+          maxLength={15}
           name='username'
           onChange={updateUsername}
           value={username}
-          required={true}
-        ></input>
-      </div>
-      <div className='outerSignupDiv'>
+          required pattern="[a-zA-Z, 0-9, '. ! ? + -]+" title="Alphanumeric character's only"
+          ></input>
+        </div>
+        <div className="label-container">
         <label className='emailSignupLabel'>Email</label>
+        <div><p className="counter">{email?.length}/20 </p></div>
         <input
           id='signInEmailBox'
+          maxLength={20}
           className='signupemailbox'
           type='text'
           name='email'
@@ -90,23 +96,27 @@ const SignUpForm = () => {
           value={email}
           required={true}
         ></input>
-      </div>
+        </div>
 
-      <div className='outerSignupDiv'>
+        <div className="label-container">
+
           <label className='emailSignupLabel'>First Name</label>
+          <div><p className="counter">{first_name?.length}/15 </p></div>
           <input
           id='firstnamesignupbox'
           className='signupemailbox'
+          maxLength={15}
           type='text'
           name='firstName'
           onChange={updateFirstName}
           value={first_name}
-          required={true}
-        ></input>
-      </div>
+          required pattern="[a-zA-Z,'. + -]+" title="Alphabetic characters only!"
 
-      <div className='outerSignupDiv'>
+        ></input>
+        </div>
+        <div className="label-container">
           <label className='emailSignupLabel'>Last Name</label>
+          <div><p className="counter">{last_name?.length}/15 </p></div>
           <input
           id='signUpLastNameBox'
           className='signupemailbox'
@@ -114,13 +124,17 @@ const SignUpForm = () => {
           name='lastName'
           onChange={updateLastName}
           value={last_name}
-          required={true}
+          maxLength={15}
+          required pattern="[a-zA-Z,'. + -]+" title="Alphabetic characters only!"
         ></input>
-      </div>
+        </div>
 
-      <div className='outerSignupDiv'>
+
+        <div className="label-container">
         <label className='emailSignupLabel'>Password</label>
+        <div><p className="counter">{password?.length}/20 </p></div>
         <input
+          maxLength={20}
           id='passwordSignUpIdBox'
           className='signupemailbox'
           type='password'
@@ -129,11 +143,13 @@ const SignUpForm = () => {
           value={password}
           required={true}
         ></input>
-      </div>
+        </div>
 
-      <div className='outerSignupDiv' id='outerRepeatPasswordDiv'>
-        <label className='emailSignupLabel' >Repeat Password</label>
+        <div className="label-container">
+        <label className='emailSignupLabel' >Confirm Password</label>
+        <div><p className="counter">{repeatPassword?.length}/20 </p></div>
         <input
+          maxLength={20}
           id='labelRepeatPassword'
           className='signupemailbox'
           type='password'
@@ -142,11 +158,13 @@ const SignUpForm = () => {
           value={repeatPassword}
           required={true}
         ></input>
-      </div>
-      <button id='signupButton' type='submit'>Sign Up</button>
+        </div>
+         <button id='signupButton' type='submit'>Sign Up</button>
+        </div>
+
     </form>
     </div>
-    </>
+
   );
 };
 

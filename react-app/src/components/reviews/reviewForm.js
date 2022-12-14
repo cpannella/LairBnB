@@ -26,7 +26,7 @@ function ReviewForm({filtered}) {
 
     const payload = {
       body,
-      rating,
+      rating: rating[0],
       spot_id
     }
     setBody('')
@@ -44,6 +44,7 @@ function ReviewForm({filtered}) {
     <div className="review-form-container">
       <form className="reviewForm" onSubmit={handleSubmit}>
       <div className="">
+      <p className="counter">{body?.length}/250</p>
       <label className="review-input-field">
         <input
           className="review-input-field"
@@ -51,7 +52,7 @@ function ReviewForm({filtered}) {
           id="review-input-field"
           type="text"
           value={body}
-          maxLength={200}
+          maxLength={250}
           required
           onChange={(e) => setBody(e.target.value)}
         />
@@ -65,7 +66,7 @@ function ReviewForm({filtered}) {
         maxLength={1}
         min="1"
         max="5"
-        required
+        required pattern="[0-9]+"
         onChange={(e)=> setRating(e.target.value)}
         >
 

@@ -106,7 +106,7 @@ def seed_spots():
     city="Far Far Away",
     price=1000,
     description="Ogres have layers, and so does this lair.",
-    country="Banana Republic",
+    country="Scotland",
     url ="https://images.squarespace-cdn.com/content/v1/56e0c6ac746fb92b0e77f4d4/1567556573339-40FP9W1U6IBPUU07SWC5/Shrek-2-1920x1080.jpg?format=2500w.jpg"
     )
 
@@ -147,11 +147,11 @@ def seed_spots():
     )
 
   spot12 = Spot(
-    name="Dwelling of Spirit of Forest",
+    name="Sacred Forest",
     user_id=2,
     address="Unknown",
     state="Mononoke ",
-    city="Sacred Forest",
+    city="Foresttown",
     price=1000,
     description="Lady Iboshi wishes she could",
     country="Japan",

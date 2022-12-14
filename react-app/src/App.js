@@ -12,7 +12,8 @@ import AllSpots from './components/spots/spots';
 import OneSpot from './components/spots/oneSpot';
 import CreateSpotForm from './components/spotForms/createSpotForm';
 import EditSpotForm from './components/spotForms/editSpotForm';
-
+import Footer from './components/footer';
+import SearchPage from './components/searchPage';
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
+      <Footer/>
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
@@ -52,6 +54,9 @@ function App() {
         </Route>
         <Route exact path='/spots/:id'>
           <OneSpot/>
+        </Route>
+        <Route path ="/search/:searchTerm">
+          <SearchPage/>
         </Route>
         <Route path='/' exact={true} >
           <AllSpots/>

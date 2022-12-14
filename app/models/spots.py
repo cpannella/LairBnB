@@ -21,7 +21,7 @@ class Spot(db.Model):
   created_at = db.Column(db.DateTime, default= datetime.utcnow)
   updated_at = db.Column(db.DateTime, default= datetime.utcnow)
 
-  spotImages = db.relationship("SpotImage", cascade="all,delete", backref="spots")
+  spot_images = db.relationship("SpotImage", cascade="all,delete", backref="spots")
   reviews = db.relationship("Review", cascade="all,delete", backref="spots")
   bookings = db.relationship("Booking", cascade="all,delete", backref="spots")
 

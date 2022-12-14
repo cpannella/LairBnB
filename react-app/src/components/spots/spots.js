@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,7 +5,7 @@ import { NavLink, useHistory, useParams } from "react-router-dom";
 import { fetchSpots, deleteSpotThunk } from "../../store/spots";
 import { fetchReviews } from "../../store/reviews";
 import "./spotsIndex.css"
-
+import defaultPic from './default.jpg'
 
 
 export default function AllSpots(){
@@ -51,28 +50,35 @@ export default function AllSpots(){
             {spots.map(spot =>
               <div className="spotCard">
                 <div>
-                  <img onClick={()=> history.push(`spots/${spot.id}`)}className="main-spot-img" src={spot.url}></img>
+                  <img onClick={()=> history.push(`spots/${spot.id}`)}className="main-spot-img" src={spot.url}
+                  onError={e => {e.target.src=`${defaultPic}`}}></img>
                 </div>
-                <div classname="spotCard-details-container">
+                <div className="spotCard-details-container">
                   <div className="spotCard-details">
-                    <h3 className="spotCard-info">{spot.name}</h3>
-                    <h4 className="spotCard-info">{spot.state}, {spot.country}</h4>
-                    <h4 className="spotCard-info">${spot.price}</h4>
-                    {spot?.reviews.length > 0 &&
+                     <h3 className="spotCard-info">{spot.name}</h3>
                     <div>
-                    {(avgcalculatr(spot.reviews.map(review=> review.rating))/spot.reviews.length).toFixed(1)} Star(s)
+                      <p className="spotCard-info">{spot.state}, {spot.country}</p>
                     </div>
-                    }
+                      <div className="price-detail"><h5 className="spotCard-info">${spot.price} night</h5></div>
+                    </div>
+                      {spot?.reviews.length > 0 &&
+                    <div className="star-rating-container">
+                    <div><i class="fa-sharp fa-solid fa-star"></i> {(avgcalculatr(spot.reviews.map(review=> review.rating))/spot.reviews.length).toFixed(2)} </div>
+                      {sessionUser.user && sessionUser.user.id === spot.user_id &&
+                      <button onClick={()=> dispatch(deleteSpotThunk(spot.id))}>Delete</button>
+                      }
+                      </div>
+                      }
                     {spot?.reviews.length == 0 &&
-                    <div>
-                      New
+                    <div className="star-rating-container">
+                     <div><i class="fa-sharp fa-solid fa-star"></i> New</div>
+                      {sessionUser.user && sessionUser.user.id === spot.user_id &&
+                      <button onClick={()=> dispatch(deleteSpotThunk(spot.id))}>Delete</button>
+                      }
                     </div>
                     }
-                  </div>
                 </div>
-                {sessionUser.user && sessionUser.user.id === spot.user_id &&
-                <button onClick={()=> dispatch(deleteSpotThunk(spot.id))}>Delet</button>
-                }
+
               </div>
               )}
           </div>

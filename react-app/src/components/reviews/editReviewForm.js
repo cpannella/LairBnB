@@ -7,7 +7,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { fetchOneSpot, fetchSpots } from "../../store/spots";
 
 
-function EditReviewForm({review}) {
+function EditReviewForm({review, setShowEditReviewForm}) {
   const dispatch = useDispatch()
   const history = useHistory()
   const {id} = useParams()
@@ -20,12 +20,19 @@ function EditReviewForm({review}) {
   }, [dispatch, body, rating])
 
   const handleSubmit = async (e) => {
+    setShowEditReviewForm(false)
     e.preventDefault()
+
+    if(!rating){
+      rating = review?.rating
+    }
+    console.log("THIS IS THE RATING CONSOLE LOG", review.rating)
     const payload = {
       body,
-      rating: parseInt(rating),
+      rating: rating[0] || rating,
       spot_id,
-      reviewId
+      reviewId,
+
     }
     setBody('')
     setRating('')
@@ -38,41 +45,46 @@ function EditReviewForm({review}) {
 
 
   return (
-    <div className="review-form-container">
-      <form className="reviewForm" onSubmit={handleSubmit}>
-      <div className="">
-      <label>
-        <input
-          placeholder="Share your experience here. "
-          id="inputBoxnoteTaskDetails"
-          type="text"
-          value={body}
-          maxLength={200}
-          required
-          onChange={(e) => setBody(e.target.value)}
-        />
-      </label>
-      <label>
-        <input
-        placeholder="Give a rating from 1-5"
-        type="number"
-        value={rating}
-        maxLength={1}
-        
-        min="1"
-        max="5"
-        required
-        onChange={(e)=> setRating(e.target.value)}
-        >
+
+      <div className="review-form-container">
+        <form className="reviewForm" onSubmit={handleSubmit}>
+        <div className="someDiv">
+        <p className="counter">{body?.length}/250</p>
+        <label className="review-input-field">
+          <input
+            className="review-input-field"
+            placeholder="Share your experience here. "
+            id="review-input-field"
+            type="text"
+            value={body}
+            maxLength={250}
+            required
+            onChange={(e) => setBody(e.target.value)}
+          />
+        </label>
+        <label>
+          <input
+          placeholder="Rate from 1-5"
+          className="review-rating-field"
+          type="number"
+          value={rating}
+          maxLength={1}
+          min="1"
+          required pattern="[0-9]+"
+          max="5"
+
+          onChange={(e)=> setRating(e.target.value)}
+          >
 
 
 
-        </input>
-      </label>
-      <button className="NoteButtonTaskDetails" type="submit">Submit</button>
-      </div>
-    </form>
-  </div>
+          </input>
+        </label>
+        <button className="review-submit" type="submit">Edit review</button>
+        <button onClick={()=> setShowEditReviewForm(false)}>Cancel</button>
+        </div>
+      </form>
+    </div>
 )
 
 }

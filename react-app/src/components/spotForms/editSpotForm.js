@@ -18,6 +18,7 @@ export default function EditSpotForm({setShowModal}){
   const dispatch = useDispatch()
 
   const history = useHistory()
+  const [validationErrors, setValidationErrors] = useState([])
   const [name, setName] = useState(filteredSpot?.name)
   const [address, setAddress] = useState(filteredSpot?.address)
   const [state, setState] = useState(filteredSpot?.state)
@@ -29,11 +30,11 @@ export default function EditSpotForm({setShowModal}){
 
 
   useEffect(()=>{
-    if(spotsState && spots.length > 0){
-      // setName(filteredSpot?.name)
-
-    }
-  }, [filteredSpot?.price])
+    const errors = []
+    console.log("THIS IS A CONSOLE LOG",!url.endsWith('jpg'))
+    if(!((url.endsWith(".jpg"))||(url.endsWith('.png'))))errors.push("Must be valid image type 'jpg', or 'png'")
+    setValidationErrors(errors)
+  },[url])
 
   const handleSubmit= async (e) => {
     e.preventDefault()
@@ -69,6 +70,11 @@ export default function EditSpotForm({setShowModal}){
 
     <div className="edit-spot-form-container">
       <form className="spot-forms" onSubmit={handleSubmit}>
+      <div>
+        {validationErrors.map((error, ind) => (
+          <div key={ind}><p id="edit-error" className="counter">{error}</p></div>
+        ))}
+        </div>
         <div>Edit spot form</div>
         <input
         placeholder="Enter your lair's name"
@@ -96,13 +102,13 @@ export default function EditSpotForm({setShowModal}){
         <input
         placeholder="Enter your lair's city"
         type="text"
-        maxLength={30}
+        maxLength={20}
         value={city}
         required pattern="[a-zA-Z,'. + -]+" title="Alphabetic characters only"
         onChange={(e)=> setCity(e.target.value)}
         >
         </input>
-        <div><p className="counter">{city?.length}/30</p></div>
+        <div><p className="counter">{city?.length}/20</p></div>
 
         <input
         placeholder="Enter your lair's state"
@@ -119,36 +125,38 @@ export default function EditSpotForm({setShowModal}){
         <input
         placeholder="Enter your lair's country"
         type="text"
-        maxLength={30}
+        maxLength={20}
         value={country}
         required pattern="[a-zA-Z,'. + -]+" title="Alphabetic characters only"
         onChange={(e)=> setCountry(e.target.value)}
         >
         </input>
-        <div><p className="counter">{address?.length}/30</p></div>
+        <div><p className="counter">{country?.length}/20</p></div>
 
         <input
         placeholder="Enter your lair's price"
         type="text"
-        maxLength={60}
+        maxLength={10}
         value={price}
         onChange={(e)=> setPrice(e.target.value)}
-        required pattern="[0-9,'. + -]+" title="Numeric characters only"
+        required pattern="[0-9]+" title="Numeric characters only"
         >
         </input>
         <div><p className="counter">{price?.length}/10</p></div>
 
-        <input
+        <textarea
         placeholder="Enter your lair's description"
         type="textarea"
         maxLength={150}
         value={description}
-        required pattern="[a-zA-Z,'. + -]+" title="Alphabetic characters only"
+        required pattern="[a-zA-Z, 0-9, '. ! ? + -]+" title="Alphanumeric character's only"
         onChange={(e)=> setDescription(e.target.value)}
         >
-        </input>
+        </textarea>
         <div><p className="counter">{description?.length}/150</p></div>
 
+        <p className='counter'> Must be valid image 'jpg, or png'</p>
+          <p className="counter">If file is corrupted a default will be provided</p>
         <input
         placeholder="Enter an ImageUrl for your lair"
         type="text"
@@ -160,8 +168,9 @@ export default function EditSpotForm({setShowModal}){
         </input>
         <div><p className="counter">{url?.length}/500</p></div>
 
-        <button type="submit">Submit</button>
-        <button  onClick={()=> history.push(`/spots/${id}`)}> Cancel</button>
+        <button type="submit"
+        disabled={validationErrors.length > 0}>Submit</button>
+        <button  className="cancel" onClick={()=> history.push(`/spots/${id}`)}> Cancel</button>
 
       </form>
 
