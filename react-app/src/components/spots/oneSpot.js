@@ -82,7 +82,6 @@ export default function OneSpot(){
                       <h4>${filteredSpot?.price.toString()}</h4>
                     </div>
                </div>
-
            </div>
         </div>
         <div className="reviews-container">
@@ -104,19 +103,19 @@ export default function OneSpot(){
             {filteredReviews?.map(review => (
               <div className="single-review">
                     <div className="review-details">
-                    <p>{review?.user[0]?.username} said :</p>
-                    <p className="review-body">{review.body}</p>
-                    <p>Rating: {review.rating}</p>
+                      <p>{review?.user[0]?.username} said :</p>
+                      <p className="review-body">{review.body}</p>
+                      <p>Rating: {review.rating}</p>
                     </div>
                     <div className="fugazi">
                     {sessionUser.user && sessionUser?.user.id === review?.user_id &&
                     <div>
-                    <button onClick={()=> [setShowEditReviewForm(true), setEditReviewId(review.id)]}>Edit</button>
+                      <button onClick={()=> [setShowEditReviewForm(true), setEditReviewId(review.id)]}>Edit</button>
                     </div>
                     }
                     {sessionUser.user && sessionUser?.user.id === review?.user_id &&
                     <div>
-                    <button className="delete-button"onClick={()=> dispatch(deleteReviewThunk(review.id))}>Delete</button>
+                      <button className="delete-button"onClick={()=> dispatch(deleteReviewThunk(review.id))}>Delete</button>
                     </div>}
                     </div>
 

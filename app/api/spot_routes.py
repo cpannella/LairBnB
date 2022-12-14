@@ -32,8 +32,6 @@ def get_all_spots():
   # print(newSpot)
 
   response = {"spots": [spot.to_dict() for spot in spots]}
-  print
-
   return make_response(response, 200)
 
 
