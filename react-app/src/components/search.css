@@ -1,0 +1,50 @@
+.main-spot-img{
+  max-width: 15vw;
+  height: 25vh;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.searchBar, .searchForm{
+  width: 20vw;
+}
+
+
+
+#search{
+  position: relative;
+  left: 2vw;
+  bottom: 1vh;
+  width: 20vw;
+  height: 5vh;
+  border-radius: 25px;
+  border: 0.25px solid rgb(158, 153, 153);
+  box-shadow: 1px 2px 2px rgb(216, 216, 216);
+}
+
+.searchField::placeholder{
+  position: relative;
+
+}
+.searchField:focus{
+  outline: none;
+}
+
+.spotCard{
+
+}
+
+.searchPage-container{
+  border: 1px solid blue;
+  padding-top: 20vh;
+  padding-bottom: 10vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.searchSpots{
+  border: 10px solid red;
+  width: 20vw;
+  position: relative;
+  left: 100px;
+}

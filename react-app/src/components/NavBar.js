@@ -30,15 +30,9 @@ const NavBar = () => {
               <div className="upload-container">
                 <CreateSpotFormModal/>
               </div>}
-            <SearchBar/>
             </div>
             <div className="link-container">
-        <a href="https://github.com/cpannella/LairBnB">
-        <img className="aboutLink"src={giticon}></img>
-        </a>
-        <a className="linked"href="https://www.linkedin.com/in/chrisotpher-pannella-ab0852242/">
-        <img className="aboutLink" src={linked}></img>
-        </a>
+            <SearchBar/>
 
       </div>
 

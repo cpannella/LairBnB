@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { fetchSpots, deleteSpotThunk } from "../store/spots";
-
+import './search.css'
 
 const SearchBar = () => {
   const dispatch = useDispatch()
