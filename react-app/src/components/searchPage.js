@@ -6,7 +6,7 @@ import { NavLink, useParams } from "react-router-dom"
 import { useHistory } from "react-router-dom";
 import { fetchSpots, deleteSpotThunk } from "../store/spots";
 import defaultPic from './spots/default.jpg'
-
+import notFound from './notFound.jpg'
 const SearchPage = () => {
   const history = useHistory()
   const dispatch = useDispatch()
@@ -26,9 +26,18 @@ const SearchPage = () => {
     return sum.toFixed(2)
   }
 
+  if(!filteredSpots.length){
+    return (
+      <div>
+        <div className="notFound">
+          <h1 className="errorMessage">404 Not Found </h1>
+          <img className="errorImage"src={notFound}></img>
+        </div>
+      </div>
+    )
+  }
 
-
-  return (
+  else return (
     <div className="searchPage-container">
       <div className="searchSpots">
         {/* <h1 className="searchSomething">404 not found</h1> */}
