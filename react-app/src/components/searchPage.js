@@ -39,8 +39,19 @@ const SearchPage = () => {
 
   else return (
     <div className="searchPage-container">
+
       <div className="searchSpots">
-        {/* <h1 className="searchSomething">404 not found</h1> */}
+        
+        {filteredSpots.length == 1 &&
+          <div>
+            <h1>Results 1 spot found</h1>
+          </div>
+        }
+        {filteredSpots.length > 1 &&
+          <div>
+            <h1>Results {filteredSpots.length} spots found</h1>
+          </div>
+        }
         {filteredSpots?.map(spot => (
          <div className="spotCard">
          <div>
