@@ -72,9 +72,12 @@
 
 .searchSpots{
   border: 10px solid red;
-  width: 15vw;
+  width: 35vw;
   position: relative;
-  left: 100px;
+  left: 5vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
 }
 
 .errorMessage{
@@ -82,4 +85,20 @@
   position:absolute;
   top: 1px;
 
+}
+
+
+.reviewLine{
+  display: flex;
+
+}
+
+.reviewcounter{
+  margin: 0;
+  padding-left: 5px;
+}
+
+.searchSpotCard{
+  max-width: 15vw;
+  padding-bottom: 5vh;
 }

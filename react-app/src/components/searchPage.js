@@ -41,19 +41,19 @@ const SearchPage = () => {
     <div className="searchPage-container">
 
       <div className="searchSpots">
-        
-        {filteredSpots.length == 1 &&
+
+        {/* {filteredSpots.length == 1 &&
           <div>
-            <h1>Results 1 spot found</h1>
+            <h4>Results 1 spot found</h4>
           </div>
         }
         {filteredSpots.length > 1 &&
           <div>
-            <h1>Results {filteredSpots.length} spots found</h1>
+            <h4>Results {filteredSpots.length} spots found</h4>
           </div>
-        }
+        } */}
         {filteredSpots?.map(spot => (
-         <div className="spotCard">
+         <div className="searchSpotCard">
          <div>
            <img onClick={()=> history.push(`/spots/${spot.id}`)}className="main-spot-img" src={spot.url}
            onError={e => {e.target.src=`${defaultPic}`}}></img>
@@ -68,7 +68,7 @@ const SearchPage = () => {
              </div>
                {spot?.reviews.length > 0 &&
              <div className="star-rating-container">
-             <div><i class="fa-sharp fa-solid fa-star"></i> {(avgcalculatr(spot.reviews.map(review=> review.rating))/spot.reviews.length).toFixed(2)} </div>
+             <div className="reviewLine"><i class="fa-sharp fa-solid fa-star"></i> {(avgcalculatr(spot.reviews.map(review=> review.rating))/spot.reviews.length).toFixed(2)}<p className="reviewcounter">  ({spot?.reviews?.length})</p> </div>
                {sessionUser.user && sessionUser.user.id === spot.user_id &&
                <button onClick={()=> dispatch(deleteSpotThunk(spot.id))}>Delete</button>
                }

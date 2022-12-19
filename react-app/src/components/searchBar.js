@@ -34,10 +34,14 @@ const SearchBar = () => {
           id="search"
           type="text"
           placeholder="Anywhere"
+          required
           onChange={e => setSearchInput(e.target.value)}
           >
           </input>
-          <button type="submit" id="search-submit"><i class="fas fa-search"></i></button>
+          <button type="submit" id="search-submit"
+          
+          >
+          <i class="fas fa-search"></i></button>
         </div>
       </form>
     </div>

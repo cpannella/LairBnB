@@ -2,7 +2,7 @@
   display:flex;
   flex-direction: row;
   width: 100%;
-  border-bottom: 1px solid rgb(160, 155, 155);
+  border-bottom: 1px solid rgb(224, 221, 221);
   height: 10vh;
   justify-content: space-between;
   position: fixed;
@@ -76,7 +76,7 @@
 
 
 .footer{
-  
+
   position: fixed;
   bottom: 0;
   height: 5vh;
