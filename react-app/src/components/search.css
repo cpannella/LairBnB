@@ -21,6 +21,20 @@
   opacity: 0.4;
 }
 
+.searchSauce{
+  display:flex;
+}
+
+#search-submit{
+  position:relative;
+  z-index: 1;
+  right: 5px;
+  bottom: 1px;;
+  height:4vh;
+  width: 2vw;
+  border-radius: 50px;
+}
+
 #search{
   position: relative;
   left: 2vw;

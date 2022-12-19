@@ -29,14 +29,16 @@ const SearchBar = () => {
     <div className="searchBar">
       <form className="searchForm"
       onSubmit={onSubmit}>
-        <input className="searchField"
-        id="search"
-        type="text"
-        placeholder="Anywhere"
-        onChange={e => setSearchInput(e.target.value)}
-        >
-        </input>
-        <button></button>
+        <div className="searchSauce">
+          <input className="searchField"
+          id="search"
+          type="text"
+          placeholder="Anywhere"
+          onChange={e => setSearchInput(e.target.value)}
+          >
+          </input>
+          <button type="submit" id="search-submit"><i class="fas fa-search"></i></button>
+        </div>
       </form>
     </div>
   )
