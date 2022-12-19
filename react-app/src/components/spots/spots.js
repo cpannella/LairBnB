@@ -45,7 +45,9 @@ export default function AllSpots(){
   return (
     <div className="somediv">
 
-          <h1 className="main-header">Browse Spots</h1>
+          <div className="filterbuttons">
+            <h1 className="main-header">Browse Spots</h1>
+          </div>
           <div className="spotCard-container">
             {spots.map(spot =>
               <div className="spotCard">
@@ -78,7 +80,6 @@ export default function AllSpots(){
                     </div>
                     }
                 </div>
-
               </div>
               )}
           </div>

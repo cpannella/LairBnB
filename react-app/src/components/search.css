@@ -71,10 +71,10 @@
 }
 
 .searchSpots{
-  border: 10px solid red;
+  
   width: 35vw;
   position: relative;
-  left: 5vw;
+  left: 2vw;
   display: grid;
   grid-template-columns: 1fr 1fr;
 

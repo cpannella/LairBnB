@@ -18,7 +18,7 @@
   justify-items: center;
   flex-direction: column;
   position: relative;
-  
+
 }
 
 .outerlogindiv{
@@ -32,7 +32,8 @@
   width: 21vw;
   height: 4vh;
   background-color:#ff3939;
-  color: #161614;
+
+  color: white;
   border-radius: 12px;
   border: none;
   font-weight: 700;
@@ -48,7 +49,7 @@
   width: 21vw;
   height: 4vh;
   background-color: #ff3939;
-  color: #161614;
+  color: white;
   border-radius: 12px;
   border: none;
   font-weight: 700;

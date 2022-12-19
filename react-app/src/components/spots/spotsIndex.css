@@ -1,5 +1,13 @@
  .somediv{
   padding-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filterbuttons{
+  
+  width: 100%;
 }
 
 .main-spot-img{
@@ -48,7 +56,7 @@
 }
 
 .spotCard-container{
-  width: 80%;
+  width: 85%;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
@@ -56,7 +64,7 @@
 
 }
 .spotCard{
-  padding-bottom: 4vh;
+  padding-bottom: 1vh;
   height: 40vh;
   border-radius: 5px;
   min-height:40vh;
