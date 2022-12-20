@@ -56,13 +56,18 @@ def get_one_spot(id):
 
 @spot_routes.route("/new_spot", methods=["POST"])
 def new_spot():
+  print('THIS IS THE ROUTE')
   form = SpotForm()
   form['csrf_token'].data = request.cookies['csrf_token']
 
-  if "url" not in request.files:
-    return {"errors": "image requried"}, 400
+  print("THIS IS THE REQUEST", request.files)
+
+  # if "url" not in request.files:
+  #   return {"errors": "image requried"}, 400
 
   image = request.files["url"]
+
+  print("THIS IS THE IMAGE",image)
 
   image.filename = get_unique_filename(image.filename)
   upload = upload_file_to_s3(image)
@@ -73,9 +78,10 @@ def new_spot():
   if "url" not in upload:
           return upload, 400
 
-  url = upload['url']
+  new_url = upload['url']
 
   data = form.data
+  print("THIS IS THE FORM DATA ",data)
   spot = Spot(
     user_id = current_user.id,
     name = data["name"],
@@ -85,7 +91,7 @@ def new_spot():
     price = data["price"],
     description = data["description"],
     city = data["city"],
-    url = url
+    url = new_url
   )
 
 

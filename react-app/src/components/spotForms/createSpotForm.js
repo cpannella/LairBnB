@@ -17,7 +17,7 @@ export default function CreateSpotForm({setShowModal}){
   const [price, setPrice] = useState('')
   const [description, setDescription] = useState('')
   const [city, setCity] = useState('')
-  const [url, setUrl] = useState('')
+  const [image, setImage] = useState('')
   const [count, setCount] = useState(60)
   const [validationErrors, setValidationErrors] = useState([])
 
@@ -25,14 +25,14 @@ export default function CreateSpotForm({setShowModal}){
     e.preventDefault()
 
     const payload =  new FormData()
-      payload.append("name", name)
-      payload.append('address', address)
-      payload.append("state", state)
-      payload.append("country", country)
-      payload.append('price', price)
-      payload.append("description", description)
-      payload.append("city", city)
-      payload.append('url', url)
+      payload['name'] = name
+      payload['address'] = address
+      payload['state'] = state
+      payload['country'] = country
+      payload['price'] = price
+      payload['description'] = description
+      payload['city'] = city
+      payload['image'] = image
       console.log(payload)
 
     let spotCreated = await dispatch(createSpotThunk(payload))
@@ -44,17 +44,17 @@ export default function CreateSpotForm({setShowModal}){
       setPrice('')
       setDescription('')
       setCity('')
-      setUrl('')
+      setImage('')
       setShowModal(false)
     }
   }
 
-useEffect(()=>{
-  const errors = []
-  console.log("THIS IS A CONSOLE LOG",!url.endsWith('jpg'))
-  if(!((url.endsWith(".jpg"))||(url.endsWith('.png'))))errors.push("Must be valid image type 'jpg', or 'png'")
-  setValidationErrors(errors)
-},[url])
+
+
+  const updateImage = (e) => {
+    const file = e.target.files[0];
+    setImage(file);
+  }
 
   return (
 
@@ -167,15 +167,13 @@ useEffect(()=>{
           <p className='counter'> Must be valid image 'jpg, or png'</p>
           <p className="counter">If file is corrupted a default will be provided</p>
         <input
-        placeholder="Enter an ImageUrl for your lair"
-        type="text"
-        maxLength={500}
-        value={url}
-        required
-        onChange={(e)=> setUrl(e.target.value)}
+
+        type="file"
+        accept="image/*"
+        onChange={updateImage}
         >
         </input>
-        <div><p className="counter">{url?.length}/500</p></div>
+
         </div>
 
         <button type="submit"

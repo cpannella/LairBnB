@@ -70,6 +70,7 @@ export const fetchOneSpot = id => async dispatch => {
 
 
 export const createSpotThunk = (payload) => async dispatch => {
+  console.log("THIS IS THE PAYLOAD in the THUNK", payload)
   const response = await fetch('/api/spots/new_spot',{
     method: 'POST',
     body: JSON.stringify(payload)
