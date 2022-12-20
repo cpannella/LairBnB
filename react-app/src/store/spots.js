@@ -72,7 +72,6 @@ export const fetchOneSpot = id => async dispatch => {
 export const createSpotThunk = (payload) => async dispatch => {
   const response = await fetch('/api/spots/new_spot',{
     method: 'POST',
-    headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(payload)
   })
   const data = await response.json()
@@ -90,7 +89,6 @@ export const editSpotThunk = (task,id) => async dispatch => {
   console.log("THUNK FIRING", task, id)
   const response = await fetch(`/api/spots/${id}`, {
       method: "PUT",
-      headers: {"Content-Type": "application/json" },
       body: JSON.stringify(task)
   });
   if (response.ok) {
@@ -128,8 +126,6 @@ const spotReducer = (state = initialState, action) => {
                    action.payload.spots.forEach(spot => {
               newState[spot.id] = spot
           })
-
-
           return newState
       }
 

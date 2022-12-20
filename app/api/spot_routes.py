@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, render_template,request, make_response
+from flask import Blueprint, jsonify, render_template, make_response, request
 from flask_login import login_required,current_user
 from app.models import Spot, Review, db, SpotImage
 from app.forms.spots_form import SpotForm
@@ -12,7 +12,6 @@ spot_routes = Blueprint("spots", __name__)
 
 
 @spot_routes.route('/')
-
 def get_all_spots():
   spots = Spot.query.all()
   reviews = Review.query.all()
@@ -60,8 +59,23 @@ def new_spot():
   form = SpotForm()
   form['csrf_token'].data = request.cookies['csrf_token']
 
-  data = form.data
+  if "url" not in request.files:
+    return {"errors": "image requried"}, 400
 
+  image = request.files["url"]
+
+  image.filename = get_unique_filename(image.filename)
+  upload = upload_file_to_s3(image)
+
+  if not allowed_file(image.filename):
+      return {"errors": "file type not permitted"}, 400
+
+  if "url" not in upload:
+          return upload, 400
+
+  url = upload['url']
+
+  data = form.data
   spot = Spot(
     user_id = current_user.id,
     name = data["name"],
@@ -71,8 +85,11 @@ def new_spot():
     price = data["price"],
     description = data["description"],
     city = data["city"],
-    url = data['url']
+    url = url
   )
+
+
+
   print(spot.to_dict())
   db.session.add(spot)
   db.session.commit()

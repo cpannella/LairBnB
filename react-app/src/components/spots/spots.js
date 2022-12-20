@@ -44,46 +44,45 @@ export default function AllSpots(){
 
   return (
     <div className="somediv">
-
           <div className="filterbuttons">
             <h1 className="main-header">Browse Spots</h1>
           </div>
-          <div className="spotCard-container">
-            {spots.map(spot =>
-              <div className="spotCard">
-                <div>
-                  <img onClick={()=> history.push(`spots/${spot.id}`)}className="main-spot-img" src={spot.url}
-                  onError={e => {e.target.src=`${defaultPic}`}}></img>
-                </div>
+        <div className="spotCard-container">
+
+          {spots.map(spot =>
+            <div className="spotCard">
+                  <div>
+                    <img onClick={()=> history.push(`spots/${spot.id}`)}className="main-spot-img" src={spot.url}
+                    onError={e => {e.target.src=`${defaultPic}`}}></img>
+                  </div>
                 <div className="spotCard-details-container">
+
                   <div className="spotCard-details">
-                     <h3 className="spotCard-info">{spot.name}</h3>
+                      <h3 className="spotCard-info">{spot.name}</h3>
                     <div>
                       <p className="spotCard-info">{spot.state}, {spot.country}</p>
                     </div>
                       <div className="price-detail"><h5 className="spotCard-info">${spot.price} night</h5></div>
-                    </div>
-                      {spot?.reviews.length > 0 &&
-                    <div className="star-rating-container">
-                    <div><i class="fa-sharp fa-solid fa-star"></i> {(avgcalculatr(spot.reviews.map(review=> review.rating))/spot.reviews.length).toFixed(2)} </div>
-                      {sessionUser.user && sessionUser.user.id === spot.user_id &&
-                      <button onClick={()=> dispatch(deleteSpotThunk(spot.id))}>Delete</button>
-                      }
-                      </div>
-                      }
-                    {spot?.reviews.length == 0 &&
-                    <div className="star-rating-container">
-                     <div><i class="fa-sharp fa-solid fa-star"></i> New</div>
-                      {sessionUser.user && sessionUser.user.id === spot.user_id &&
-                      <button onClick={()=> dispatch(deleteSpotThunk(spot.id))}>Delete</button>
-                      }
-                    </div>
-                    }
-                </div>
-              </div>
-              )}
-          </div>
+                  </div>
 
+                    {spot?.reviews.length > 0 &&
+                  <div className="star-rating-container">
+                  <div><i class="fa-sharp fa-solid fa-star"></i> {(avgcalculatr(spot.reviews.map(review=> review.rating))/spot.reviews.length).toFixed(2)} </div>
+                    {sessionUser.user && sessionUser.user.id === spot.user_id &&
+                    <button onClick={()=> dispatch(deleteSpotThunk(spot.id))}>Delete</button>
+                    }
+                    </div>}
+
+                  {spot?.reviews.length == 0 &&
+                  <div className="star-rating-container">
+                    <div><i class="fa-sharp fa-solid fa-star"></i> New</div>
+                    {sessionUser.user && sessionUser.user.id === spot.user_id &&
+                    <button onClick={()=> dispatch(deleteSpotThunk(spot.id))}>Delete</button>
+                    }
+                  </div>}
+                </div>
+              </div>)}
+        </div>
     </div>
     )
 
