@@ -59,6 +59,7 @@ def new_spot():
   form['csrf_token'].data = request.cookies['csrf_token']
 
   data = form.data
+  print(data)
 
   spot = Spot(
     user_id = current_user.id,
