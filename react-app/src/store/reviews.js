@@ -112,10 +112,9 @@ const initialState = {}
   switch(action.type){
     case ALL_REVIEWS:{
       newState = {...state}
-      // console.log("THIS THAT MOFUCKIN ACTION OBJECT",action)
+      
       action.payload.reviews.forEach(review => {
-        // console.log("CONSOLE LOG",review.id)
-        // console.log("TEST CONSOLE LOG",newState)
+
         newState[review.id] = review
       })
       return newState
