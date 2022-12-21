@@ -59,27 +59,28 @@ def new_spot():
   print('THIS IS THE ROUTE')
   form = SpotForm()
   form['csrf_token'].data = request.cookies['csrf_token']
-
+  print("SAUCEEE",form.data)
   print("THIS IS THE REQUEST", request.files)
 
-  # if "url" not in request.files:
-  #   return {"errors": "image requried"}, 400
+  if "image" not in request.files:
+        return {"errors": "image required"}, 400
 
-  image = request.files["url"]
-
-  print("THIS IS THE IMAGE",image)
-
-  image.filename = get_unique_filename(image.filename)
-  upload = upload_file_to_s3(image)
+  image = request.files["image"]
 
   if not allowed_file(image.filename):
       return {"errors": "file type not permitted"}, 400
 
+  image.filename = get_unique_filename(image.filename)
+
+  upload = upload_file_to_s3(image)
+
   if "url" not in upload:
-          return upload, 400
+      # if the dictionary doesn't have a url key
+      # it means that there was an error when we tried to upload
+      # so we send back that error message
+      return upload, 400
 
-  new_url = upload['url']
-
+  new_url = upload["url"]
   data = form.data
   print("THIS IS THE FORM DATA ",data)
   spot = Spot(

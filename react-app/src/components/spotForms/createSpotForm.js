@@ -24,18 +24,20 @@ export default function CreateSpotForm({setShowModal}){
   const handleSubmit= async (e) => {
     e.preventDefault()
 
-    const payload =  new FormData()
-      payload['name'] = name
-      payload['address'] = address
-      payload['state'] = state
-      payload['country'] = country
-      payload['price'] = price
-      payload['description'] = description
-      payload['city'] = city
-      payload['image'] = image
-      console.log(payload)
+    const formData = new FormData();
+    console.log(formData)
+      formData.append("image", image);
+      // formData['name'] = name
+      // formData['address'] = address
+      // formData['state'] = state
+      // formData['country'] = country
+      // formData['price'] = price
+      // formData['description'] = description
+      // formData['city'] = city
+      // formData['image'] = image
+      console.log(formData)
 
-    let spotCreated = await dispatch(createSpotThunk(payload))
+    let spotCreated = await dispatch(createSpotThunk(formData))
     if (spotCreated){
       setName('')
       setAddress('')
