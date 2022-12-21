@@ -26,16 +26,14 @@ export default function CreateSpotForm({setShowModal}){
 
     const formData = new FormData();
     console.log(formData)
-      formData.append("image", image);
-      // formData['name'] = name
-      // formData['address'] = address
-      // formData['state'] = state
-      // formData['country'] = country
-      // formData['price'] = price
-      // formData['description'] = description
-      // formData['city'] = city
-      // formData['image'] = image
-      console.log(formData)
+    formData.append("image", image);
+    formData.append("name", name);
+    formData.append("address", address);
+    formData.append("state", state);
+    formData.append("country", country);
+    formData.append("price", price);
+    formData.append("description", description);
+    formData.append("city", city);
 
     let spotCreated = await dispatch(createSpotThunk(formData))
     if (spotCreated){
