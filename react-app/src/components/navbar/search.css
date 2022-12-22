@@ -1,0 +1,104 @@
+.main-spot-img{
+  max-width: 15vw;
+  height: 25vh;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.searchBar, .searchForm{
+  width: 20vw;
+}
+
+.notFound{
+  margin: auto;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  top: 100px;
+  opacity: 0.8;
+}
+
+.searchSauce{
+  display:flex;
+}
+
+#search-submit{
+  position:relative;
+  z-index: 1;
+  right: 5px;
+  bottom: 1px;;
+  height:4vh;
+  width: 2vw;
+  border-radius: 50px;
+}
+
+#search{
+  position: relative;
+  left: 2vw;
+  bottom: 1vh;
+  width: 20vw;
+  height: 5vh;
+  border-radius: 25px;
+  border: 0.25px solid rgb(158, 153, 153);
+  box-shadow: 2px 4px 4px rgb(216, 216, 216);
+}
+
+.searchField::placeholder{
+  position: relative;
+  left: 2px;
+}
+.searchField:focus{
+  outline: none;
+}
+
+.errorImage{
+  width:40%;
+  height: 60%;
+  z-index: -1;
+  border-radius: 20px;
+  opacity: 0.8;
+}
+
+.searchPage-container{
+  /* border: 1px solid blue; */
+  padding-top: 20vh;
+  padding-bottom: 10vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.searchSpots{
+
+  width: 35vw;
+  position: relative;
+  left: 2vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+}
+
+.errorMessage{
+
+  position:absolute;
+  top: 1px;
+
+}
+
+
+.reviewLine{
+  display: flex;
+
+}
+
+.reviewcounter{
+  margin: 0;
+  padding-left: 5px;
+}
+
+.searchSpotCard{
+  max-width: 15vw;
+  padding-bottom: 5vh;
+}
