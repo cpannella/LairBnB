@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, session, request
+from flask import Blueprint, jsonify, session, request, make_response
 from app.models import User, db, Booking
 from app.forms.booking_form import BookingForm
 
@@ -12,3 +12,4 @@ def get_all_bookings():
   bookings = Booking.query.all()
 
   response = {"bookings": [booking.to_dict() for booking in bookings]}
+  return make_response(response, 200)
