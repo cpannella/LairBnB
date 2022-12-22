@@ -7,3 +7,4 @@ class ReviewForm(FlaskForm):
   body = StringField("Body", validators=[DataRequired()])
   rating = IntegerField("Rating", validators=[DataRequired()])
   spot_id = IntegerField("Spot Id", validators=[DataRequired()])
+  
