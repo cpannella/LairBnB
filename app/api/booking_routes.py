@@ -13,3 +13,6 @@ def get_all_bookings():
 
   response = {"bookings": [booking.to_dict() for booking in bookings]}
   return make_response(response, 200)
+
+
+
