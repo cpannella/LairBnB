@@ -10,6 +10,7 @@ import ReviewForm from "../reviews/reviewForm";
 import EditSpotFormModal from "../spotForms/editSpotFormModal";
 import "./spotsIndex.css"
 import defaultPic from './default.jpg'
+import CreateBookingForm from "../bookings/bookingForm";
 
 
 export default function OneSpot(){
@@ -80,6 +81,7 @@ export default function OneSpot(){
                     <div className="description-container">
                       <h4>{filteredSpot?.description}</h4>
                       <h4>${filteredSpot?.price.toString()}</h4>
+                      <CreateBookingForm/>
                     </div>
                </div>
            </div>
