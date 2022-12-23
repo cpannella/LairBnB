@@ -1,22 +1,34 @@
-import {DateRangerPicker} from "react-date-range"
-import {useState} from "react"
-import "react-date-range/dist/theme/default.css"
-import "react-date-range/dist/styles.css"
+import React, { useState } from "react";
+import DatePicker from "react-datepicker";
 
+import "react-datepicker/dist/react-datepicker.css";
 
-function CreateBookingForm(){
-  const [startDate, setStartDate] = useState(new Date())
-  const [endDate, setEndDate] = useState(new Date())
+// CSS Modules, react-datepicker-cssmodules.css
+// import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
-  const selectionRange =  {
-    startDate: startDate,
-    endDate: endDate,
-    key: "selection"
-  }
+  function CreateBookingForm(){
 
-  function handleSelect(ranges){
-    setStartDate(ranges.selection.startDate)
-    setEndDate(ranges.selection.endDate)
-  }
+  const [startDate, setStartDate] = useState(new Date("2014/02/08"));
+  const [endDate, setEndDate] = useState(new Date("2014/02/10"));
+  return (
+  <div>
+    <DatePicker
+      selected={startDate}
+      onChange={(date) => setStartDate(date)}
+      selectsStart
+      startDate={startDate}
+      endDate={endDate}
+    />
+    <DatePicker
+      selected={endDate}
+      onChange={(date) => setEndDate(date)}
+      selectsEnd
+      startDate={startDate}
+      endDate={endDate}
+      minDate={startDate}
+    />
+  </div>
+  )
+};
 
-}
+export default CreateBookingForm
