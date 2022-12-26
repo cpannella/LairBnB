@@ -26,7 +26,7 @@ def new_booking(id):
   print("SOMETHING")
   form = BookingForm()
   print("THIS IS THE FORM DATA--------------", form.data)
-  form['csrf_token'].data = request.cookies['csrf_token']
+  # form['csrf_token'].data = request.cookies['csrf_token']
   if form.validate_on_submit:
     booking = Booking(
       start_date=form.data['start_date'],

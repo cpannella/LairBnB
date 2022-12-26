@@ -3,6 +3,6 @@ from wtforms.fields import StringField, IntegerField, BooleanField, SubmitField,
 from wtforms.validators import DataRequired
 
 class BookingForm(FlaskForm):
-  start_date = DateTimeField("Start Date", format='%Y-%m-%d %H:%M:%S', validators=[DataRequired()])
-  end_date = DateTimeField("End Date", format='%Y-%m-%d %H:%M:%S',validators=[DataRequired()])
+  start_date = DateTimeField("Start Date", validators=[DataRequired()])
+  end_date = DateTimeField("End Date", validators=[DataRequired()])
   spot_id = IntegerField("Spot Id", validators=[DataRequired()])
