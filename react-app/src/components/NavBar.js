@@ -30,6 +30,11 @@ const NavBar = () => {
               <div className="upload-container">
                 <CreateSpotFormModal/>
               </div>}
+{/*
+              <div className="links container">
+                <NavLink to="/">My Spots</NavLink>
+                <NavLink to="/bookings">Bookings</NavLink>
+              </div> */}
             </div>
             <div className="link-container">
             <SearchBar/>
