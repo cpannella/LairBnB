@@ -12,7 +12,7 @@ const oneBooking = payload => {
   }
 }
 
-const allReviews = payload => {
+const allBookings = payload => {
   return {
       type: ALL_BOOKINGS,
       payload
@@ -37,5 +37,69 @@ const deleteBooking = (booking) => {
   return {
       type: DELETE_BOOKING,
       booking
+  }
+}
+
+
+
+export const fetchBookings = () => async dispatch => {
+  const response = await fetch('/api/spots/bookings')
+
+  if(response.ok){
+    const bookings = await response.json()
+    dispatch(allBookings(bookings))
+    return bookings
+  }
+}
+
+
+export const fetchOneBooking = (id) => async dispatch => {
+  const response = await fetch(`/api/spots/bookings/${id}`)
+  if(response.ok){
+    const singleBooking = await response.json()
+    dispatch(oneBooking(singleBooking))
+    return singleBooking
+  }
+}
+
+
+export const createBookingThunk = (payload, id) => async dispatch => {
+  const response = await fetch(`/api/spots/${id}/new_booking`,{
+    method: 'POST',
+    headers: {'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+  if(response.ok){
+    const newBooking = await response.json()
+    dispatch(createBooking(newBooking))
+    return newBooking
+  }
+}
+
+
+
+export const editBookingThunk = (booking, id) => async dispatch => {
+  const response = await fetch(`/api/spots/bookings/${id}/edit`, {
+    method: "PUT",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(booking)
+  })
+
+  if(response.ok){
+    const booking = await response.json()
+    dispatch(editBooking(booking))
+    return booking
+  }
+}
+
+export const deleteReviewThunk = (id) => async dispatch => {
+  const response = await fetch(`/api/spots/bookings/${id}`, {
+    method: "DELETE",
+    headers: {"Content-Type": "application/json"}
+  })
+
+  if(response.ok){
+    const booking = `${id}`
+    dispatch(deleteBooking(booking))
   }
 }
