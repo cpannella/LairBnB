@@ -103,3 +103,47 @@ export const deleteReviewThunk = (id) => async dispatch => {
     dispatch(deleteBooking(booking))
   }
 }
+
+
+const initialState = {}
+
+  function bookingReducer(state = initialState, action){
+    let newState;
+
+    switch(action.type){
+      case ALL_BOOKINGS:{
+        newState = {...state}
+        action.payload.bookings.forEach(booking => {
+          newState[booking.id] = booking
+        })
+        return newState
+      }
+      case ONE_BOOKING:{
+        newState = {...state}
+        newState[action.payload.id] = action.payload
+        return newState
+      }
+      case CREATE_BOOKING: {
+        newState = {...state}
+        newState[action.payload.id] = action.payload
+        return newState
+      }
+
+      case EDIT_BOOKING:{
+        newState = {...state}
+        newState[action.booking.id] = action.booking
+        return newState
+      }
+      case DELETE_REVIEW: {
+        newState = {...state}
+        delete newState[action.booking]
+        return newState
+      }
+
+      default: {
+        return state
+      }
+    }
+  }
+
+  export default bookingReducer
