@@ -57,7 +57,7 @@ export default function AllSpots(){
                 </div>
                 <div className="spotCard-details-container">
                   <div className="spotCard-details">
-                     <h3 className="spotCard-info">{spot.name}</h3>
+                     <h4 className="spotCard-info">{spot.name}</h4>
                     <div>
                       <p className="spotCard-info">{spot.state}, {spot.country}</p>
                     </div>
