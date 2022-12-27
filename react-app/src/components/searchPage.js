@@ -90,7 +90,7 @@ const SearchPage = () => {
 
       <div className="map-container;">
         <h1>Page under construction</h1>
-        <h1>Map goes here</h1>
+        
       </div>
 
 
