@@ -134,7 +134,7 @@ const initialState = {}
         newState[action.booking.id] = action.booking
         return newState
       }
-      case DELETE_REVIEW: {
+      case DELETE_BOOKING: {
         newState = {...state}
         delete newState[action.booking]
         return newState
