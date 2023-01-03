@@ -2,7 +2,7 @@ import { useHistory } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState} from 'react'
 import "./bookings.css"
-import { fetchBookings } from "../../store/bookings"
+import { deleteBookingThunk, fetchBookings,  } from "../../store/bookings"
 
 
 const AllBookings = () => {
@@ -29,6 +29,7 @@ const AllBookings = () => {
             <p>{booking?.spot[0]?.name}</p>
             <p>Start date!  {booking.start_date}</p>
             <p>End Date!  {booking.end_date}</p>
+            <button onClick={()=> dispatch(deleteBookingThunk(booking.id))}>Delete</button>
           </div>
         </div>
       ))}
