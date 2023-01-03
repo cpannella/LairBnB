@@ -14,6 +14,7 @@ import CreateSpotForm from './components/spotForms/createSpotForm';
 import EditSpotForm from './components/spotForms/editSpotForm';
 import Footer from './components/footer';
 import SearchPage from './components/searchPage';
+import AllBookings from './components/bookings/bookings';
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -60,7 +61,7 @@ function App() {
           <SearchPage/>
         </Route>
         <Route exact path='/bookings'>
-          
+          <AllBookings/>
         </Route>
         <Route path='/' exact={true} >
           <AllSpots/>
