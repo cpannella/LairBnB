@@ -24,8 +24,10 @@ const AllBookings = () => {
       <h1>THESE ARE THE AllBookings</h1>
       {bookingArr.map(booking => (
         <div>
+          {booking.spot_id}
           <p>Start date!  {booking.start_date}</p>
           <p>End Date!  {booking.end_date}</p>
+
         </div>
       ))}
     </div>
