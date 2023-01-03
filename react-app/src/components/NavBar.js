@@ -30,11 +30,11 @@ const NavBar = () => {
               <div className="upload-container">
                 <CreateSpotFormModal/>
               </div>}
-{/*
-              <div className="links container">
+
+              <div className="bookings">
                 <NavLink to="/">My Spots</NavLink>
                 <NavLink to="/bookings">Bookings</NavLink>
-              </div> */}
+              </div>
             </div>
             <div className="link-container">
             <SearchBar/>
@@ -44,9 +44,7 @@ const NavBar = () => {
             <div className="navEnd">
             {!sessionUser.user &&
             <div className="account-buttons">
-
               <LoginFormModal/>
-
               <SignUpFormModal/>
 
             </div>

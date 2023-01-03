@@ -89,9 +89,18 @@
 
 .link-container{
   position: relative;
-
   top: 3vh;
+}
 
+
+.bookings{
+  /* border: 1px solid blue; */
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  left: 3vw;
+  top: 2vh;
+  min-width: 12.5vw;
 }
 
 .linked{

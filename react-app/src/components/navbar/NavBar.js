@@ -29,10 +29,11 @@ const NavBar = () => {
               {sessionUser.user &&
               <div className="upload-container">
                 <CreateSpotFormModal/>
+
               </div>}
             </div>
             <div className="link-container">
-            <SearchBar/>
+            {/* <SearchBar/> */}
 
       </div>
 
@@ -48,10 +49,12 @@ const NavBar = () => {
             }
             {sessionUser.user &&
             <div className="logout-container">
+
               <p className="user-name">Welcome, {sessionUser?.user.username}</p>
               <LogoutButton />
             </div>
             }
+
             </div>
 
 

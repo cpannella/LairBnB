@@ -18,7 +18,7 @@ function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
-  
+
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
@@ -58,6 +58,9 @@ function App() {
         </Route>
         <Route path ="/search/:searchTerm">
           <SearchPage/>
+        </Route>
+        <Route exact path='/bookings'>
+          
         </Route>
         <Route path='/' exact={true} >
           <AllSpots/>
