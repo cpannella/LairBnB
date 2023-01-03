@@ -23,6 +23,7 @@ class Booking(db.Model):
     return{
       "id": self.id,
       "user_id": self.user_id,
+      "spot": [self.spot.to_dict()],
       "spot_id": self.spot_id,
       "start_date": self.start_date,
       "end_date": self.end_date,
