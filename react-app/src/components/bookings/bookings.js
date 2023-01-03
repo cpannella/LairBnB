@@ -21,13 +21,15 @@ const AllBookings = () => {
 
   return (
     <div className="bookings-container">
-      <h1>THESE ARE THE AllBookings</h1>
+      <h1>Bookings</h1>
       {bookingArr.map(booking => (
-        <div>
-          {booking.spot_id}
-          <p>Start date!  {booking.start_date}</p>
-          <p>End Date!  {booking.end_date}</p>
-
+        <div className="booking-card">
+          <img className="booking-img"src={booking?.spot[0]?.url}></img>
+          <div>
+            <p>{booking?.spot[0]?.name}</p>
+            <p>Start date!  {booking.start_date}</p>
+            <p>End Date!  {booking.end_date}</p>
+          </div>
         </div>
       ))}
     </div>

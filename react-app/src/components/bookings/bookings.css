@@ -3,3 +3,13 @@
   padding-top: 10vh;
   height: 100%;
 }
+
+.booking-img{
+  width: 10vw;
+  height: 10vh;
+}
+
+.booking-card{
+  border: 1px solid blue;
+  width: 20vw;
+}
