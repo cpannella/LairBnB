@@ -17,6 +17,7 @@ class Booking(db.Model):
   created_at = db.Column(db.DateTime, default= datetime.utcnow)
   updated_at = db.Column(db.DateTime, default= datetime.utcnow)
 
+  spot = db.relationship("Spot", backref="spots")
 
   def to_dict(self):
     return{
