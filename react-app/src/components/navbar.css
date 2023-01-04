@@ -112,3 +112,14 @@
   position: relative;
   bottom: 1vh;
 }
+
+.navbarLink{
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+}
+
+.navbarLink:hover{
+  
+  border-bottom: 2px solid rgb(226, 72, 72);
+}

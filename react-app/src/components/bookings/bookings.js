@@ -17,7 +17,13 @@ const AllBookings = () => {
   }, [dispatch])
 
 
-
+  if(!bookingArr.length){
+    return (
+      <div className="bookings-container">
+        <h1>You don't have any trips booked yet.</h1>
+      </div>
+    )
+  }
 
   return (
     <div className="bookings-container">
@@ -25,10 +31,10 @@ const AllBookings = () => {
       {bookingArr.map(booking => (
         <div className="booking-card">
           <img className="booking-img"src={booking?.spot[0]?.url}></img>
-          <div>
-            <p>{booking?.spot[0]?.name}</p>
-            <p>Start date!  {booking.start_date}</p>
-            <p>End Date!  {booking.end_date}</p>
+          <div className="booking-details">
+            <h4>{booking?.spot[0]?.name}</h4>
+            <p>Start date:  {booking.start_date}</p>
+            <p>End Date:  {booking.end_date}</p>
             <button onClick={()=> dispatch(deleteBookingThunk(booking.id))}>Delete</button>
           </div>
         </div>

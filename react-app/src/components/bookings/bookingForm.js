@@ -53,7 +53,7 @@ import { createBookingThunk } from "../../store/bookings";
       start_date: dateParser(startDate),
       end_date: dateParser(endDate)
     }
-    console.log("THIS THAT PAYLOAD", payload)
+    console.log("THIS IS THE PAYLOAD",payload)
     let bookingCreated = await dispatch(createBookingThunk(payload, id))
     if(bookingCreated){
       console.log('pancakes')

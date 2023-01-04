@@ -24,12 +24,12 @@ button{
 }
 button:hover{
   box-shadow: 1px 2px 2px black;
-
+  transition: 0.1s
 }
 
 
 .searchSomething{
   position: relative;
   top: 100px;
-  
+
 }
