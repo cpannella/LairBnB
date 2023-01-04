@@ -50,11 +50,14 @@ import { createBookingThunk } from "../../store/bookings";
     e.preventDefault()
     dateParser(startDate)
     const payload = {
-      startDate: dateParser(startDate),
-      endDate: dateParser(endDate)
+      start_date: dateParser(startDate),
+      end_date: dateParser(endDate)
     }
-    console.log(payload)
+    console.log("THIS THAT PAYLOAD", payload)
     let bookingCreated = await dispatch(createBookingThunk(payload, id))
+    if(bookingCreated){
+      console.log('pancakes')
+    }
     setStartDate(new Date("2022-12-25"))
     setEndDate(new Date("2022-12-25"))
   }

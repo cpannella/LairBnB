@@ -64,6 +64,7 @@ export const fetchOneBooking = (id) => async dispatch => {
 
 
 export const createBookingThunk = (payload, id) => async dispatch => {
+  console.log("PAYLOAD IN THUNK",payload)
   const response = await fetch(`/api/spots/${id}/new_booking`,{
     method: 'POST',
     headers: {'Content-Type': 'application/json' },
@@ -71,6 +72,7 @@ export const createBookingThunk = (payload, id) => async dispatch => {
   })
   if(response.ok){
     const newBooking = await response.json()
+    console.log("NEWBOOKING RE")
     dispatch(createBooking(newBooking))
     return newBooking
   }
