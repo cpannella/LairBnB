@@ -59,7 +59,7 @@ import { createBookingThunk } from "../../store/bookings";
       start_date: dateParser(startDate),
       end_date: dateParser(endDate)
     }
-    console.log("THIS IS THE PAYLOAD",payload)
+
     let bookingCreated = await dispatch(createBookingThunk(payload, id))
     if(bookingCreated){
       history.push('/bookings')
@@ -77,8 +77,8 @@ import { createBookingThunk } from "../../store/bookings";
   <form onSubmit={onSubmit}>
     <div className="calendar-container">
       <div className="calenders">
-        {/* <p>Check in</p> */}
         <DatePicker
+          id="booking-checkin"
           selected={startDate}
           onChange={(date) => [setStartDate(date), setEndDate(date)]}
           selectsStart
@@ -86,8 +86,9 @@ import { createBookingThunk } from "../../store/bookings";
           endDate={endDate}
           minDate={otherdate}
         />
-        {/* <p>Check Out</p> */}
+          
         <DatePicker
+        id="booking-checkin"
           selected={endDate}
           onChange={(date) => setEndDate(date)}
           selectsEnd
@@ -96,7 +97,7 @@ import { createBookingThunk } from "../../store/bookings";
           minDate={startDate}
         />
       </div>
-      <button id="calendar-button" type="submit">Submit</button>
+      <button id="calendar-button" type="submit">Reserve</button>
   </div>
  </form>
   )
