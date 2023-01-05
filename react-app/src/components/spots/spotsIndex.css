@@ -98,8 +98,8 @@
 }
 
 .reviews-container{
-  border: 2px solid gray;
-  width: 100%;
+  border-top: 2px solid gray;
+  width: 61%;
   min-height: 20vh;
   display:flex;
   flex-direction: row;
@@ -123,6 +123,16 @@
   box-shadow: 3px 2px 2px black;
   border: 1px solid black;
 }
+.review-title{
+  display: flex;
+  flex-direction: row;
+  /* border: 1px solid red; */
+}
+#star{
+  position: relative;
+  left: 5px;
+}
+
 .stuff{
   display: flex;
 }

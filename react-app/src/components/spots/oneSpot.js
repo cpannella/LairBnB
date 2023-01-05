@@ -69,7 +69,7 @@ export default function OneSpot(){
           </div>
 
           <div className="stuff">
-            <p>{spotAvgRating}<i class="fa-sharp fa-solid fa-star"></i></p> <p className="details-span">{filteredReviews.length}  Review(s)</p> <p className="details-span-two">{filteredSpot?.city}, {filteredSpot?.state}, {filteredSpot?.country}</p>
+            <p>{spotAvgRating}<i id="star" class="fa-sharp fa-solid fa-star"></i></p> <p className="details-span">{filteredReviews.length}  Review(s)</p> <p className="details-span-two">{filteredSpot?.city}, {filteredSpot?.state}, {filteredSpot?.country}</p>
           </div>
 
 
@@ -103,13 +103,15 @@ export default function OneSpot(){
           }
           {filteredReviews?.length > 0 &&
           <div>
-          <h3>Reviews:</h3>
+            <div className="review-title">
+              <h3>{spotAvgRating}<i id="star" class="fa-sharp fa-solid fa-star"></i></h3> <h3 className="details-span">{filteredReviews.length}  Review(s)</h3>
+            </div>
           <div className="all-reviews-container">
 
             {filteredReviews?.map(review => (
               <div className="single-review">
                     <div className="review-details">
-                      <p>{review?.user[0]?.username} said :</p>
+                      <h4>{review?.user[0]?.username}</h4>
                       <p className="review-body">{review.body}</p>
                       <p>Rating: {review.rating}</p>
                     </div>
