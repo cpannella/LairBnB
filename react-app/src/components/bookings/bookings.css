@@ -30,3 +30,29 @@
   left: 5vw;
   top: 5vh;
 }
+
+
+.calendar-container{
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+  height: 15vh;
+  position: relative;
+  z-index: 2;
+  background-color: white;
+}
+
+.calenders{
+  display: flex;
+  position: relative;
+  /* right: 7vw;
+  width: 40vw;;
+  height: 20vh; */
+  /* border: 1px solid red; */
+}
+
+#calendar-button{
+  /* min-height: 35px; */
+  width: 10vw;
+
+}

@@ -81,7 +81,11 @@ export default function OneSpot(){
                     <div className="description-container">
                       <h4>{filteredSpot?.description}</h4>
                       <h4>${filteredSpot?.price.toString()}</h4>
-                      <CreateBookingForm/>
+                    </div>
+                    <div className="booking-form-container">
+                      <div className="something">
+                        <CreateBookingForm/>
+                      </div>
                     </div>
                </div>
            </div>

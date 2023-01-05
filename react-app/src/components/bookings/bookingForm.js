@@ -76,23 +76,27 @@ import { createBookingThunk } from "../../store/bookings";
   return (
   <form onSubmit={onSubmit}>
     <div className="calendar-container">
-      <DatePicker
-        selected={startDate}
-        onChange={(date) => [setStartDate(date), setEndDate(date)]}
-        selectsStart
-        startDate={startDate}
-        endDate={endDate}
-        minDate={otherdate}
-      />
-      <DatePicker
-        selected={endDate}
-        onChange={(date) => setEndDate(date)}
-        selectsEnd
-        startDate={startDate}
-        endDate={endDate}
-        minDate={startDate}
-      />
-      <button type="submit">Submit</button>
+      <div className="calenders">
+        {/* <p>Check in</p> */}
+        <DatePicker
+          selected={startDate}
+          onChange={(date) => [setStartDate(date), setEndDate(date)]}
+          selectsStart
+          startDate={startDate}
+          endDate={endDate}
+          minDate={otherdate}
+        />
+        {/* <p>Check Out</p> */}
+        <DatePicker
+          selected={endDate}
+          onChange={(date) => setEndDate(date)}
+          selectsEnd
+          startDate={startDate}
+          endDate={endDate}
+          minDate={startDate}
+        />
+      </div>
+      <button id="calendar-button" type="submit">Submit</button>
   </div>
  </form>
   )

@@ -6,7 +6,7 @@
 }
 
 .filterbuttons{
-  
+
   width: 100%;
 }
 
@@ -174,4 +174,21 @@
 
 .spot-description{
   word-wrap: break-word;
+}
+
+
+.booking-form-container{
+  /* border: 1px solid blue; */
+  display: flex;
+  justify-content: flex-end;
+  height: 15vh;
+
+}
+
+
+.something{
+  /* border: 1px solid red; */
+  position: relative;
+  height: 10vh;
+  right: 5vw;
 }
