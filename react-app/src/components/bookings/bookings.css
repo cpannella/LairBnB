@@ -51,7 +51,7 @@
   display: flex;
   position: relative;
   top: 1vh;
-  justify-content: space-between;
+  
   /* right: 7vw;
   width: 40vw;;
   height: 20vh; */
@@ -74,4 +74,17 @@
   position: relative;
   top: 4vh;
   left: 1vw;
+}
+
+.input-text-checkin{
+  margin: 0;
+  position: absolute;
+  bottom: 3vh;
+  left: 1vw;
+}
+
+.input-text-checkout{
+  position: absolute;
+  margin: 0;
+  left: 11vw;
 }

@@ -84,7 +84,7 @@ export default function OneSpot(){
                     </div>
                     <div className="booking-form-container">
                       <div className="something">
-                        <CreateBookingForm/>
+                        <CreateBookingForm filteredSpot={filteredSpot}/>
                       </div>
                     </div>
                </div>

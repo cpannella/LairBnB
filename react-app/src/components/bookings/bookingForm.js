@@ -11,7 +11,8 @@ import { createBookingThunk } from "../../store/bookings";
 // CSS Modules, react-datepicker-cssmodules.css
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
-  function CreateBookingForm(){
+  function CreateBookingForm({filteredSpot}){
+  console.log(filteredSpot)
   const {id} = useParams()
   const history = useHistory()
   const dispatch = useDispatch()
@@ -77,6 +78,7 @@ import { createBookingThunk } from "../../store/bookings";
   <form onSubmit={onSubmit}>
     <div className="calendar-container">
       <div className="calenders">
+        <p className="input-text-checkin">Check-In</p>
         <DatePicker
           id="booking-checkin"
           selected={startDate}
@@ -85,8 +87,9 @@ import { createBookingThunk } from "../../store/bookings";
           startDate={startDate}
           endDate={endDate}
           minDate={otherdate}
+
         />
-          
+        <p className="input-text-checkout">Checkout</p>
         <DatePicker
         id="booking-checkin"
           selected={endDate}
