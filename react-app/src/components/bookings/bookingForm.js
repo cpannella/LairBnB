@@ -1,23 +1,29 @@
 import { isFirstDayOfMonth } from "date-fns";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css";
 import { createBookingThunk } from "../../store/bookings";
+import Moment from "react-moment";
+import moment from "react-moment"
 
 // CSS Modules, react-datepicker-cssmodules.css
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
   function CreateBookingForm(){
   const {id} = useParams()
-  console.log("THIS IS THE ID",id)
-  const dispatch = useDispatch()
-  const [startDate, setStartDate] = useState(new Date("2022-12-25"));
-  const [endDate, setEndDate] = useState(new Date("2022-12-25"));
 
-    //date needs to be "Year-Month-Day Hour:Minunte:Second"
-    //starts as {startDate: Sat Feb 08 2014 00:00:00 GMT-0500 (Eastern Standard Time), endDate: Mon Feb 10 2014 00:00:00 GMT-0500 (Eastern Standard Time)}
+  const dispatch = useDispatch()
+  const bookings = useSelector(state  => state.bookings)
+  const bookingArr = Object.values(bookings)
+  const current = new Date();
+
+  const otherdate = `${current.getMonth()+1}/${current.getDate()}/${current.getFullYear()}`
+  const [startDate, setStartDate] = useState(new Date(`${otherdate}`));
+  const [endDate, setEndDate] = useState(new Date(`${otherdate}`));
+
+
   function dateParser(target){
     let str = target.toString()
     let arr = str.split(' ')
@@ -58,12 +64,14 @@ import { createBookingThunk } from "../../store/bookings";
     if(bookingCreated){
       console.log('pancakes')
     }
-    setStartDate(new Date("2022-12-25"))
-    setEndDate(new Date("2022-12-25"))
+    setStartDate(new Date(`${otherdate}`))
+    setEndDate(new Date(`${otherdate}`))
   }
 
 
+  useEffect(()=> {
 
+  },  [startDate,endDate])
 
   return (
   <form onSubmit={onSubmit}>
@@ -74,6 +82,7 @@ import { createBookingThunk } from "../../store/bookings";
         selectsStart
         startDate={startDate}
         endDate={endDate}
+        minDate={otherdate}
       />
       <DatePicker
         selected={endDate}

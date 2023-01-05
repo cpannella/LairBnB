@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "react-date-range": "^1.4.0"
+    "react-date-range": "^1.4.0",
+    "react-moment": "^1.1.2"
   }
 }
