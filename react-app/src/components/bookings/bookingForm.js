@@ -1,5 +1,6 @@
-import { isFirstDayOfMonth } from "date-fns";
+
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -12,7 +13,7 @@ import { createBookingThunk } from "../../store/bookings";
 
   function CreateBookingForm(){
   const {id} = useParams()
-
+  const history = useHistory()
   const dispatch = useDispatch()
   const bookings = useSelector(state  => state.bookings)
   const bookingArr = Object.values(bookings)
@@ -61,7 +62,7 @@ import { createBookingThunk } from "../../store/bookings";
     console.log("THIS IS THE PAYLOAD",payload)
     let bookingCreated = await dispatch(createBookingThunk(payload, id))
     if(bookingCreated){
-      console.log('pancakes')
+      history.push('/bookings')
     }
     setStartDate(new Date(`${otherdate}`))
     setEndDate(new Date(`${otherdate}`))
@@ -74,10 +75,10 @@ import { createBookingThunk } from "../../store/bookings";
 
   return (
   <form onSubmit={onSubmit}>
-    <div>
+    <div className="calendar-container">
       <DatePicker
         selected={startDate}
-        onChange={(date) => setStartDate(date)}
+        onChange={(date) => [setStartDate(date), setEndDate(date)]}
         selectsStart
         startDate={startDate}
         endDate={endDate}
