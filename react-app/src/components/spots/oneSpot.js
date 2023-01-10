@@ -61,6 +61,8 @@ export default function OneSpot(){
         <div className="spotImages-container">
           <div className="spot-description-container">
             <h2 className="spot-description">{filteredSpot?.name}</h2>
+            <div className="stuff">
+            </div>
             {sessionUser.user && sessionUser?.user.id === filteredSpot?.user_id &&
             <div className="edit-form-container">
             {/* <button className="button-style"onClick={()=> history.push(`/spots/${id}/edit`)}>Edit spot</button> */}
@@ -68,24 +70,34 @@ export default function OneSpot(){
             </div>
             }
           </div>
-
           <div className="stuff">
-            <p>{spotAvgRating}<i id="star" class="fa-sharp fa-solid fa-star"></i></p> <p className="details-span">{filteredReviews.length}  Review(s)</p> <p className="details-span-two">{filteredSpot?.city}, {filteredSpot?.state}, {filteredSpot?.country}</p>
+            <p>{spotAvgRating}<i id="upper-star" class="fa-sharp fa-solid fa-star"></i></p> <p className="details-span">{filteredReviews.length}  Review(s)</p> <p className="details-span-two">{filteredSpot?.city}, {filteredSpot?.state}, {filteredSpot?.country}</p>
           </div>
+          {/* <div className="stuff">
+            <p>{spotAvgRating}<i id="star" class="fa-sharp fa-solid fa-star"></i></p> <p className="details-span">{filteredReviews.length}  Review(s)</p> <p className="details-span-two">{filteredSpot?.city}, {filteredSpot?.state}, {filteredSpot?.country}</p>
+          </div> */}
+
 
 
           <div className="spotImage-container">
                <div className="spotImage-container">
                   <img className="details-image"src={filteredSpot?.url}
                    onError={e => {e.target.src=`${defaultPic}`}}></img>
+                    <div>
+                      <div className="description-container">
+                        <h2>Entire lair hosted by {user}</h2>
+                      </div>
+                      <div className="lair-cover">
+                        <div className="lair-cover">
+                          <p id="cover-red" className="title">lair</p><p className="title">cover</p>
+                        </div>
+                        <p>Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</p>
+                      </div>
 
-                    <div className="description-container">
-                      <h2>Entire lair hosted by {user}</h2>
-
-                    </div>
-                    <div className="booking-form-container">
-                      <div className="something">
-                        <CreateBookingForm filteredSpot={filteredSpot}/>
+                      <div className="booking-form-container">
+                          <div className="something">
+                            <CreateBookingForm filteredSpot={filteredSpot}/>
+                          </div>
                       </div>
                     </div>
                </div>
@@ -105,7 +117,7 @@ export default function OneSpot(){
           {filteredReviews?.length > 0 &&
           <div>
             <div className="review-title">
-              <h3><i id="star" class="fa-sharp fa-solid fa-star"></i>{spotAvgRating}</h3> <h3 className="details-span">{filteredReviews.length}  Review(s)</h3>
+              <h3><i id="lower-star" class="fa-sharp fa-solid fa-star"></i>{spotAvgRating}</h3> <h3 className="details-span">{filteredReviews.length}  Review(s)</h3>
             </div>
           <div className="all-reviews-container">
 
