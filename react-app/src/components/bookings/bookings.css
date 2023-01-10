@@ -5,6 +5,7 @@
   /* border: 1px solid blue; */
   padding-top: 10vh;
   height: 100%;
+  z-index: 1;
 }
 
 .booking-img{
@@ -31,27 +32,54 @@
   top: 5vh;
 }
 
+.calendar-wrapper{
+  position:relative;
+  /* top: 2vh; */
+}
+
+.price-container{
+  display: flex;
+  position: relative;
+  left: 1vw;
+}
+
+#price-night{
+  position: relative;
+  left: 0.5vw;
+  top: 1.25vh;
+}
+
+.price{
+  position: relative;
+  font-size: 20px;
+  position: relative;
+  top: 3.3vh;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
 
 .calendar-container{
   /* border: 1px solid blue; */
-  position: sticky;
+  /* position: sticky; */
   display: flex;
   flex-direction: column;
-  height: 20vh;
+  height: 27vh;
   position: relative;
-  bottom: 7vh;
+  bottom: 8vh;
   left: 5vw;
   background-color: white;
   border-radius: 5px;
   box-shadow: 0 6px 16px rgb(0 0 0 / 12%);
   width: 20vw;
+  z-index: 0;
 }
 
 .calenders{
   display: flex;
   position: relative;
   top: 1vh;
-  
+
   /* right: 7vw;
   width: 40vw;;
   height: 20vh; */

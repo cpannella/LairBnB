@@ -77,30 +77,36 @@ import { createBookingThunk } from "../../store/bookings";
   return (
   <form onSubmit={onSubmit}>
     <div className="calendar-container">
-      <div className="calenders">
-        <p className="input-text-checkin">Check-In</p>
-        <DatePicker
-          id="booking-checkin"
-          selected={startDate}
-          onChange={(date) => [setStartDate(date), setEndDate(date)]}
-          selectsStart
-          startDate={startDate}
-          endDate={endDate}
-          minDate={otherdate}
-
-        />
-        <p className="input-text-checkout">Checkout</p>
-        <DatePicker
-        id="booking-checkin"
-          selected={endDate}
-          onChange={(date) => setEndDate(date)}
-          selectsEnd
-          startDate={startDate}
-          endDate={endDate}
-          minDate={startDate}
-        />
+    <div className="calendar-wrapper">
+      <div className="price-container">
+        <p className="price">${filteredSpot?.price}</p>
+        <p id="price-night"> night</p>
       </div>
-      <button id="calendar-button" type="submit">Reserve</button>
+        <div className="calenders">
+          <p className="input-text-checkin">Check-In</p>
+          <DatePicker
+            id="booking-checkin"
+            selected={startDate}
+            onChange={(date) => [setStartDate(date), setEndDate(date)]}
+            selectsStart
+            startDate={startDate}
+            endDate={endDate}
+            minDate={otherdate}
+
+          />
+          <p className="input-text-checkout">Checkout</p>
+          <DatePicker
+          id="booking-checkin"
+            selected={endDate}
+            onChange={(date) => setEndDate(date)}
+            selectsEnd
+            startDate={startDate}
+            endDate={endDate}
+            minDate={startDate}
+          />
+       </div>
+        <button id="calendar-button" type="submit">Reserve</button>
+    </div>
   </div>
  </form>
   )

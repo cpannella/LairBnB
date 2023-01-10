@@ -29,9 +29,10 @@ export default function OneSpot(){
   const filteredReviews = reviews.filter(review => review.spot_id == id)
   const reviewsLength = reviews?.length
   const spotImages = filteredSpot?.spotImages
-  console.log("filtered reviews", filteredReviews)
 
-
+  console.log("this is the console log",filteredSpot)
+  const user = filteredSpot?.user[0].username
+  console.log("this is the user", user)
 
   const avgRating = (arr) => {
     if(arr?.length == 0){
@@ -79,8 +80,8 @@ export default function OneSpot(){
                    onError={e => {e.target.src=`${defaultPic}`}}></img>
 
                     <div className="description-container">
-                      <h4>{filteredSpot?.description}</h4>
-                      <h4>${filteredSpot?.price.toString()}</h4>
+                      <h2>Entire lair hosted by {user}</h2>
+
                     </div>
                     <div className="booking-form-container">
                       <div className="something">
@@ -104,7 +105,7 @@ export default function OneSpot(){
           {filteredReviews?.length > 0 &&
           <div>
             <div className="review-title">
-              <h3>{spotAvgRating}<i id="star" class="fa-sharp fa-solid fa-star"></i></h3> <h3 className="details-span">{filteredReviews.length}  Review(s)</h3>
+              <h3><i id="star" class="fa-sharp fa-solid fa-star"></i>{spotAvgRating}</h3> <h3 className="details-span">{filteredReviews.length}  Review(s)</h3>
             </div>
           <div className="all-reviews-container">
 
