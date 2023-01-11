@@ -45,6 +45,7 @@
 .spotImage-container{
   display:flex;
   flex-direction: column;
+  align-items: center;
   overflow: hidden;
   min-height: 110vh;
 }
@@ -103,11 +104,11 @@
   border-top: 2px solid gray;
   width: 61%;
   min-height: 20vh;
-  display:flex;
+  /* display:flex;
   flex-direction: row;
-  justify-content: center;
+
   align-items: center;
-  padding-bottom: 10vh;
+  padding-bottom: 10vh; */
 
 }
 .fugazi{
@@ -171,6 +172,7 @@
 }
 .oneSpot-details-container{
   padding-top: 10vh;
+  margin: auto;
 }
 
 .spot-description-container{
@@ -192,8 +194,9 @@
 
 .booking-form-container{
   /* border: 1px solid blue; */
-  position: sticky;
-
+  position: relative;
+  bottom: 20vh;
+  right: 10vh;
   display: flex;
   justify-content: flex-end;
   height: 15vh;

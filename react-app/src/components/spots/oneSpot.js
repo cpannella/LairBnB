@@ -88,7 +88,7 @@ export default function OneSpot(){
                         <h2>Entire lair hosted by {user}</h2>
                       </div>
                       <div className="lair-cover">
-                        <div className="lair-cover">
+                        <div className="inner-lair-cover">
                           <p id="cover-red" className="title">lair</p><p className="title">cover</p>
                         </div>
                         <p>Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</p>
