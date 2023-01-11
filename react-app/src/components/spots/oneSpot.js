@@ -60,17 +60,17 @@ export default function OneSpot(){
       <div className="details-container">
         <div className="spotImages-container">
           <div className="spot-description-container">
-            <h2 className="spot-description">{filteredSpot?.name}</h2>
             <div className="stuff">
-            </div>
+            <h2 className="spot-description">{filteredSpot?.name}</h2>
             {sessionUser.user && sessionUser?.user.id === filteredSpot?.user_id &&
             <div className="edit-form-container">
             {/* <button className="button-style"onClick={()=> history.push(`/spots/${id}/edit`)}>Edit spot</button> */}
-            <EditSpotFormModal filteredSpot={filteredSpot}/>
+            <EditSpotFormModal id="edit-modal-button"filteredSpot={filteredSpot}/>
             </div>
             }
+            </div>
           </div>
-          <div className="stuff">
+          <div className="rating-wrapper">
             <p>{spotAvgRating}<i id="upper-star" class="fa-sharp fa-solid fa-star"></i></p> <p className="details-span">{filteredReviews.length}  Review(s)</p> <p className="details-span-two">{filteredSpot?.city}, {filteredSpot?.state}, {filteredSpot?.country}</p>
           </div>
           {/* <div className="stuff">
@@ -83,7 +83,7 @@ export default function OneSpot(){
                <div className="spotImage-container">
                   <img className="details-image"src={filteredSpot?.url}
                    onError={e => {e.target.src=`${defaultPic}`}}></img>
-                    <div>
+                    <div className="someDiv">
                       <div className="description-container">
                         <h2>Entire lair hosted by {user}</h2>
                       </div>
