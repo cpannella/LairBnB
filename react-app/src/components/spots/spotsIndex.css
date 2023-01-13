@@ -40,14 +40,15 @@
 }
 
 .spotImage-container{
-  /* display:flex;
+  border: 1px solid purple;
+  display:flex;
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-  min-height: 110vh; */
+  min-height: 110vh;
 }
 .details-image{
-  width: 60vw;
+  width: 65vw;
   height: 65vh;
   min-width:60vw;
   min-height: 65vh;
@@ -95,13 +96,13 @@
 
 .reviews-container{
   border-top: 2px solid gray;
-  width: 61%;
+  width: 65vw;
   min-height: 20vh;
-  /* display:flex;
+  display:flex;
   flex-direction: row;
 
   align-items: center;
-  padding-bottom: 10vh; */
+  padding-bottom: 10vh;
 
 }
 .fugazi{
@@ -116,9 +117,10 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  max-width: 60vw;
+  max-width: 65vw;
   box-shadow: 3px 2px 2px black;
   border: 1px solid black;
+  padding-bottom: 30vh;
 }
 .review-title{
   display: flex;
@@ -150,7 +152,7 @@
 
 .single-review{
   border-bottom:0.5px solid black;
-  min-width:60vw;
+  min-width:65vw;
   white-space: pre-line;
   word-wrap: break-word;
 }
@@ -170,12 +172,13 @@
 }
 
 .stuff{
-  /* border: 1px solid green; */
+  border: 1px solid green;
 }
 
 .rating-wrapper{
   border: 1px solid blue;
   display: flex;
+  /* justify-content: center; */
 }
 
 .edit-form-container{
@@ -263,26 +266,28 @@
   font-weight: bold;
 }
 
-.sauce{
-  border: 1px solid blue;
-}
 
 .deets{
   border: 1px solid green;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 
 .someDiv{
-  margin: auto;
-  display: flex;
-  flex-direction: column;
+  /* margin: auto; */
+  display: grid;
+
+
+  /* align-items: center; */
   border: 1px solid green;
   height: 50vh;
+  /* position: relative; */
+  /* left: 5vh; */
 }
   .description-container{
     max-width: 30vw;
     padding-top:2vh;
-    border: 1px solid yellow;
+    /* border: 1px solid yellow; */
   }
