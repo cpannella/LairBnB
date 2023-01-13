@@ -32,7 +32,7 @@ const NavBar = () => {
               </div>}
                 {sessionUser.user &&
               <div className="bookings">
-                <NavLink className="navbarLink" to="/">My Spots</NavLink>
+                {/* <NavLink className="navbarLink" to="/">My Spots</NavLink> */}
                 <NavLink className="navbarLink" to="/bookings">Bookings</NavLink>
               </div>
               }
