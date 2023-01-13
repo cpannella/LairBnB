@@ -92,7 +92,9 @@ export default function OneSpot(){
                           <p id="cover-red" className="title">lair</p><p className="title">cover</p>
                         </div>
                         <p>Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</p>
-                        <p>{filteredSpot.description}</p>
+                      </div>
+                      <div className="description-cover">
+                        <p>{filteredSpot?.description}</p>
                       </div>
 
                       <div className="booking-form-container">

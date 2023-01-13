@@ -40,7 +40,7 @@
 }
 
 .spotImage-container{
-  border: 1px solid purple;
+  /* border: 1px solid purple; */
   display:flex;
   flex-direction: column;
   align-items: center;
@@ -245,15 +245,22 @@
 
 .inner-lair-cover{
   display:flex;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   width: 60%;
 }
 .lair-cover{
   width: 60%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
+  padding-bottom: 2vh;
   padding-right: 0;
   margin: 0;
+  border-bottom:1px solid gray;
+}
 
+.description-cover{
+  padding-top: 2vh;;
+  width: 60%;
+  border-bottom:1px solid gray;
 }
 
 .title{
@@ -268,26 +275,27 @@
 
 
 .deets{
-  border: 1px solid green;
+  /* border: 1px solid green; */
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 65vw;
 }
 
 
 .someDiv{
   /* margin: auto; */
-  display: grid;
-
+  /* display: grid; */
+  width: 65vw;
 
   /* align-items: center; */
-  border: 1px solid green;
+  /* border: 1px solid green; */
   height: 50vh;
   /* position: relative; */
   /* left: 5vh; */
 }
   .description-container{
     max-width: 30vw;
-    padding-top:2vh;
+    padding-top:6vh;
     /* border: 1px solid yellow; */
   }
