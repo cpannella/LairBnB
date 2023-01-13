@@ -200,6 +200,10 @@
 
 }
 
+#upper-star{
+  position: relative;
+  left: 5px;
+}
 
 .something{
   /* border: 1px solid red; */

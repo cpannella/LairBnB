@@ -70,7 +70,7 @@ export default function OneSpot(){
           </div>
 
           <div className="stuff">
-            <p>{spotAvgRating}<i id="star" class="fa-sharp fa-solid fa-star"></i></p> <p className="details-span">{filteredReviews.length}  Review(s)</p> <p className="details-span-two">{filteredSpot?.city}, {filteredSpot?.state}, {filteredSpot?.country}</p>
+            <p>{spotAvgRating}<i id="upper-star" class="fa-sharp fa-solid fa-star"></i></p> <p className="details-span">{filteredReviews.length}  Review(s)</p> <p className="details-span-two">{filteredSpot?.city}, {filteredSpot?.state}, {filteredSpot?.country}</p>
           </div>
 
 
