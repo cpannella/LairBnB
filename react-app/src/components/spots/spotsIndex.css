@@ -182,7 +182,7 @@
   border: 1px solid purple;
   height: 2vh;
   position: relative;
-  
+
 }
 
 .spot-description-container{
@@ -212,7 +212,7 @@
   display: flex;
   justify-content: flex-end;
   height: 15vh;
-  z-index: 1
+  z-index: 0
 
 }
 
