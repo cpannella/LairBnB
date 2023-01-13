@@ -48,7 +48,7 @@ function EditReviewForm({review, setShowEditReviewForm}) {
 
       <div className="review-form-container">
         <form className="reviewForm" onSubmit={handleSubmit}>
-        <div className="someDiv">
+        <div className="">
         <p className="counter">{body?.length}/250</p>
         <label className="review-input-field">
           <input
@@ -81,7 +81,7 @@ function EditReviewForm({review, setShowEditReviewForm}) {
           </input>
         </label>
         <button className="review-submit" type="submit">Edit review</button>
-        <button onClick={()=> setShowEditReviewForm(false)}>Cancel</button>
+        <button id="review-cancel"onClick={()=> setShowEditReviewForm(false)}>Cancel</button>
         </div>
       </form>
     </div>

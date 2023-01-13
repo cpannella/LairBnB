@@ -17,10 +17,7 @@
   cursor: pointer;
 }
 
-.edit-form-container{
-  padding-top: 25px;
-  padding-left: 20px;
-}
+
 
 .price-detail{
   display: flex;
@@ -28,7 +25,7 @@
 
 .spotCard-details{
  max-width: 9vw;
- /* comment */
+
 }
 .star-rating-container{
 
@@ -43,13 +40,15 @@
 }
 
 .spotImage-container{
+  /* border: 1px solid purple; */
   display:flex;
   flex-direction: column;
+  align-items: center;
   overflow: hidden;
   min-height: 110vh;
 }
 .details-image{
-  width: 60vw;
+  width: 65vw;
   height: 65vh;
   min-width:60vw;
   min-height: 65vh;
@@ -94,17 +93,14 @@
   flex-direction: row;
 }
 
-.description-container{
-  max-width: 30vw;
-}
 
 .reviews-container{
   border-top: 2px solid gray;
-  width: 61%;
+  width: 65vw;
   min-height: 20vh;
   display:flex;
   flex-direction: row;
-  justify-content: center;
+
   align-items: center;
   padding-bottom: 10vh;
 
@@ -121,9 +117,10 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  max-width: 60vw;
+  max-width: 65vw;
   box-shadow: 3px 2px 2px black;
   border: 1px solid black;
+  /* padding-bottom: 10vh; */
 }
 .review-title{
   display: flex;
@@ -132,11 +129,12 @@
 }
 #star{
   position: relative;
-  right: 5px;
+  left: 5px;
 }
 
 .stuff{
   display: flex;
+  padding-top: 10vh;
 }
 
 .details-span{
@@ -154,7 +152,7 @@
 
 .single-review{
   border-bottom:0.5px solid black;
-  min-width:60vw;
+  min-width:65vw;
   white-space: pre-line;
   word-wrap: break-word;
 }
@@ -169,14 +167,34 @@
   left:9vw;
 }
 .oneSpot-details-container{
-  padding-top: 10vh;
+  padding-top: 5vh;
+  margin: auto;
+}
+
+.stuff{
+  /* border: 1px solid green; */
+}
+
+.rating-wrapper{
+  /* border: 1px solid blue; */
+  display: flex;
+  /* justify-content: center; */
+}
+
+.edit-form-container{
+  border: 1px solid purple;
+  height: 2vh;
+  position: relative;
+
 }
 
 .spot-description-container{
-  display: flex;
+  /* border: 1px solid red; */
+  /* display: flex;
   flex-direction: row;
   word-wrap: break-word;
-  overflow: hidden;
+  overflow: hidden; */
+  height: 10vh;
 }
 
 .button-style{
@@ -191,8 +209,9 @@
 
 .booking-form-container{
   /* border: 1px solid blue; */
-  position: sticky;
-  bottom: 5vh;
+  position: relative;
+  bottom: 20vh;
+  right: 10vh;
   display: flex;
   justify-content: flex-end;
   height: 15vh;
@@ -211,3 +230,76 @@
   height: 10vh;
   right: 5vw;
 }
+
+.stuff{
+  position: relative;
+  bottom: 5vh;
+}
+
+#upper-star{
+  position: relative;
+  left: 5px;
+}
+
+#lower-star{
+  position: relative;
+  bottom: 2px;
+  right: 5px;
+}
+
+.inner-lair-cover{
+  display:flex;
+  /* border: 1px solid blue; */
+  width: 60%;
+}
+.lair-cover{
+  width: 60%;
+  /* border: 1px solid red; */
+  padding-bottom: 2vh;
+  padding-right: 0;
+  margin: 0;
+  border-bottom:1px solid gray;
+}
+
+.description-cover{
+  padding-top: 2vh;;
+  width: 60%;
+  border-bottom:1px solid gray;
+}
+
+.title{
+  font-size: 40px;
+  margin: 0;
+}
+
+#cover-red{
+  color: rgb(226, 72, 72);
+  font-weight: bold;
+}
+
+
+.deets{
+  /* border: 1px solid green; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 65vw;
+}
+
+
+.someDiv{
+  /* margin: auto; */
+  /* display: grid; */
+  width: 65vw;
+
+  /* align-items: center; */
+  /* border: 1px solid green; */
+  height: 50vh;
+  /* position: relative; */
+  /* left: 5vh; */
+}
+  .description-container{
+    max-width: 30vw;
+    padding-top:6vh;
+    /* border: 1px solid yellow; */
+  }
