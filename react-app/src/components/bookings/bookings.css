@@ -66,8 +66,8 @@
   flex-direction: column;
   height: 27vh;
   position: relative;
-  bottom: 8vh;
-  left: 5vw;
+  /* bottom: 8vh; */
+  /* left: 5vw; */
   background-color: white;
   border-radius: 5px;
   box-shadow: 0 6px 16px rgb(0 0 0 / 12%);

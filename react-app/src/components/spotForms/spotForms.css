@@ -9,6 +9,13 @@
   width: 20vw;
 }
 
+.edit-button{
+  position: relative;
+  /* left: 2vh;
+  top: 2.5vh; */
+  height: 3vh;
+
+}
 
 .counter{
   margin: 0;

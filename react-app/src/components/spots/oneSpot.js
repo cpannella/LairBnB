@@ -63,8 +63,7 @@ export default function OneSpot(){
             <div className="stuff">
             <h2 className="spot-description">{filteredSpot?.name}</h2>
             {sessionUser.user && sessionUser?.user.id === filteredSpot?.user_id &&
-            <div className="edit-form-container">
-            {/* <button className="button-style"onClick={()=> history.push(`/spots/${id}/edit`)}>Edit spot</button> */}
+            <div className="button-div">
             <EditSpotFormModal id="edit-modal-button"filteredSpot={filteredSpot}/>
             </div>
             }
@@ -85,7 +84,10 @@ export default function OneSpot(){
                    onError={e => {e.target.src=`${defaultPic}`}}></img>
                     <div className="someDiv">
                       <div className="description-container">
-                        <h2>Entire lair hosted by {user}</h2>
+                        <h2 id="entire">Entire lair hosted by {user}</h2>
+                        <div className="booking-form-container">
+                            <CreateBookingForm filteredSpot={filteredSpot}/>
+                        </div>
                       </div>
                       <div className="lair-cover">
                         <div className="inner-lair-cover">
@@ -97,11 +99,11 @@ export default function OneSpot(){
                         <p>{filteredSpot?.description}</p>
                       </div>
 
-                      <div className="booking-form-container">
+                      {/* <div className="booking-form-container">
                           <div className="something">
                             <CreateBookingForm filteredSpot={filteredSpot}/>
                           </div>
-                      </div>
+                      </div> */}
                     </div>
                </div>
            </div>

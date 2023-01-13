@@ -49,10 +49,18 @@
 }
 .details-image{
   width: 65vw;
-  height: 65vh;
+  height: 60vh;
   min-width:60vw;
-  min-height: 65vh;
+  min-height: 60vh;
   border-radius: 15px;
+}
+
+.button-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10vh;
+  height: 4vh;
 }
 
 .spotCard-container{
@@ -188,6 +196,10 @@
 
 }
 
+#edit-modal-button{
+  height: 1vh;
+}
+
 .spot-description-container{
   /* border: 1px solid red; */
   /* display: flex;
@@ -204,14 +216,16 @@
 
 .spot-description{
   word-wrap: break-word;
+  margin-top:0;
 }
 
 
 .booking-form-container{
   /* border: 1px solid blue; */
   position: relative;
-  bottom: 20vh;
-  right: 10vh;
+  padding-top: 3vh;
+  /* bottom: 20vh; */
+  /* right: 10vh; */
   display: flex;
   justify-content: flex-end;
   height: 15vh;
@@ -219,10 +233,6 @@
 
 }
 
-#upper-star{
-  position: relative;
-  left: 5px;
-}
 
 .something{
   /* border: 1px solid red; */
@@ -232,8 +242,10 @@
 }
 
 .stuff{
+  height:5vh;
   position: relative;
-  bottom: 5vh;
+  padding-top:8vh;
+  /* bottom: 5vh;border: 1px solid red */
 }
 
 #upper-star{
@@ -262,6 +274,7 @@
 }
 
 .description-cover{
+
   padding-top: 2vh;;
   width: 60%;
   border-bottom:1px solid gray;
@@ -277,6 +290,10 @@
   font-weight: bold;
 }
 
+#entire{
+  height: 5vh;
+  margin-bottom: 0;
+}
 
 .deets{
   /* border: 1px solid green; */
@@ -294,12 +311,16 @@
 
   /* align-items: center; */
   /* border: 1px solid green; */
-  height: 50vh;
+  height: 30vh;
   /* position: relative; */
   /* left: 5vh; */
 }
   .description-container{
-    max-width: 30vw;
-    padding-top:6vh;
+    max-width: 65vw;
+    padding-top:4vh;
+    /* border: 1px solid red; */
+    height: 10vh;
+    display:flex;
+    justify-content: space-between;
     /* border: 1px solid yellow; */
   }
