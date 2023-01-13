@@ -120,7 +120,7 @@
   max-width: 65vw;
   box-shadow: 3px 2px 2px black;
   border: 1px solid black;
-  padding-bottom: 30vh;
+  /* padding-bottom: 10vh; */
 }
 .review-title{
   display: flex;

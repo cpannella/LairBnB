@@ -81,7 +81,7 @@ function EditReviewForm({review, setShowEditReviewForm}) {
           </input>
         </label>
         <button className="review-submit" type="submit">Edit review</button>
-        <button onClick={()=> setShowEditReviewForm(false)}>Cancel</button>
+        <button id="review-cancel"onClick={()=> setShowEditReviewForm(false)}>Cancel</button>
         </div>
       </form>
     </div>
