@@ -167,16 +167,16 @@
   left:9vw;
 }
 .oneSpot-details-container{
-  padding-top: 10vh;
+  padding-top: 5vh;
   margin: auto;
 }
 
 .stuff{
-  border: 1px solid green;
+  /* border: 1px solid green; */
 }
 
 .rating-wrapper{
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   display: flex;
   /* justify-content: center; */
 }
