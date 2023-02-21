@@ -17,6 +17,7 @@ export default function OneSpot(){
 
 
 
+
   
   const dispatch = useDispatch()
   const history = useHistory()
