@@ -15,6 +15,8 @@ import CreateBookingForm from "../bookings/bookingForm";
 
 export default function OneSpot(){
 
+
+
   
   const dispatch = useDispatch()
   const history = useHistory()
