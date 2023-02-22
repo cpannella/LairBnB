@@ -23,7 +23,7 @@ export default function AllSpots(){
 
 
 
-  
+
 
 
   // const spotReviews = reviewsState.filter(review => review.spot_id == )
@@ -50,7 +50,7 @@ export default function AllSpots(){
     <div className="somediv">
 
           <div className="filterbuttons">
-            <h1 className="main-header">Browse Spots</h1>
+            {/* <h1 className="main-header">Browse Spots</h1> */}
           </div>
           <div className="spotCard-container">
             {spots.map(spot =>
