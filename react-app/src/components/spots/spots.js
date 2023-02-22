@@ -22,6 +22,10 @@ export default function AllSpots(){
 
 
 
+
+  
+
+
   // const spotReviews = reviewsState.filter(review => review.spot_id == )
 
   function avgcalculatr(arr){
