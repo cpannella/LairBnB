@@ -18,7 +18,7 @@ export default function OneSpot(){
 
 
 
-  
+
   const dispatch = useDispatch()
   const history = useHistory()
   const {id} = useParams()
@@ -35,9 +35,9 @@ export default function OneSpot(){
   const reviewsLength = reviews?.length
   const spotImages = filteredSpot?.spotImages
 
-  console.log("this is the console log",filteredSpot)
+
   const user = filteredSpot?.user[0].username
-  console.log("this is the user", user)
+  
 
   const avgRating = (arr) => {
     if(arr?.length == 0){
