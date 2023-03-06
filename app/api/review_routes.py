@@ -10,7 +10,6 @@ review_routes = Blueprint("reviews", __name__)
 
 @review_routes.route("/reviews")
 def get_all_reviews():
-
   reviews = Review.query.all()
   response = {"reviews": [review.to_dict() for review in reviews]}
 
@@ -30,7 +29,7 @@ def get_one_review(id):
 
 @review_routes.route("/<int:id>/new_review", methods=["POST"])
 def new_review(id):
-  print("THIS IS YET ANOTHER THING")
+
   form = ReviewForm()
   form['csrf_token'].data = request.cookies['csrf_token']
   print("THIS IS THE FORM DATA",form.data)
@@ -42,7 +41,7 @@ def new_review(id):
       spot_id = id
     )
 
-    print("THIS IS THE REVIEW",review)
+    
     db.session.add(review)
     db.session.commit()
     return make_response(review.to_dict(), 201)
