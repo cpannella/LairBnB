@@ -75,7 +75,7 @@ import { createBookingThunk } from "../../store/bookings";
   },  [startDate,endDate])
 
   return (
-  <form onSubmit={onSubmit}>
+  <form  className="booking-form" onSubmit={onSubmit}>
     <div className="calendar-container">
     <div className="calendar-wrapper">
       <div className="price-container">

@@ -1,3 +1,4 @@
+
 .bookings-container{
   display: flex;
   flex-direction: column;
@@ -19,7 +20,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  /* border: 1px solid blue; */
+  
   width: 90%;
   height:40vh;
 }
@@ -91,7 +92,7 @@
   height: 5vh;
   width: 18vw;
   position: relative;
-  top: 7vh;
+  top: 6vh;
   left: 1vw;
 }
 
