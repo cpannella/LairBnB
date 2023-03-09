@@ -30,7 +30,7 @@ class Spot(db.Model):
     return{
       "id": self.id,
       "user_id": self.user_id,
-      "user": [self.user.to_dict()],
+      # "user": [self.user.to_dict()],
       "name": self.name,
       "url" : self.url,
       "address": self.address,

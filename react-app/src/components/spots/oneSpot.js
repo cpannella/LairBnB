@@ -33,11 +33,11 @@ export default function OneSpot(){
   const sessionUser = useSelector(state => state.session)
   const filteredReviews = reviews.filter(review => review.spot_id == id)
   const reviewsLength = reviews?.length
-  const spotImages = filteredSpot?.spotImages
+  // const spotImages = filteredSpot?.spotImages
 
 
   const user = filteredSpot?.user[0].username
-  
+
 
   const avgRating = (arr) => {
     if(arr?.length == 0){

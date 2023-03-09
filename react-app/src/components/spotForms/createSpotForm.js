@@ -32,8 +32,9 @@ export default function CreateSpotForm({setShowModal}){
       description,
       city,
       url
-    }
 
+    }
+    console.log(payload)
     let spotCreated = await dispatch(createSpotThunk(payload))
     if (spotCreated){
       setName('')
