@@ -104,6 +104,7 @@
 
 
 .reviews-container{
+  position: relative;
   border-top: 2px solid gray;
   width: 65vw;
   min-height: 20vh;
@@ -112,6 +113,7 @@
 
   align-items: center;
   padding-bottom: 10vh;
+  /* z-index: -1; */
 
 }
 .fugazi{
@@ -123,9 +125,9 @@
 
 }
 .all-reviews-container{
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 50% 50%;
+
   max-width: 65vw;
   box-shadow: 3px 2px 2px black;
   border: 1px solid black;
@@ -160,8 +162,8 @@
 .review-body{}
 
 .single-review{
-  border-bottom:0.5px solid black;
-  min-width:65vw;
+  border:0.5px solid black;
+  /* max-width: 30vw; */
   white-space: pre-line;
   word-wrap: break-word;
 }
