@@ -12,7 +12,7 @@ import { createBookingThunk } from "../../store/bookings";
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
   function CreateBookingForm({filteredSpot}){
-  console.log(filteredSpot)
+  // console.log(filteredSpot)
   const {id} = useParams()
   const history = useHistory()
   const dispatch = useDispatch()

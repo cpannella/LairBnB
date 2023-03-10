@@ -13,6 +13,7 @@ const LoginForm = () => {
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const history = useHistory()
+  console.log(user)
 
   const onLogin = async (e) => {
     e.preventDefault();

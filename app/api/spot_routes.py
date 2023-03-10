@@ -60,8 +60,9 @@ def new_spot():
 
   data = form.data
   print(data)
-
+  print("AHHHHHHHHHHHHHHHHHH",current_user.id)
   spot = Spot(
+    user = current_user,
     user_id = current_user.id,
     name = data["name"],
     address = data["address"],

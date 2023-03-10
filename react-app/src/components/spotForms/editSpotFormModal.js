@@ -5,7 +5,7 @@ import EditSpotForm from './editSpotForm.js';
 
 function EditSpotFormModal({filteredSpot}){
   const [showModal, setShowModal] = useState(false)
-  console.log(filteredSpot)
+  // console.log(filteredSpot)
 
 
 
