@@ -1,6 +1,7 @@
 
 import React from "react";
 import { useEffect, useState } from "react";
+import profile from './profile.jpeg'
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import { deleteReviewThunk, fetchReviews } from "../../store/reviews";
@@ -35,7 +36,7 @@ export default function OneSpot(){
   const reviewsLength = reviews?.length
   // const spotImages = filteredSpot?.spotImages
 
-
+  console.log(filteredReviews)
   const user = filteredSpot?.user[0].username
 
 
@@ -51,7 +52,29 @@ export default function OneSpot(){
     return (sum/arr?.length).toFixed(2)
   }
 
+  const monthParser = (s) => {
+
+    if(s) console.log("THIS IS THE FUNCTIOn",s)
+
+    if(s == 'Jan') s = 'January'
+    if(s == 'Feb') s = 'February'
+    if(s == 'Mar') s = 'March'
+    if(s == 'Apr') s = 'April'
+    if(s == 'May') s = 'May'
+    if(s == 'Jun') s = 'June'
+    if(s == 'Jul') s = 'July'
+    if(s == 'Aug') s = 'August'
+    if(s == 'Sep') s = 'September'
+    if(s == 'Oct') s = 'October'
+    if(s == 'Nov') s = 'November'
+    if(s == 'Dec') s = 'December'
+
+    return s
+  }
+
+
   const spotAvgRating = avgRating(filteredReviews)
+
 
 
 
@@ -89,7 +112,7 @@ export default function OneSpot(){
                    onError={e => {e.target.src=`${defaultPic}`}}></img>
                     <div className="someDiv">
                       <div className="description-container">
-                        <h2 id="entire">Entire lair hosted by {user}</h2>
+                        <h2 id="entire">Entire lair hosted by {user.charAt(0).toUpperCase() + user.slice(1)}</h2>
                         <div className="booking-form-container">
                             <CreateBookingForm filteredSpot={filteredSpot}/>
                         </div>
@@ -116,7 +139,7 @@ export default function OneSpot(){
         <div className="reviews-container">
           {filteredReviews?.length < 1 &&
           <div>
-            <h3>No reviews yet</h3>
+            <i id="lower-star" class="fa-sharp fa-solid fa-star"></i><h3>New 0 reviews</h3>
             {sessionUser.user && sessionUser.user.id !== filteredSpot?.user_id &&
             <div>
             <ReviewForm />
@@ -134,9 +157,20 @@ export default function OneSpot(){
             {filteredReviews?.map(review => (
               <div className="single-review">
                     <div className="review-details">
-                      <h4>{review?.user[0]?.username}</h4>
+
+                      <div className="profile-container">
+
+                        <img className="profile"src={profile}></img>
+
+                        <div>
+                          <h4 className="review-username">{review?.user[0]?.username.charAt(0).toUpperCase() + review?.user[0]?.username.slice(1)}</h4>
+                          <p className="review-username">{monthParser(review.created_at.slice(8,11))} {review.created_at.substring(12, 16)}</p>
+                        </div>
+
+                      </div>
+
                       <p className="review-body">{review.body}</p>
-                      <p>Rating: {review.rating}</p>
+                      {/* <p>Rating: {review.rating}</p> */}
                     </div>
                     <div className="fugazi">
                     {sessionUser.user && sessionUser?.user.id === review?.user_id &&
@@ -161,7 +195,7 @@ export default function OneSpot(){
             ))}
              {sessionUser.user && sessionUser.user.id !== filteredSpot?.user_id &&
             <div>
-              <ReviewForm/>
+              {/* <ReviewForm/> */}
             </div>
             }
           </div>
